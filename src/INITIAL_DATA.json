@@ -1,0 +1,186 @@
+{
+    "services": [{
+        "title": "Консультация",
+        "isPrimary": false,
+        "labes": [{
+            "text": "бесплатно"
+        }],
+        "text": "Разбираемся с запросом клиента. Ставим задачи, устанавливаем сроки. Выбираем инструменты."
+    }, {
+        "title": "Frontend разработка",
+        "isPrimary": false,
+        "labes": [{
+            "text": "ts"
+        }, {
+            "text": "js"
+        }],
+        "text": "Создание веб приложений. Разработка приложения целиком, либо частично. Создание модулей, компонентов, настройка API, доработка бизнес логики, рефаторинг, оптимизация приложения."
+    }, {
+        "title": "Backend разработка",
+        "isPrimary": false,
+        "labes": [{
+            "text": "ts"
+        }, {
+            "text": "js"
+        },{
+            "text": "Py"
+        },{
+            "text": "C#"
+        }],
+        "text": "Создание REST API сервисов. Авторизация, аунтификация. Создание контролеров для взимоделйствия с базой данных. Написание ендпоинтов."
+    }, {
+        "title": "Разработка ботов",
+        "isPrimary": false,
+        "labes": [{
+            "text": "ts"
+        }, {
+            "text": "js"
+        },{
+            "text": "Py"
+        },{
+            "text": "C#"
+        }],
+        "text": "Написание телеграмм, вк ботов."
+    }, {
+        "title": "Написание парсеров",
+        "isPrimary": false,
+        "labes": [{
+            "text": "ts"
+        }, {
+            "text": "js"
+        },{
+            "text": "Py"
+        },{
+            "text": "C#"
+        }],
+        "text": "Написание парсеров данных с указанного сайта"
+    }, {
+        "title": "Разработка web дизайна",
+        "isPrimary": false,
+        "labes": [{
+            "text": "Figma"
+        }],
+        "text": "Проектирование интерфейсов веб приложения."
+    }, {
+        "title": "Web тестирование",
+        "isPrimary": false,
+        "labes": [{
+            "text": "Chrome"
+        },{
+            "text": "Firefox"
+        },{
+            "text": "Safari"
+        }],
+        "text": "Ручное тестирование сайта."
+    }, {
+        "title": "Написание автотестов",
+        "isPrimary": false,
+        "labes": [{
+            "text": "ts"
+        }, {
+            "text": "js"
+        },{
+            "text": "Py"
+        },{
+            "text": "C#"
+        }],
+        "text": "Покрытие автотестами вашего сайта, сервиса"
+    }, {
+        "title": "Написание Unit-тестов",
+        "isPrimary": false,
+        "labes": [{
+            "text": "ts"
+        }, {
+            "text": "js"
+        }],
+        "text": "Покрытие кода unit текстами"
+    },{
+        "title": "Оптимизация web приложения",
+        "isPrimary": false,
+        "labes": [{
+            "text": "ts"
+        }, {
+            "text": "js"
+        },{
+            "text": "React"
+        }],
+        "text": "Провожу рефакторинг кода, оптимизирую его работу"
+    }],
+    "primary-types": ["Frontend"],
+    "tools": [{
+        "type": "Frontend",
+        "label": "ReactJS",
+        "url": "",
+        "language": "TS"
+    }, {
+        "type": "Frontend",
+        "label": "MobX",
+        "url": "",
+        "language": "TS"
+    }, {
+        "type": "Frontend",
+        "label": "Redux",
+        "url": "",
+        "language": "TS"
+    }, {
+        "type": "Backend",
+        "label": "Fastify",
+        "language": "TS",
+        "url": ""
+    }, {
+        "type": "Backend",
+        "label": "ExpressJS",
+        "language": "TS",
+        "url": ""
+    }, {
+        "type": "Disign",
+        "label": "Figma",
+        "language": "Fg",
+        "url": ""
+    }, {
+        "type": "Backend",
+        "label": "Sequelize",
+        "language": "TS",
+        "url": "https://www.npmjs.com/package/sequelize"
+    }, {
+        "label": "date-fns",
+        "type": "Frontend",
+        "language": "TS",
+        "url": "https://www.npmjs.com/package/date-fns"
+    }],
+    "review": [
+        {
+            "name": "Юрий",
+            "text": "Профессионал своего дела, очень помог реализовать сложную задачу в проекте на JavaScript, React, MongoDB, Node. Смог углубиться в код и качественно доработать. Приятно иметь дело. Теперь знаю к кому обратиться в случае сложных вопросов по коду и программированию в целом!",
+            "rait": 5
+        },
+        {
+            "name": "Виталий",
+            "text": "Проект выполнен в срок и качественно, без дополнительных расходов. Исполнитель в общении вежлив, идет на уступки, учитывает пожелания, все ответы незамедлительны и в прлном обьеме.",
+            "rait": 5
+        },
+        {
+            "name": "Виталий",
+            "text": "Проект выполнен в срок и качественно, без дополнительных расходов. Исполнитель в общении вежлив, идет на уступки, учитывает пожелания, все ответы незамедлительны и в прлном обьеме.",
+            "rait": 5
+        },
+        {
+            "name": "Виталий",
+            "text": "Проект выполнен в срок и качественно, без дополнительных расходов. Исполнитель в общении вежлив, идет на уступки, учитывает пожелания, все ответы незамедлительны и в прлном обьеме.",
+            "rait": 3
+        }
+    ],
+    "contacts": [
+        {
+            "type": "telegram",
+            "url": "https://t.me/vmarievit",
+            "label": "@vmarievit"
+        },
+        {
+            "type": "email",
+            "url": "mailto:wolfmariev@gmail.com",
+            "label": "wolfmariev@gmail.com"
+        }
+    ]
+
+}

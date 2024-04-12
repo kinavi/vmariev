@@ -1,0 +1,1 @@
+export const guid = (prefix = '') => prefix + Math.random().toString(16).slice(2);
