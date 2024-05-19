@@ -28,7 +28,7 @@ export const ButtonOutlinePattern = (
   }
 
   &:focus:not(:disabled) {
-    background: ${theme.colors.get(color)?.[80]};
+    background: ${theme.colors.get(color)?.[20]};
     border: 1px solid ${theme.colors.get(color)?.[70]};
 
     color: ${theme.colors.get(color)?.[50]};
@@ -38,7 +38,7 @@ export const ButtonOutlinePattern = (
   }
 
   &:active:not(:disabled) {
-    background: ${theme.colors.get(color)?.[80]};
+    background: ${theme.colors.get(color)?.[30]};
     border: 1px solid ${theme.colors.get(color)?.[70]};
 
     color: ${theme.colors.get(color)?.[50]};

@@ -34,6 +34,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   if (container === null) {
     throw new Error('root container did not find');
   }
+  document.title = 'VMariev';
   const root = createRoot(container);
   root.render(
     <React.StrictMode>
