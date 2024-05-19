@@ -3,8 +3,14 @@ import { useEffect, useState } from 'react';
 import DATA from '../../../../INITIAL_DATA.json';
 import { MobileMenuContainer } from './styled';
 import { getIconByType } from '../../../Contact/getIconByType';
+import { DropDown } from '../../../../ui/components/DropDown';
+import { Menu } from '../../../../ui/components/Menu';
+import EnFlagImg from '../../../../assets/img/en-flag.png';
+import RuFlagImg from '../../../../assets/img/ru-flag.png';
+import { translate } from '../../../../translator';
+import { observer } from 'mobx-react-lite';
 
-export const MobileMenu = (props: {
+export const MobileMenu = observer((props: {
   onClose: () => void;
   hash?: string;
   isOpen: boolean;
@@ -58,7 +64,7 @@ export const MobileMenu = (props: {
               'mobile-menu__link_active': hash === '#about',
             })}
           >
-            Обо мне
+            {translate.tryTranslate('Обо мне')}
           </a>
           <a
             onClick={onClose}
@@ -67,7 +73,7 @@ export const MobileMenu = (props: {
               'mobile-menu__link_active': hash === '#services',
             })}
           >
-            Услуги
+            {translate.tryTranslate('Услуги')}
           </a>
           <a
             onClick={onClose}
@@ -76,7 +82,7 @@ export const MobileMenu = (props: {
               'mobile-menu__link_active': hash === '#review',
             })}
           >
-            Отзывы
+            {translate.tryTranslate('Отзывы')}
           </a>
           <a
             onClick={onClose}
@@ -85,7 +91,7 @@ export const MobileMenu = (props: {
               'mobile-menu__link_active': hash === '#contact',
             })}
           >
-            Контакты
+            {translate.tryTranslate('Контакты')}
           </a>
         </div>
         <div className="mobile-menu__contacts">
@@ -104,7 +110,49 @@ export const MobileMenu = (props: {
             </div>
           ))}
         </div>
+        <DropDown
+          className="mobile-menu__drop-down"
+          content={(close) => (
+            <Menu
+              onClose={close}
+              options={[
+                {
+                  content: (
+                    <img
+                      src={EnFlagImg}
+                      alt="EnFlagImg"
+                    />
+                  ),
+                  onClick: () => translate.setDictionary('en'),
+                },
+                {
+                  content: (
+                    <img
+                      src={RuFlagImg}
+                      alt="RuFlagImg"
+                    />
+                  ),
+                  onClick: () => translate.setDictionary('ru'),
+                },
+              ]}
+            />
+          )}
+        >
+          <>
+            {translate.lang === 'en' ? (
+              <img
+                src={EnFlagImg}
+                alt="EnFlagImg"
+              />
+            ) : (
+              <img
+                src={RuFlagImg}
+                alt="RuFlagImg"
+              />
+            )}
+          </>
+        </DropDown>
       </div>
     </MobileMenuContainer>
   );
-};
+});

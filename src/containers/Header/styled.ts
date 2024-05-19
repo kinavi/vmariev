@@ -74,6 +74,16 @@ export const HeaderContainer = styled.header<{ isScrolled: boolean }>`
     }
     &__mobile-menu {
     }
+    &__drop-down {
+      display: block;
+      @media only screen and (max-width: 1024px) {
+        display: none;
+      }
+      & img {
+        width: 30px;
+        height: 30px;
+      }
+    }
   }
   ${({ isScrolled }) =>
     isScrolled &&

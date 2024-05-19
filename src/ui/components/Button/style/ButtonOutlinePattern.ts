@@ -19,9 +19,8 @@ export const ButtonOutlinePattern = (
   }
 
   &:hover:not(:disabled) {
-    background: ${theme.colors.get(color)?.[90]};
+    background: ${theme.colors.get(color)?.[20]};
     border: 1px solid ${theme.colors.get(color)?.[70]};
-
     color: ${theme.colors.get(color)?.origin};
     & svg {
       fill: ${theme.colors.get(color)?.origin};

@@ -20,7 +20,7 @@ export const ContactContainer = styled(LayoutContainer)`
       flex-direction: column;
       gap: 20px;
       @media only screen and (max-width: 756px) {
-        flex-direction: row;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
       }
@@ -33,10 +33,7 @@ export const ContactContainer = styled(LayoutContainer)`
     &__name {
       color: var(--Secondary, #8ec46e);
       text-align: center;
-      font-family: Roboto;
       font-size: 28px;
-      font-style: normal;
-      font-weight: 400;
       line-height: 40px; /* 142.857% */
       margin-bottom: 30px;
     }
@@ -45,13 +42,14 @@ export const ContactContainer = styled(LayoutContainer)`
       gap: 20px;
       align-items: center;
       & a {
-        color: #fff;
-        font-family: Roboto;
+        color: white;
         font-size: 28px;
-        font-style: normal;
         font-weight: 500;
         line-height: 30px;
         text-decoration: none;
+        @media only screen and (max-width: 756px) {
+          font-size: 20px;
+        }
         &:hover {
           text-decoration: underline;
         }

@@ -1,0 +1,1 @@
+export const getObjectKeys = <T>(object: T) => Object.keys(object as any) as Array<keyof T>;

@@ -58,5 +58,13 @@ export const MobileMenuContainer = styled.div`
     }
     &__contact {
     }
+    &__drop-down {
+      display: flex;
+      position: relative;
+      & img {
+        width: 40px;
+        height: 40px;
+      }
+    }
   }
 `;

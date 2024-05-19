@@ -4,11 +4,13 @@ import { BlockHeader } from '../../components/BlockHeader';
 import { Button } from '../../ui/components/Button';
 import { ServicesContainer } from './styled';
 import { Icon } from '../../ui/components/Icon';
+import { observer } from 'mobx-react-lite';
+import { translate } from '../../translator';
 
-export const Services = () => {
+export const Services = observer(() => {
   return (
     <ServicesContainer id="services">
-      <BlockHeader title="Услуги">
+      <BlockHeader title={translate.tryTranslate('Услуги')}>
         <div className="services__button-container">
           {/* <div className="services__price">1000 руб/час</div> */}
           {/* <a
@@ -21,7 +23,7 @@ export const Services = () => {
             pattern="outline"
             size="xl"
           >
-            Заказать
+            {translate.tryTranslate('Сделать заказ')}
           </Button>
         </div>
       </BlockHeader>
@@ -32,7 +34,9 @@ export const Services = () => {
             key={item.title}
           >
             <div className="cell__header">
-              <div className="cell__title">{item.title}</div>
+              <div className="cell__title">
+                {translate.tryTranslate(item.title)}
+              </div>
               {item.isPrimary && <Icon type="activeStar" />}
             </div>
             <div className="cell__label-list">
@@ -41,14 +45,16 @@ export const Services = () => {
                   className="cell__label"
                   key={label.text}
                 >
-                  {label.text}
+                  {translate.tryTranslate(label.text)}
                 </div>
               ))}
             </div>
-            <div className="cell__text">{item.text}</div>
+            <div className="cell__text">
+              {translate.tryTranslate(item.text)}
+            </div>
           </div>
         ))}
       </div>
     </ServicesContainer>
   );
-};
+});

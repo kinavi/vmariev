@@ -6,11 +6,18 @@ import { MobileMenu } from './chunks/MobileMenu';
 import { Button } from '../../ui/components/Button';
 import { Icon } from '../../ui/components/Icon';
 import { HeaderContainer } from './styled';
+import { observer } from 'mobx-react-lite';
+import { translate } from '../../translator';
+import { DropDown } from '../../ui/components/DropDown';
+import EnFlagImg from '../../assets/img/en-flag.png';
+import RuFlagImg from '../../assets/img/ru-flag.png';
+import { Menu } from '../../ui/components/Menu';
 
-export const Header = () => {
+export const Header = observer(() => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   const { hash } = useLocation();
+
   const hendle = (event: Event) => {
     setIsScrolled(window.scrollY > 0);
   };
@@ -19,6 +26,7 @@ export const Header = () => {
     document.addEventListener('scroll', hendle);
     return () => document.removeEventListener('scroll', hendle);
   }, []);
+
   return (
     <HeaderContainer
       isScrolled={isScrolled}
@@ -26,8 +34,12 @@ export const Header = () => {
     >
       <div className="header__wrapper">
         <div className="header__logo-container">
-          <div className="header__logo">Мариев Владимир</div>
-          <div className="header__position">Программист</div>
+          <div className="header__logo">
+            {translate.tryTranslate('Мариев Владимир')}
+          </div>
+          <div className="header__position">
+            {translate.tryTranslate('Программист')}
+          </div>
         </div>
         <div className="header__links-container">
           <a
@@ -36,7 +48,7 @@ export const Header = () => {
               header__link_active: hash === '#about',
             })}
           >
-            Обо мне
+            {translate.tryTranslate('Обо мне')}
           </a>
           <a
             href="#services"
@@ -44,7 +56,7 @@ export const Header = () => {
               header__link_active: hash === '#services',
             })}
           >
-            Услуги
+            {translate.tryTranslate('Услуги')}
           </a>
           {/* <a
             href="#tools"
@@ -60,7 +72,7 @@ export const Header = () => {
               header__link_active: hash === '#review',
             })}
           >
-            Отзывы
+            {translate.tryTranslate('Отзывы')}
           </a>
           <a
             href="#contact"
@@ -68,9 +80,51 @@ export const Header = () => {
               header__link_active: hash === '#contact',
             })}
           >
-            Контакты
+            {translate.tryTranslate('Контакты')}
           </a>
         </div>
+        <DropDown
+          className="header__drop-down"
+          content={(close) => (
+            <Menu
+              onClose={close}
+              options={[
+                {
+                  content: (
+                    <img
+                      src={EnFlagImg}
+                      alt="EnFlagImg"
+                    />
+                  ),
+                  onClick: () => translate.setDictionary('en'),
+                },
+                {
+                  content: (
+                    <img
+                      src={RuFlagImg}
+                      alt="RuFlagImg"
+                    />
+                  ),
+                  onClick: () => translate.setDictionary('ru'),
+                },
+              ]}
+            />
+          )}
+        >
+          <>
+            {translate.lang === 'en' ? (
+              <img
+                src={EnFlagImg}
+                alt="EnFlagImg"
+              />
+            ) : (
+              <img
+                src={RuFlagImg}
+                alt="RuFlagImg"
+              />
+            )}
+          </>
+        </DropDown>
         <Button
           onClick={() => setIsOpenMenu((v) => !v)}
           className="header__menu-button"
@@ -93,4 +147,4 @@ export const Header = () => {
       </div>
     </HeaderContainer>
   );
-};
+});

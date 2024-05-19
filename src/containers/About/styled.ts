@@ -17,20 +17,18 @@ export const AboutContainer = styled(LayoutContainer)`
     &__title {
       color: #fff;
       text-align: center;
-      font-family: Roboto;
       font-size: 20px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 30px; /* 150% */
+      line-height: 30px;
+      min-height: 60px;
     }
     &__discription {
-      color: var(--gray-text, #97989b);
+      color: #97989b;
       text-align: center;
-      font-family: Roboto;
       font-size: 18px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 24px; /* 133.333% */
+      line-height: 24px;
+      & a {
+        color: white;
+      }
     }
   }
   & .about {
@@ -38,13 +36,7 @@ export const AboutContainer = styled(LayoutContainer)`
       padding: 15px 24px;
       color: #fff;
       text-align: center;
-
-      /* Заголовок 2 */
-      font-family: Roboto;
       font-size: 20px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 20px; /* 142.857% */
     }
     &__advantages-container {
       display: flex;
@@ -55,18 +47,13 @@ export const AboutContainer = styled(LayoutContainer)`
     }
     &__name {
       color: var(--Secondary, #8ec46e);
-      font-family: Roboto;
       font-size: 56px;
-      font-style: normal;
       font-weight: 500;
-      line-height: 60px; /* 107.143% */
+      line-height: 60px;
     }
     &__position {
       color: #fff;
-      font-family: Roboto;
       font-size: 28px;
-      font-style: normal;
-      font-weight: 400;
       line-height: 40px; /* 142.857% */
     }
     &__img-container {

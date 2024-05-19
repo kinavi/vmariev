@@ -8,8 +8,10 @@ import { ReactComponent as email } from './assets/email.svg';
 import { ReactComponent as cross } from './assets/cross.svg';
 import { ReactComponent as activeStar } from './assets/activeStar.svg';
 import { ReactComponent as star } from './assets/star.svg';
+import { ReactComponent as chevronDown } from './assets/chevron-down.svg';
 
 export const ICONS = {
+  chevronDown,
   star,
   activeStar,
   cross,

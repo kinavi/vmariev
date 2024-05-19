@@ -7,6 +7,8 @@ import 'react-multi-carousel/lib/styles.css';
 import { ReviewContainer } from './styled';
 import { CustomDot } from './chunks/CustomDot';
 import { Rait } from './chunks/Rait';
+import { observer } from 'mobx-react-lite';
+import { translate } from '../../translator';
 
 const responsive = {
   superLargeDesktop: {
@@ -27,12 +29,12 @@ const responsive = {
   },
 };
 
-export const Review = () => {
+export const Review = observer(() => {
   return (
     <ReviewContainer id="review">
-      <BlockHeader title="Отзывы">
+      <BlockHeader title={translate.tryTranslate("Отзывы")}>
         <div className="review__review-count">
-          {DATA.review.length} сообщений
+          {DATA.review.length} {translate.tryTranslate('сообщений')}
         </div>
       </BlockHeader>
       <Carousel
@@ -65,4 +67,4 @@ export const Review = () => {
       </Carousel>
     </ReviewContainer>
   );
-};
+});
