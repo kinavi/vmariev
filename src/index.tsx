@@ -30,7 +30,6 @@ const darkTheme = createTheme({
 });
 
 window.addEventListener('DOMContentLoaded', async () => {
-  translate.setDictionary('en');
   const container = document.getElementById('root');
   if (container === null) {
     throw new Error('root container did not find');
