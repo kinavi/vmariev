@@ -58,7 +58,6 @@ const SignUp = observer(() => {
       auth: {
         error,
         createOffer,
-        login,
         register,
         isSendedCode,
         codeTimer,
@@ -94,7 +93,7 @@ const SignUp = observer(() => {
       repeatPassword: '',
     },
     onSubmit: async (value) => {
-      const isSuccess = await register(value);
+      const isSuccess = await register({ ...value, code: Number(value.code) });
       if (isSuccess) {
         nav(NAVIGATION.main);
       }

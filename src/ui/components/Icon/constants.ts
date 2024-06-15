@@ -10,7 +10,10 @@ import { ReactComponent as activeStar } from './assets/activeStar.svg';
 import { ReactComponent as star } from './assets/star.svg';
 import { ReactComponent as chevronDown } from './assets/chevron-down.svg';
 
+import * as timeIcons from './assets/time-manager';
+
 export const ICONS = {
+  ...timeIcons,
   chevronDown,
   star,
   activeStar,

@@ -7,7 +7,6 @@ import { StateContext, store } from './mobx';
 import { routers } from './routs';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import { translate } from './translator';
 import './index.css';
 import './loader.css';
 

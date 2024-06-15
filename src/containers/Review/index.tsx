@@ -9,6 +9,8 @@ import { CustomDot } from './chunks/CustomDot';
 import { Rait } from './chunks/Rait';
 import { observer } from 'mobx-react-lite';
 import { translate } from '../../translator';
+import { Button } from '../../ui/components/Button';
+import { useStore } from '../../mobx';
 
 const responsive = {
   superLargeDesktop: {
@@ -30,9 +32,12 @@ const responsive = {
 };
 
 export const Review = observer(() => {
+  const {
+    modals: { onOpenModal },
+  } = useStore();
   return (
     <ReviewContainer id="review">
-      <BlockHeader title={translate.tryTranslate("Отзывы")}>
+      <BlockHeader title={translate.tryTranslate('Отзывы')}>
         <div className="review__review-count">
           {DATA.review.length} {translate.tryTranslate('сообщений')}
         </div>
@@ -49,9 +54,11 @@ export const Review = observer(() => {
         renderDotsOutside
       >
         {DATA.review.map((item) => (
-          <div
+          <Button
+            pattern="none"
             key={guid()}
             className="review__container"
+            onClick={() => onOpenModal('reviewReader', item)}
           >
             <div className="review__header">
               <div className="review__name">{item.name}</div>
@@ -62,7 +69,7 @@ export const Review = observer(() => {
               {/* <div className="review__rait">{item.rait}</div> */}
             </div>
             <div className="review__text">{item.text}</div>
-          </div>
+          </Button>
         ))}
       </Carousel>
     </ReviewContainer>

@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { LayoutContainer } from '../../styled';
 
 export const ContactContainer = styled(LayoutContainer)`
-  max-width: 480px;
   padding-bottom: 150px;
   & .contact {
     &__title {
@@ -19,10 +18,12 @@ export const ContactContainer = styled(LayoutContainer)`
       display: flex;
       flex-direction: column;
       gap: 20px;
+      align-items: center;
       @media only screen and (max-width: 756px) {
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
         justify-content: center;
+        gap: 40px;
       }
     }
     &__content {

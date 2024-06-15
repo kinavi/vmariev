@@ -1,11 +1,10 @@
 import { ApiController } from '../ApiController';
 import { Auth } from './domains/Auth';
+import { Task, Track } from './domains/TimeManager';
 
 export class ApiService {
   controller: ApiController;
-  domains: {
-    auth: Auth;
-  };
+  domains;
   constructor() {
     const baseUrl = process.env.REACT_APP_API_URL;
     if (!baseUrl) {
@@ -14,6 +13,10 @@ export class ApiService {
     this.controller = new ApiController(baseUrl);
     this.domains = {
       auth: new Auth(this.controller),
+      timeManager: {
+        task: new Task(this.controller),
+        track: new Track(this.controller),
+      },
     };
   }
 }

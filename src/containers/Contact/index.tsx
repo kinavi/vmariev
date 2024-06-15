@@ -13,9 +13,9 @@ export const Contact = observer(() => {
     <ContactContainer id="contact">
       <div className="contact__title">{translate.tryTranslate('Контакты')}</div>
       <div className="contact__content">
-        <div className="contact__name">
+        {/* <div className="contact__name">
           {translate.tryTranslate('Мариев Владимир')}
-        </div>
+        </div> */}
         <div className="contact__list">
           {contacts.map((item) => (
             <div

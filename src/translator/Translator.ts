@@ -22,6 +22,8 @@ export class Translator {
         const currentLang = navigator.language;
         if (this.status === 'ready' && currentLang.match('^(en)[-]?.*$')) {
           this.setDictionary('en');
+        } else {
+          this.setDictionary('ru');
         }
       }
     );

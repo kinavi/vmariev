@@ -23,6 +23,8 @@
         }, {
             "text": "js"
         },{
+            "text": "C#"
+        },{
             "text": "Py"
         }],
         "text": "Создание REST API сервисов. Авторизация, аунтификация. Создание контролеров и моделей для взимоделйствия с базой данных. Написание ендпоинтов."
@@ -156,8 +158,8 @@
         },
         {
             "type": "email",
-            "url": "mailto:wolfmariev@gmail.com",
-            "label": "wolfmariev@gmail.com"
+            "url": "mailto:v.mariev.freelancer@yandex.ru",
+            "label": "v.mariev.freelancer@yandex.ru"
         }
     ]
 

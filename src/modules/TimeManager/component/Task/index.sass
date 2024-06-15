@@ -1,0 +1,65 @@
+.task
+  &__container
+    position: relative
+    display: flex
+    flex-direction: column
+    align-items: center
+  &__body
+    width: 100%
+    display: flex
+    align-items: center
+    justify-content: space-between
+    border-radius: 25px
+    background: $layout-color
+    &:hover
+      background: $layout-hover-color
+    &_view
+      margin-bottom: 10px
+      z-index: 1
+      &:last-of-type
+        margin-bottom: 0
+    &_edit
+      background: none
+  &__button
+    display: flex
+    align-items: center
+    justify-content: center
+    width: 40px
+    height: 40px
+    border-radius: 50%
+    background: $layout-color
+    &:hover
+      background: $layout-hover-color
+  &__left-button
+    position: absolute
+    left: 0
+    z-index: 10
+    &_edit
+      position: relative
+      background: #F6F6E3
+      border-radius: 50%
+  &__right-button
+    position: absolute
+    right: 0
+    z-index: 10
+  &__count-container
+    //z-index: 10
+  &__field
+    margin-bottom: 0
+  &__item-container
+    height: 40px
+    flex-grow: 1
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding: 0 50px
+    z-index: 5
+    color: white
+    font-size: 20px
+    line-height: 20px
+  &__label
+    display: block
+    text-overflow: ellipsis
+    white-space: nowrap
+    overflow: hidden
+    min-width: 0

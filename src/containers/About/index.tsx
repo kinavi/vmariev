@@ -17,6 +17,14 @@ export const About = observer(() => {
           <div className="about__position">
             {translate.tryTranslate('Full-Stack веб-разработчик')}
           </div>
+          {/* <a
+            href="#contact"
+            className={classNames('header__link', {
+              header__link_active: hash === '#contact',
+            })}
+          >
+            {translate.tryTranslate('Контакты')}
+          </a> */}
           <Button
             className="about__button"
             pattern="fill"

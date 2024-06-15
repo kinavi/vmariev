@@ -22,30 +22,24 @@ const SignIn = observer(() => {
   } = useStore();
   const user = token.userData;
   const nav = useNavigate();
-  const {
-    values,
-    setFieldValue,
-    handleSubmit,
-    handleReset,
-    isSubmitting,
-    isValid,
-  } = useFormik({
-    initialValues: {
-      email: '',
-      password: '',
-    },
-    onSubmit: async (value) => {
-      const isSuccess = await login(value);
-      if (isSuccess) {
-        nav(NAVIGATION.main);
-      }
-    },
-    validationSchema: Yup.object().shape({
-      email: Yup.string().required('Required'),
-      password: Yup.string().required('Required'),
-    }),
-    validateOnMount: true,
-  });
+  const { values, setFieldValue, handleSubmit, handleReset, isSubmitting } =
+    useFormik({
+      initialValues: {
+        email: '',
+        password: '',
+      },
+      onSubmit: async (value) => {
+        const isSuccess = await login(value);
+        if (isSuccess) {
+          nav(NAVIGATION.main);
+        }
+      },
+      validationSchema: Yup.object().shape({
+        email: Yup.string().required('Required'),
+        password: Yup.string().required('Required'),
+      }),
+      validateOnMount: true,
+    });
   const isDisable = !values.email || !values.password;
   return (
     <AuthContainer>

@@ -28,8 +28,11 @@ export const ReviewContainer = styled(LayoutContainer)`
       margin: 0 10px;
       padding: 30px;
       display: flex;
+      align-items: normal;
       flex-direction: column;
       gap: 15px;
+      min-height: 215px;
+      justify-content: flex-start;
     }
     &__header {
       display: flex;
@@ -37,6 +40,7 @@ export const ReviewContainer = styled(LayoutContainer)`
       align-items: center;
     }
     &__text {
+      text-align: start;
       color: var(--gray-text, #97989b);
       font-family: Roboto;
       font-size: 18px;

@@ -20,6 +20,9 @@ export const AboutContainer = styled(LayoutContainer)`
       font-size: 20px;
       line-height: 30px;
       min-height: 60px;
+      @media only screen and (max-width: 756px) {
+        min-height: 30px;
+      }
     }
     &__discription {
       color: #97989b;
@@ -59,8 +62,8 @@ export const AboutContainer = styled(LayoutContainer)`
     &__img-container {
       & img {
         border-radius: 50%;
-        width: 500px;
-        height: 500px;
+        width: 400px;
+        height: 400px;
         object-fit: cover;
       }
     }

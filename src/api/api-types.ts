@@ -79,7 +79,7 @@ export interface paths {
           "application/json": {
             password: string;
             email: string;
-            code: string;
+            code: number;
           };
         };
       };
@@ -321,8 +321,19 @@ export interface paths {
           content: {
             "application/json": {
               /** @enum {string} */
-              status?: "ok" | "error";
-              data?: components["schemas"]["def-5"][];
+              status: "ok";
+              data: components["schemas"]["def-5"][];
+            };
+          };
+        };
+        /** @description Default Response */
+        240: {
+          content: {
+            "application/json": {
+              /** @enum {string} */
+              status: "error";
+              field?: string;
+              message: string;
             };
           };
         };
@@ -344,18 +355,18 @@ export interface paths {
           content: {
             "application/json": {
               /** @enum {string} */
-              status?: "ok" | "error";
+              status?: "ok";
               data?: components["schemas"]["def-5"];
             };
           };
         };
         /** @description Default Response */
-        400: {
+        240: {
           content: {
             "application/json": {
               /** @enum {string} */
-              status: "ok" | "error";
-              field: string;
+              status: "error";
+              field?: string;
               message: string;
             };
           };
@@ -368,7 +379,6 @@ export interface paths {
           "application/json": {
             name: string;
             description?: string;
-            userId: number;
           };
         };
       };
@@ -378,18 +388,18 @@ export interface paths {
           content: {
             "application/json": {
               /** @enum {string} */
-              status?: "ok" | "error";
+              status?: "ok";
               data?: components["schemas"]["def-5"];
             };
           };
         };
         /** @description Default Response */
-        400: {
+        240: {
           content: {
             "application/json": {
               /** @enum {string} */
-              status: "ok" | "error";
-              field: string;
+              status: "error";
+              field?: string;
               message: string;
             };
           };
@@ -428,8 +438,19 @@ export interface paths {
           content: {
             "application/json": {
               /** @enum {string} */
-              status?: "ok" | "error";
+              status?: "ok";
               data?: components["schemas"]["def-5"];
+            };
+          };
+        };
+        /** @description Default Response */
+        240: {
+          content: {
+            "application/json": {
+              /** @enum {string} */
+              status: "error";
+              field?: string;
+              message: string;
             };
           };
         };
@@ -451,18 +472,18 @@ export interface paths {
           content: {
             "application/json": {
               /** @enum {string} */
-              status?: "ok" | "error";
-              data?: components["schemas"]["def-6"];
+              status: "ok";
+              data: components["schemas"]["def-6"];
             };
           };
         };
         /** @description Default Response */
-        400: {
+        240: {
           content: {
             "application/json": {
               /** @enum {string} */
-              status: "ok" | "error";
-              field: string;
+              status: "error";
+              field?: string;
               message: string;
             };
           };
@@ -485,18 +506,18 @@ export interface paths {
           content: {
             "application/json": {
               /** @enum {string} */
-              status?: "ok" | "error";
-              data?: components["schemas"]["def-6"];
+              status: "ok";
+              data: components["schemas"]["def-6"];
             };
           };
         };
         /** @description Default Response */
-        400: {
+        240: {
           content: {
             "application/json": {
               /** @enum {string} */
-              status: "ok" | "error";
-              field: string;
+              status: "error";
+              field?: string;
               message: string;
             };
           };

@@ -15,6 +15,7 @@ export const Rait = (props: { rait: number; maxRait: number }) => {
             <Icon
               key={guid()}
               type="activeStar"
+              size="14px"
             />
           );
         } else {
@@ -22,6 +23,7 @@ export const Rait = (props: { rait: number; maxRait: number }) => {
             <Icon
               key={guid()}
               type="star"
+              size="14px"
             />
           );
         }

@@ -30,7 +30,7 @@ export class AuthController {
 
   register = async (values: {
     email: string;
-    code: string;
+    code: number;
     password: string;
   }) => {
     const result = await apiServise.domains.auth.signUp(values);
