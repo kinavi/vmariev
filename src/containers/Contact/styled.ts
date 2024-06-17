@@ -20,10 +20,8 @@ export const ContactContainer = styled(LayoutContainer)`
       gap: 20px;
       align-items: center;
       @media only screen and (max-width: 756px) {
-        flex-direction: row;
         align-items: center;
         justify-content: center;
-        gap: 40px;
       }
     }
     &__content {

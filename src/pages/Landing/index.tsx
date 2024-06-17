@@ -5,6 +5,7 @@ import { Services } from '../../containers/Services';
 import { Review } from '../../containers/Review';
 import { Contact } from '../../containers/Contact';
 import { AppContainer } from './styled';
+import { JobSteps } from '../../containers/JobSteps';
 
 function Landing() {
   return (
@@ -14,6 +15,7 @@ function Landing() {
         <About />
         <Services />
         {/* <Tools /> */}
+        <JobSteps />
         <Review />
         <Contact />
       </div>

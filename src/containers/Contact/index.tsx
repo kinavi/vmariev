@@ -6,8 +6,6 @@ import { observer } from 'mobx-react-lite';
 import { translate } from '../../translator';
 
 export const Contact = observer(() => {
-  const isMobule = window.screen.availWidth <= 756;
-  console.log('isMobule', isMobule);
   const { contacts } = DATA;
   return (
     <ContactContainer id="contact">
@@ -22,28 +20,16 @@ export const Contact = observer(() => {
               className="contact__item"
               key={item.type}
             >
-              {!isMobule ? (
-                <>
-                  <div className="contact__icon">
-                    {getIconByType(item.type, '35px')}
-                  </div>
-                  <a
-                    target="_blank"
-                    href={item.url}
-                    rel="noreferrer"
-                  >
-                    {item.label}
-                  </a>
-                </>
-              ) : (
-                <a
-                  target="_blank"
-                  href={item.url}
-                  rel="noreferrer"
-                >
-                  {getIconByType(item.type, '60px')}
-                </a>
-              )}
+              <div className="contact__icon">
+                {getIconByType(item.type, '35px')}
+              </div>
+              <a
+                target="_blank"
+                href={item.url}
+                rel="noreferrer"
+              >
+                {item.label}
+              </a>
             </div>
           ))}
         </div>

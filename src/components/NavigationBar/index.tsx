@@ -5,6 +5,7 @@ import { NAVIGATION } from '../../routs/constants';
 import { observer } from 'mobx-react-lite';
 import { MdMoreTime } from 'react-icons/md';
 import { NavigationBarContainer } from './styled';
+import { GiCoins } from 'react-icons/gi';
 
 export const NavigationBar = observer((props: { children: JSX.Element }) => {
   return (
@@ -22,6 +23,14 @@ export const NavigationBar = observer((props: { children: JSX.Element }) => {
         <NavLink to={NAVIGATION.timeManager}>
           {({ isActive }) => (
             <MdMoreTime
+              size="30px"
+              color={isActive ? '#c49e6e' : 'white'}
+            />
+          )}
+        </NavLink>
+        <NavLink to={NAVIGATION.coins}>
+          {({ isActive }) => (
+            <GiCoins
               size="30px"
               color={isActive ? '#c49e6e' : 'white'}
             />
