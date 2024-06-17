@@ -6,6 +6,7 @@ import { Review } from '../../containers/Review';
 import { Contact } from '../../containers/Contact';
 import { AppContainer } from './styled';
 import { JobSteps } from '../../containers/JobSteps';
+import { ServiceLayout } from '../../containers/ServiceLayout';
 
 function Landing() {
   return (
@@ -18,6 +19,7 @@ function Landing() {
         <JobSteps />
         <Review />
         <Contact />
+        <ServiceLayout />
       </div>
     </AppContainer>
   );

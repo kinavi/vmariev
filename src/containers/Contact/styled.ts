@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { LayoutContainer } from '../../styled';
 
 export const ContactContainer = styled(LayoutContainer)`
-  padding-bottom: 150px;
   & .contact {
     &__title {
       color: #fff;
@@ -27,13 +26,13 @@ export const ContactContainer = styled(LayoutContainer)`
     &__content {
       border-radius: 6px;
       background: #2b3b3b;
-      padding: 30px 60px 40px;
+      padding: 30px 60px;
     }
     &__name {
       color: var(--Secondary, #8ec46e);
       text-align: center;
       font-size: 28px;
-      line-height: 40px; /* 142.857% */
+      line-height: 40px; 
       margin-bottom: 30px;
     }
     &__item {

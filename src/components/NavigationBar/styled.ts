@@ -12,6 +12,15 @@ export const NavigationBarContainer = styled.div`
       display: flex;
       flex-direction: column;
       gap: 20px;
+      @media only screen and (max-width: 756px) {
+        top: auto;
+        bottom: 0;
+        width: 100vw;
+        height: auto;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+      }
     }
   }
 `;

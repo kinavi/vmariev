@@ -26,7 +26,7 @@ export const routers = (store: StoreController) =>
       element: <SignInLazyView />,
     },
     {
-      path: NAVIGATION.timeManager,
+      path: NAVIGATION.time,
       element: <TimeManagerLazyView />,
       loader: timeManagerLazyViewAction,
     },

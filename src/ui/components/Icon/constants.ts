@@ -9,10 +9,14 @@ import { ReactComponent as cross } from './assets/cross.svg';
 import { ReactComponent as activeStar } from './assets/activeStar.svg';
 import { ReactComponent as star } from './assets/star.svg';
 import { ReactComponent as chevronDown } from './assets/chevron-down.svg';
+import { ReactComponent as time } from './assets/time.svg';
+import { ReactComponent as coins } from './assets/coins.svg';
 
 import * as timeIcons from './assets/time-manager';
 
 export const ICONS = {
+  coins,
+  time,
   ...timeIcons,
   chevronDown,
   star,
