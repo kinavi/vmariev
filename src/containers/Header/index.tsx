@@ -18,11 +18,10 @@ export const Header = observer(() => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   const { hash } = useLocation();
 
-  const hendle = (event: Event) => {
-    setIsScrolled(window.scrollY > 0);
-  };
-
   useEffect(() => {
+    const hendle = (event: Event) => {
+      setIsScrolled(window.scrollY > 0);
+    };
     document.addEventListener('scroll', hendle);
     return () => document.removeEventListener('scroll', hendle);
   }, []);
@@ -58,14 +57,14 @@ export const Header = observer(() => {
           >
             {translate.tryTranslate('Услуги')}
           </a>
-          {/* <a
-            href="#tools"
+          <a
+            href="#how-i-work"
             className={classNames('header__link', {
-              header__link_active: hash === '#tools',
+              header__link_active: hash === '#how-i-work',
             })}
           >
-            Инструменты
-          </a> */}
+            {translate.tryTranslate('Как я работаю')}
+          </a>
           <a
             href="#review"
             className={classNames('header__link', {
@@ -81,6 +80,14 @@ export const Header = observer(() => {
             })}
           >
             {translate.tryTranslate('Контакты')}
+          </a>
+          <a
+            href="#my-tools"
+            className={classNames('header__link', {
+              header__link_active: hash === '#my-tools',
+            })}
+          >
+            {translate.tryTranslate('Инструменты')}
           </a>
         </div>
         <DropDown

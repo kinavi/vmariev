@@ -31,7 +31,7 @@ export const Button = (props: ButtonPropsType) => {
     button_success: isSuccess,
     'button_is-full-wight': isFullWight,
   });
-  console.log('theme', theme);
+
   const renderContent = () => {
     if (isLoading) {
       return (

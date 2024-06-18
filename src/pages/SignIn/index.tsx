@@ -53,7 +53,7 @@ const SignIn = observer(() => {
         </IconButton>
         {user?.email && (
           <div>
-            {translate.tryTranslate('текущий пользоветель')} {user?.email}
+            {translate.tryTranslate('Текущий пользователь')}: {user?.email}
           </div>
         )}
       </div>
@@ -62,10 +62,10 @@ const SignIn = observer(() => {
         onSubmit={handleSubmit}
         onReset={handleReset}
       >
-        <h1>{translate.tryTranslate('Авторизация')}</h1>
+        <h1>{translate.tryTranslate('Войти')}</h1>
         <span>
           {translate.tryTranslate(
-            'Пройдя авторизацию вы сможете использовать мои сервисы'
+            'Пройдя авторизацию вы сможете использовать мои инструменты'
           )}
         </span>
         <TextField

@@ -32,11 +32,7 @@ export const HeaderContainer = styled.header<{ isScrolled: boolean }>`
     }
     &__link {
       text-align: right;
-      font-family: Roboto;
-      font-size: 20px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 20px;
+      font-size: 16px;
       color: #fff;
       text-transform: none;
       overflow: hidden;
@@ -50,7 +46,7 @@ export const HeaderContainer = styled.header<{ isScrolled: boolean }>`
     }
     &__links-container {
       display: flex;
-      gap: 60px;
+      gap: 25px;
       align-items: center;
       min-width: 0;
     }
@@ -60,7 +56,7 @@ export const HeaderContainer = styled.header<{ isScrolled: boolean }>`
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
-      gap: 20px;
+      gap: 30px;
       align-items: center;
     }
     &__menu-button {

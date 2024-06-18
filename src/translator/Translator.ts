@@ -54,8 +54,10 @@ export class Translator {
     }
     const result = this.dictionary[message];
     if (!result) {
-      this.notTranslateList.push(message);
-      console.log(this.notTranslateList);
+      if (!this.notTranslateList.includes(message)) {
+        this.notTranslateList.push(message);
+        console.log(this.notTranslateList);
+      }
       return message;
     }
     return result;

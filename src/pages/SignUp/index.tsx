@@ -128,7 +128,7 @@ const SignUp = observer(() => {
         <h1>{translate.tryTranslate('Регистрация')}</h1>
         <span>
           {translate.tryTranslate(
-            'Только зарегистрированным пользователям доступны мои сервисы'
+            'Только зарегистрированным пользователям доступны мои инструменты'
           )}
         </span>
         <div className="auth__row">
@@ -178,7 +178,7 @@ const SignUp = observer(() => {
               disabled={isSubmitting}
             />
             <TextField
-              label={translate.tryTranslate('Повторите ароль')}
+              label={translate.tryTranslate('Повторите пароль')}
               variant="outlined"
               value={values.repeatPassword}
               onChange={(event) =>

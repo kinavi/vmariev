@@ -21,7 +21,7 @@ export const Contact = observer(() => {
               key={item.type}
             >
               <div className="contact__icon">
-                {getIconByType(item.type, '35px')}
+                {getIconByType(item.type, '30px')}
               </div>
               <a
                 target="_blank"

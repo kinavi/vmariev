@@ -24,15 +24,15 @@ const JobStep = (props: { title: string; text?: string; index: number }) => {
 
 export const JobSteps = observer(() => {
   return (
-    <StepsContainer>
+    <StepsContainer id="how-i-work">
       <BlockHeader title={translate.tryTranslate('Как я работаю')} />
       <div className="steps__steps">
         {DATA.steps.map((item, index) => (
           <JobStep
             key={`step${item.titel}`}
             index={index}
-            title={item.titel}
-            text={item.text}
+            title={translate.tryTranslate(item.titel)}
+            text={translate.tryTranslate(item.text)}
           />
         ))}
       </div>

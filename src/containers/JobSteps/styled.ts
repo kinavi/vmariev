@@ -3,6 +3,9 @@ import styled from 'styled-components';
 export const StepsContainer = styled.div`
   display: flex;
   flex-direction: column;
+  margin: auto;
+  max-width: 1320px;
+  width: 100%;
   & .steps {
     &__count-step {
       width: 40px;

@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
 export const ServiceLayoutContainer = styled.div`
+  margin: auto;
+  max-width: 1320px;
+  width: 100%;
   & .service-layout {
     &__title {
       font-size: 38px;
@@ -21,7 +24,7 @@ export const ServiceLayoutContainer = styled.div`
       & > * {
         flex: 1 1;
       }
-      @media only screen and (max-width: 756px) {
+      @media only screen and (max-width: 1024px) {
         flex-direction: column-reverse;
       }
     }

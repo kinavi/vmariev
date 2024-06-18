@@ -27,12 +27,14 @@ export const ContactContainer = styled(LayoutContainer)`
       border-radius: 6px;
       background: #2b3b3b;
       padding: 30px 60px;
+      width: fit-content;
+      margin: auto;
     }
     &__name {
       color: var(--Secondary, #8ec46e);
       text-align: center;
       font-size: 28px;
-      line-height: 40px; 
+      line-height: 40px;
       margin-bottom: 30px;
     }
     &__item {
@@ -41,7 +43,7 @@ export const ContactContainer = styled(LayoutContainer)`
       align-items: center;
       & a {
         color: white;
-        font-size: 28px;
+        font-size: 20px;
         font-weight: 500;
         line-height: 30px;
         text-decoration: none;

@@ -14,7 +14,7 @@ export const PublicMode = observer(() => {
     <>
       <div className="service-layout__sign-title">
         {translate.tryTranslate(
-          'Для использовании сервисов нужна учетная запись'
+          'Для использовании инструментов нужна учетная запись'
         )}
       </div>
       <Button

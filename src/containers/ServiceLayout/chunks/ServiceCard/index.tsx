@@ -13,7 +13,14 @@ export const ServiceCard = observer(
   }) => {
     const renderTitle = () => {
       if (props.url) {
-        return <Link className="service-card__link" to={props.url}>{props.title}</Link>;
+        return (
+          <Link
+            className="service-card__link"
+            to={props.url}
+          >
+            {props.title}
+          </Link>
+        );
       }
       return props.title;
     };
@@ -29,7 +36,7 @@ export const ServiceCard = observer(
         <div className="service-card__description">{props.description}</div>
         {!props.url && (
           <div className="service-card__status">
-            {translate.tryTranslate('Cервис в разработке')}
+            {translate.tryTranslate('Инструмент в разработке')}
           </div>
         )}
       </ServiceCardContainer>
