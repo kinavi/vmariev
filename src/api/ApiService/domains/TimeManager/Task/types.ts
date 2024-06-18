@@ -26,7 +26,9 @@ export type EditTask240ResponseType =
 export type EditTaskBodyType =
   paths['/api/manager/time/tasks/']['put']['requestBody']['content']['application/json'];
 
-export type RemoveTaskResponseType =
+export type RemoveTask200ResponseType =
   paths['/api/manager/time/tasks/']['delete']['responses']['200']['content']['application/json'];
+export type RemoveTask240ResponseType =
+  paths['/api/manager/time/tasks/']['delete']['responses']['240']['content']['application/json'];
 
-  export type TaskDataType = GetTasks200ResponseType['data'][number]
+export type TaskDataType = GetTasks200ResponseType['data'][number];

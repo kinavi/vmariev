@@ -12,31 +12,28 @@ import { Icon } from '../../../../ui/components/Icon';
 
 export const Track = (props: TrackPropsType): JSX.Element => {
   const {
-    value: { dateStart, dateStop, onStop },
-    limit = 2700, // 45 min
+    value: { dateStart, dateStop, onStop, limitSeconds, deltaSeconds },
   } = props;
 
   const delay = 1000;
   const isStart = !dateStop;
-  const deltaSeconds =
-    moment(dateStop || undefined).diff(moment(dateStart), 's') || 0;
   const [counts, setCounts] = useState<number>(deltaSeconds);
 
   useInterval(() => setCounts(counts + 1), isStart ? delay : null);
 
   const progress = useMemo(() => {
-    const percent = (counts / limit) * 100;
+    const percent = (counts / limitSeconds) * 100;
     if (percent > 100) {
       return 100;
     }
     return percent;
-  }, [counts]);
+  }, [counts, limitSeconds]);
 
   useEffect(() => {
     if (isStart && progress >= 100) {
       onStop();
     }
-  }, [progress]);
+  }, [progress, isStart, onStop]);
 
   const sec = convertCountToSeconds(counts);
   const min = convertCountToMinutes(counts);
@@ -49,7 +46,7 @@ export const Track = (props: TrackPropsType): JSX.Element => {
           <div className="track__date">
             {moment(dateStart).format('MM.DD.YYYY')}
           </div>
-          <div>{convertCountToMinutes(limit)} min</div>
+          <div>{convertCountToMinutes(limitSeconds)} min</div>
           <div className="track__time">{`${hour}:${min}:${sec}`}</div>
         </div>
         <Button

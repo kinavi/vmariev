@@ -17,7 +17,7 @@ export type SignUpBodyType =
 export type CreateOffer200ResponseType =
   paths['/api/offers/create']['post']['responses']['200']['content']['application/json'];
 export type CreateOffer400ResponseType =
-  paths['/api/offers/create']['post']['responses']['250']['content']['application/json'];
+  paths['/api/offers/create']['post']['responses']['240']['content']['application/json'];
 
 export type CreateOfferBodyType =
   paths['/api/offers/create']['post']['requestBody']['content']['application/json'];
@@ -28,4 +28,4 @@ export type ConfirmOfferBodyType =
 export type ConfirmOffer200ResponseType =
   paths['/api/offers/confirm']['put']['responses']['200']['content']['application/json'];
 export type ConfirmOffer400ResponseType =
-  paths['/api/offers/confirm']['put']['responses']['250']['content']['application/json'];
+  paths['/api/offers/confirm']['put']['responses']['240']['content']['application/json'];

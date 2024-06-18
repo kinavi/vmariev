@@ -1,5 +1,6 @@
 import { ApiController } from '../../../../ApiController';
 import { ENDPOINTS } from '../../../../endpoints';
+import { ConfirmOffer200ResponseType } from '../../Auth/types';
 import {
   CreateTask200ResponseType,
   CreateTask240ResponseType,
@@ -11,7 +12,7 @@ import {
   GetTask240ResponseType,
   GetTasks200ResponseType,
   GetTasks240ResponseType,
-  RemoveTaskResponseType,
+  RemoveTask240ResponseType,
 } from './types';
 
 export class Task {
@@ -95,9 +96,9 @@ export class Task {
 
   remove = async (taskId: number) => {
     try {
-      const { data } = await this.controller.delete<RemoveTaskResponseType>(
-        ENDPOINTS['time-manager'].task.remove(taskId)
-      );
+      const { data } = await this.controller.delete<
+        ConfirmOffer200ResponseType | RemoveTask240ResponseType
+      >(ENDPOINTS['time-manager'].task.remove(taskId));
       if (data.status === 'error') {
         throw data;
       }

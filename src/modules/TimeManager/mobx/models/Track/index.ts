@@ -2,6 +2,7 @@ import { makeAutoObservable, runInAction } from 'mobx';
 import { TrackDataType } from '../../../../../api/ApiService/domains/TimeManager/Track/types';
 import { ApiService } from '../../../../../api/ApiService';
 import { Status } from '../../../../../mobx/helpers/Status';
+import moment from 'moment';
 
 export class Track {
   status: Status;
@@ -12,13 +13,30 @@ export class Track {
 
   dateStop;
 
+  limit;
+
   constructor(initialData: TrackDataType, public api: ApiService) {
-    const { dateStart, id, dateStop } = initialData;
+    const { dateStart, id, dateStop, limit } = initialData;
     this.status = new Status();
     this.id = id;
     this.dateStart = new Date(dateStart);
     this.dateStop = dateStop ? new Date(dateStop) : null;
+    this.limit = limit;
+
     makeAutoObservable(this);
+  }
+
+  get deltaSeconds() {
+    const delta =
+      moment(this.dateStop || undefined).diff(moment(this.dateStart), 's') || 0;
+    if (delta > this.limitSeconds) {
+      return this.limitSeconds;
+    }
+    return delta;
+  }
+
+  get limitSeconds() {
+    return this.limit / 1000;
   }
 
   onStop = async () => {

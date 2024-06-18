@@ -25,7 +25,7 @@ export interface paths {
           };
         };
         /** @description Default Response */
-        250: {
+        240: {
           content: {
             "application/json": {
               /** @enum {string} */
@@ -59,7 +59,7 @@ export interface paths {
           };
         };
         /** @description Default Response */
-        250: {
+        240: {
           content: {
             "application/json": {
               /** @enum {string} */
@@ -418,7 +418,18 @@ export interface paths {
           content: {
             "application/json": {
               /** @enum {string} */
-              status?: "ok" | "error";
+              status?: "ok";
+            };
+          };
+        };
+        /** @description Default Response */
+        240: {
+          content: {
+            "application/json": {
+              /** @enum {string} */
+              status: "error";
+              field?: string;
+              message?: string;
             };
           };
         };
@@ -463,6 +474,7 @@ export interface paths {
         content: {
           "application/json": {
             taskId: number;
+            limit: number;
           };
         };
       };
@@ -660,6 +672,17 @@ export interface paths {
             };
           };
         };
+        /** @description Default Response */
+        240: {
+          content: {
+            "application/json": {
+              /** @enum {string} */
+              status: "error";
+              field?: string;
+              message: string;
+            };
+          };
+        };
       };
     };
   };
@@ -763,6 +786,7 @@ export interface components {
       id: number;
       dateStart: string;
       dateStop?: string | null;
+      limit: number;
     };
   };
   responses: never;

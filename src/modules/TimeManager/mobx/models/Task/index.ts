@@ -3,7 +3,6 @@ import { TaskDataType } from '../../../../../api/ApiService/domains/TimeManager/
 import { Track } from '../Track';
 import { ApiService } from '../../../../../api/ApiService';
 import { Status } from '../../../../../mobx/helpers/Status';
-import moment from 'moment';
 
 export class Task {
   status: Status;
@@ -24,6 +23,8 @@ export class Task {
 
   isReadonlyMode = true;
 
+  limit: number = 2700000; // ms
+
   constructor(initialData: TaskDataType, public api: ApiService) {
     const { id, name, userId, createdAt, description, tracks, updatedAt } =
       initialData;
@@ -41,10 +42,7 @@ export class Task {
 
   get totalTime() {
     return this.tracks.reduce<number>((acc, item) => {
-      const deltaTime =
-        moment(item.dateStop || undefined).diff(moment(item.dateStart), 's') ||
-        0;
-      return +acc + deltaTime;
+      return +acc + item.deltaSeconds;
     }, 0);
   }
 
@@ -59,7 +57,7 @@ export class Task {
   onStartTrack = async () => {
     this.status.updateStatus('loading');
     const { start } = this.api.domains.timeManager.track;
-    const result = await start({ taskId: this.id });
+    const result = await start({ taskId: this.id, limit: this.limit });
     runInAction(() => {
       if (result) {
         const newTrack = new Track(result, this.api);
