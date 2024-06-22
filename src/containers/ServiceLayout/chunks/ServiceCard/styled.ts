@@ -10,6 +10,7 @@ export const ServiceCardContainer = styled.div`
   padding: 30px;
   gap: 14px;
   background: #2b3b3b;
+  flex: 1;
   & .service-card {
     &__title {
       font-size: 20px;

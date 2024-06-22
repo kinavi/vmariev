@@ -19,12 +19,12 @@ export const Services = observer(() => {
           >
             Заказать
           </a> */}
-          <Button
+          {/* <Button
             pattern="outline"
             size="xl"
           >
             {translate.tryTranslate('Сделать заказ')}
-          </Button>
+          </Button> */}
         </div>
       </BlockHeader>
       <div className="services__list">

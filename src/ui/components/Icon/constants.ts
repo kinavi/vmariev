@@ -11,10 +11,14 @@ import { ReactComponent as star } from './assets/star.svg';
 import { ReactComponent as chevronDown } from './assets/chevron-down.svg';
 import { ReactComponent as time } from './assets/time.svg';
 import { ReactComponent as coins } from './assets/coins.svg';
+import { ReactComponent as github } from './assets/github.svg';
+import { ReactComponent as linkedin } from './assets/linkedin.svg';
 
 import * as timeIcons from './assets/time-manager';
 
 export const ICONS = {
+  linkedin,
+  github,
   coins,
   time,
   ...timeIcons,

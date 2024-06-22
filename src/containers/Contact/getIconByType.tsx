@@ -21,6 +21,22 @@ export const getIconByType = (
           color="hsla(33, 42%, 60%, 1)"
         />
       );
+    case 'github':
+      return (
+        <Icon
+          type="github"
+          size={size}
+          color="hsla(33, 42%, 60%, 1)"
+        />
+      );
+    case 'linkedin':
+      return (
+        <Icon
+          type="linkedin"
+          size={size}
+          color="hsla(33, 42%, 60%, 1)"
+        />
+      );
     default:
       return null;
   }

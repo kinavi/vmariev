@@ -1,0 +1,1 @@
+export type WithTextTruncateType = (Component: () => JSX.Element) => () => JSX.Element;

@@ -30,6 +30,9 @@ export const About = observer(() => {
             pattern="fill"
             size="xl"
             isFullWight={false}
+            onClick={() => {
+              document.location.assign('/#contact');
+            }}
           >
             {translate.tryTranslate('Установить контакт')}
           </Button>

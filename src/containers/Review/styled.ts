@@ -16,9 +16,6 @@ export const ReviewContainer = styled(LayoutContainer)`
     &__item {
     }
     &__list {
-      & .react-multi-carousel-dot-list {
-        bottom: -40px;
-      }
     }
   }
   & .review {
@@ -63,5 +60,8 @@ export const ReviewContainer = styled(LayoutContainer)`
       font-weight: 400;
       line-height: 20px; /* 100% */
     }
+  }
+  & .react-multi-carousel-dot-list {
+    gap: 12px;
   }
 `;

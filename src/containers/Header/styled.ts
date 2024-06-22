@@ -8,7 +8,7 @@ export const HeaderContainer = styled.header<{ isScrolled: boolean }>`
   background: #1c2727;
   transition: padding 0.5s 0.2s;
 
-  z-index: 10000;
+  z-index: 999;
 
   & .header {
     &__logo-container {
