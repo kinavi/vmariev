@@ -10,7 +10,6 @@ export type EditModePropsType = {
 
 export type ViewModePropsType = {
   onEditTask(task: Task): void;
-  onStart(): void;
   onClick(): void;
   task: Task;
   isReadonly?: boolean;

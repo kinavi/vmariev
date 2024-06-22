@@ -12,6 +12,7 @@ export const NavigationBarContainer = styled.div`
       display: flex;
       flex-direction: column;
       gap: 20px;
+      z-index: 100;
       @media only screen and (max-width: 756px) {
         top: auto;
         bottom: 0;

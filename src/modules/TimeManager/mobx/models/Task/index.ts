@@ -3,6 +3,7 @@ import { TaskDataType } from '../../../../../api/ApiService/domains/TimeManager/
 import { Track } from '../Track';
 import { ApiService } from '../../../../../api/ApiService';
 import { Status } from '../../../../../mobx/helpers/Status';
+import { Calendar } from '../Calendar';
 
 export class Task {
   status: Status;
@@ -19,31 +20,50 @@ export class Task {
 
   description;
 
-  tracks;
+  currentTrack;
 
   isReadonlyMode = true;
 
   limit: number = 2700000; // ms
 
+  calendar: Calendar;
+
+  initialTime;
+
   constructor(initialData: TaskDataType, public api: ApiService) {
-    const { id, name, userId, createdAt, description, tracks, updatedAt } =
-      initialData;
+    const {
+      id,
+      name,
+      userId,
+      createdAt,
+      description,
+      updatedAt,
+      currentTrack,
+      totalTime,
+    } = initialData;
     this.status = new Status();
     this.id = id;
     this.name = name;
     this.userId = userId;
     this.description = description;
-    this.tracks = tracks?.map((item) => new Track(item, this.api)) || [];
+    this.currentTrack = currentTrack ? new Track(currentTrack, this.api) : null;
     this.createdAt = createdAt;
     this.updatedAt = updatedAt;
-
+    this.calendar = new Calendar(this.id, this.api);
+    this.initialTime = totalTime / 1000;
     makeAutoObservable(this);
   }
 
+  get activeTrack() {
+    return this.currentTrack;
+  }
+
   get totalTime() {
-    return this.tracks.reduce<number>((acc, item) => {
-      return +acc + item.deltaSeconds;
-    }, 0);
+    return this.initialTime;
+  }
+
+  get playedTrack() {
+    return this.currentTrack;
   }
 
   updateName = (name: string) => {
@@ -61,9 +81,23 @@ export class Task {
     runInAction(() => {
       if (result) {
         const newTrack = new Track(result, this.api);
-        this.tracks.push(newTrack);
+        this.currentTrack = newTrack;
       }
     });
     this.status.updateStatus('ready');
+  };
+
+  onStopTrack = async () => {
+    if (!this.currentTrack) {
+      return;
+    }
+    await this.currentTrack.onStop();
+    const deltaTimeSeconds = this.currentTrack.getDeltaSeconds();
+    if (deltaTimeSeconds >= this.currentTrack.limitSeconds) {
+      this.initialTime += this.currentTrack.limitSeconds;
+    } else {
+      this.initialTime += deltaTimeSeconds;
+    }
+    this.currentTrack = null;
   };
 }

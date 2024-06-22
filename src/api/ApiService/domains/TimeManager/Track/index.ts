@@ -1,6 +1,8 @@
 import { ApiController } from '../../../../ApiController';
 import { ENDPOINTS } from '../../../../endpoints';
 import {
+  GetTracksQueryType,
+  GetTracksresponseType,
   StartTrack200ResponseType,
   StartTrack240ResponseType,
   StartTrackBodyType,
@@ -49,6 +51,21 @@ export class Track {
     } catch (error) {
       console.error(error);
       return null;
+    }
+  };
+
+  get = async (query: GetTracksQueryType) => {
+    try {
+      const { data } = await this.controller.get<GetTracksresponseType>(
+        ENDPOINTS['time-manager'].track.get(query)
+      );
+      if (data.status === 'ok') {
+        return data.data || [];
+      }
+      return [];
+    } catch (error) {
+      console.error(error);
+      return [];
     }
   };
 }

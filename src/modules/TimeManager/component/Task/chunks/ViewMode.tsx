@@ -11,9 +11,15 @@ import { Icon } from '../../../../../ui/components/Icon';
 
 export const ViewMode = observer((props: ViewModePropsType) => {
   const {
-    onStart,
     onClick,
-    task: { name, toggleIsreadonly, totalTime },
+    task: {
+      name,
+      toggleIsreadonly,
+      totalTime,
+      playedTrack,
+      onStartTrack,
+      onStopTrack,
+    },
   } = props;
 
   const handleEditClick = () => {
@@ -53,10 +59,10 @@ export const ViewMode = observer((props: ViewModePropsType) => {
       <Button
         mix="task__button task__right-button"
         isHidden={hasActiveTrack}
-        onClick={onStart}
+        onClick={playedTrack ? onStopTrack : onStartTrack}
       >
         <Icon
-          type="Play"
+          type={playedTrack ? 'Stop' : 'Play'}
           color="white"
           size="16px"
         />

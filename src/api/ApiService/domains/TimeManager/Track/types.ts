@@ -11,4 +11,7 @@ export type StopTrack240ResponseType = paths['/api/manager/time/tracks/stop']['p
 
 export type StoptTrackBodyType = paths['/api/manager/time/tracks/stop']['put']['requestBody']['content']['application/json']
 
+export type GetTracksQueryType = paths['/api/manager/time/tracks/']['get']['parameters']['query']
+export type GetTracksresponseType = paths['/api/manager/time/tracks/']['get']['responses']['200']['content']['application/json']
+
 export type TrackDataType =StartTrack200ResponseType['data']

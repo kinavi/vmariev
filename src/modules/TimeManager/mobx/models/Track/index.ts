@@ -26,18 +26,18 @@ export class Track {
     makeAutoObservable(this);
   }
 
-  get deltaSeconds() {
+  get limitSeconds() {
+    return this.limit / 1000;
+  }
+
+  getDeltaSeconds = () => {
     const delta =
       moment(this.dateStop || undefined).diff(moment(this.dateStart), 's') || 0;
     if (delta > this.limitSeconds) {
       return this.limitSeconds;
     }
     return delta;
-  }
-
-  get limitSeconds() {
-    return this.limit / 1000;
-  }
+  };
 
   onStop = async () => {
     this.status.updateStatus('loading');

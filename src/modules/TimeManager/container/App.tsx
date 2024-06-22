@@ -2,9 +2,9 @@ import React from 'react';
 import { CreateTask } from '../component/CreateTask';
 import { Clock } from '../component/Clock';
 import { Task } from '../component/Task';
-import { Loader } from '../component/UI/Loader';
 import { observer } from 'mobx-react-lite';
 import { useTimeManagerStore } from '../mobx';
+import { Loader } from '../../../ui/components/Loader';
 
 const App = observer(() => {
   const {
@@ -31,7 +31,6 @@ const App = observer(() => {
                 task={task}
                 mix="app__task"
                 key={task.id}
-                onStart={task.onStartTrack}
                 onEditTask={() => {
                   console.log('onChange');
                 }}

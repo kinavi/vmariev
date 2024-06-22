@@ -14,6 +14,10 @@ export const ENDPOINTS = {
   },
   'time-manager': {
     track: {
+      get: <T>(query: T) =>
+        `/api/manager/time/tracks/${stringify(query, {
+          addQueryPrefix: true,
+        })}`,
       start: '/api/manager/time/tracks/start',
       stop: '/api/manager/time/tracks/stop',
     },

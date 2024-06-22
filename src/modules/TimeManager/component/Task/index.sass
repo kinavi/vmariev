@@ -1,4 +1,8 @@
 .task
+  &__wrapper
+    display: flex
+    flex-direction: column
+    gap: 16px
   &__container
     position: relative
     display: flex
@@ -14,7 +18,7 @@
     &:hover
       background: $layout-hover-color
     &_view
-      margin-bottom: 10px
+      margin-bottom: 12px
       z-index: 1
       &:last-of-type
         margin-bottom: 0

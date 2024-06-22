@@ -3,801 +3,1314 @@
  * Do not make direct changes to the file.
  */
 
-
 export interface paths {
-  "/api/offers/create": {
-    post: {
-      requestBody: {
-        content: {
-          "application/json": {
-            email: string;
-          };
+    "/api/offers/create": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
         };
-      };
-      responses: {
-        /** @description Default Response */
-        200: {
-          content: {
-            "application/json": {
-              /** @enum {string} */
-              status: "ok";
+        get?: never;
+        put?: never;
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
             };
-          };
-        };
-        /** @description Default Response */
-        240: {
-          content: {
-            "application/json": {
-              /** @enum {string} */
-              status: "error";
-              field?: string;
-              message: string;
+            requestBody: {
+                content: {
+                    "application/json": {
+                        email: string;
+                    };
+                };
             };
-          };
+            responses: {
+                /** @description Default Response */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status: "ok";
+                        };
+                    };
+                };
+                /** @description Default Response */
+                240: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status: "error";
+                            field?: string;
+                            message: string;
+                        };
+                    };
+                };
+            };
         };
-      };
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
     };
-  };
-  "/api/offers/confirm": {
-    put: {
-      requestBody: {
-        content: {
-          "application/json": {
-            code: number;
-            email: string;
-          };
+    "/api/offers/confirm": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
         };
-      };
-      responses: {
-        /** @description Default Response */
-        200: {
-          content: {
-            "application/json": {
-              /** @enum {string} */
-              status: "ok";
+        get?: never;
+        put: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
             };
-          };
-        };
-        /** @description Default Response */
-        240: {
-          content: {
-            "application/json": {
-              /** @enum {string} */
-              status: "error";
-              field?: string;
-              message: string;
+            requestBody: {
+                content: {
+                    "application/json": {
+                        code: number;
+                        email: string;
+                    };
+                };
             };
-          };
+            responses: {
+                /** @description Default Response */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status: "ok";
+                        };
+                    };
+                };
+                /** @description Default Response */
+                240: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status: "error";
+                            field?: string;
+                            message: string;
+                        };
+                    };
+                };
+            };
         };
-      };
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
     };
-  };
-  "/api/auth/signUp": {
-    post: {
-      requestBody: {
-        content: {
-          "application/json": {
-            password: string;
-            email: string;
-            code: number;
-          };
+    "/api/auth/signUp": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
         };
-      };
-      responses: {
-        /** @description Default Response */
-        200: {
-          content: {
-            "application/json": {
-              /** @enum {string} */
-              status: "ok";
-              data: {
-                access_token: string;
-                refresh_token: string;
-                user: components["schemas"]["def-0"];
-              };
+        get?: never;
+        put?: never;
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
             };
-          };
-        };
-        /** @description Default Response */
-        250: {
-          content: {
-            "application/json": {
-              /** @enum {string} */
-              status: "error";
-              field?: string;
-              message: string;
+            requestBody: {
+                content: {
+                    "application/json": {
+                        password: string;
+                        email: string;
+                        code: number;
+                    };
+                };
             };
-          };
+            responses: {
+                /** @description Default Response */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status: "ok";
+                            data: {
+                                access_token: string;
+                                refresh_token: string;
+                                user: components["schemas"]["def-0"];
+                            };
+                        };
+                    };
+                };
+                /** @description Default Response */
+                250: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status: "error";
+                            field?: string;
+                            message: string;
+                        };
+                    };
+                };
+            };
         };
-      };
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
     };
-  };
-  "/api/auth/signIn": {
-    post: {
-      requestBody: {
-        content: {
-          "application/json": {
-            password: string;
-            email: string;
-          };
+    "/api/auth/signIn": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
         };
-      };
-      responses: {
-        /** @description Default Response */
-        200: {
-          content: {
-            "application/json": {
-              /** @enum {string} */
-              status: "ok";
-              data: {
-                access_token: string;
-                refresh_token: string;
-                user: components["schemas"]["def-0"];
-              };
+        get?: never;
+        put?: never;
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
             };
-          };
-        };
-        /** @description Default Response */
-        400: {
-          content: {
-            "application/json": {
-              /** @enum {string} */
-              status: "error";
-              field?: string;
-              message: string;
+            requestBody: {
+                content: {
+                    "application/json": {
+                        password: string;
+                        email: string;
+                    };
+                };
             };
-          };
+            responses: {
+                /** @description Default Response */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status: "ok";
+                            data: {
+                                access_token: string;
+                                refresh_token: string;
+                                user: components["schemas"]["def-0"];
+                            };
+                        };
+                    };
+                };
+                /** @description Default Response */
+                400: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status: "error";
+                            field?: string;
+                            message: string;
+                        };
+                    };
+                };
+            };
         };
-      };
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
     };
-  };
-  "/api/auth/refreshToken": {
-    post: {
-      requestBody: {
-        content: {
-          "application/json": {
-            refresh_token: string;
-            email: string;
-          };
+    "/api/auth/refreshToken": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
         };
-      };
-      responses: {
-        /** @description Default Response */
-        200: {
-          content: {
-            "application/json": {
-              /** @enum {string} */
-              status: "ok" | "error";
-              data: {
-                access_token: string;
-                refresh_token: string;
-                user: components["schemas"]["def-0"];
-              };
+        get?: never;
+        put?: never;
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
             };
-          };
-        };
-        /** @description Default Response */
-        400: {
-          content: {
-            "application/json": {
-              /** @enum {string} */
-              status: "ok" | "error";
-              field?: string;
-              message: string;
+            requestBody: {
+                content: {
+                    "application/json": {
+                        refresh_token: string;
+                        email: string;
+                    };
+                };
             };
-          };
+            responses: {
+                /** @description Default Response */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status: "ok" | "error";
+                            data: {
+                                access_token: string;
+                                refresh_token: string;
+                                user: components["schemas"]["def-0"];
+                            };
+                        };
+                    };
+                };
+                /** @description Default Response */
+                400: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status: "ok" | "error";
+                            field?: string;
+                            message: string;
+                        };
+                    };
+                };
+            };
         };
-      };
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
     };
-  };
-  "/api/admin/reviews/": {
-    get: {
-      responses: {
-        /** @description Default Response */
-        200: {
-          content: {
-            "application/json": {
-              /** @enum {string} */
-              status?: "ok" | "error";
-              data?: components["schemas"]["def-2"][];
-            };
-          };
+    "/api/admin/reviews/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
         };
-      };
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description Default Response */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status?: "ok" | "error";
+                            data?: components["schemas"]["def-2"][];
+                        };
+                    };
+                };
+            };
+        };
+        put: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody: {
+                content: {
+                    "application/json": {
+                        id: number;
+                        userId?: number;
+                        text: string;
+                        login?: string;
+                        orderId?: number;
+                        isActive?: boolean;
+                        subjectId: number;
+                    };
+                };
+            };
+            responses: {
+                /** @description Default Response */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status: "ok" | "error";
+                            data?: components["schemas"]["def-2"];
+                        };
+                    };
+                };
+            };
+        };
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody: {
+                content: {
+                    "application/json": {
+                        userId?: number;
+                        text: string;
+                        login?: string;
+                        orderId?: number;
+                        isActive?: boolean;
+                    };
+                };
+            };
+            responses: {
+                /** @description Default Response */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status?: "ok" | "error";
+                            data?: components["schemas"]["def-2"];
+                        };
+                    };
+                };
+            };
+        };
+        delete: {
+            parameters: {
+                query: {
+                    id: number;
+                };
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description Default Response */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status?: "ok" | "error";
+                        };
+                    };
+                };
+            };
+        };
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
     };
-    put: {
-      requestBody: {
-        content: {
-          "application/json": {
-            id: number;
-            userId?: number;
-            text: string;
-            login?: string;
-            orderId?: number;
-            isActive?: boolean;
-            subjectId: number;
-          };
+    "/api/admin/reviews/{id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
         };
-      };
-      responses: {
-        /** @description Default Response */
-        200: {
-          content: {
-            "application/json": {
-              /** @enum {string} */
-              status: "ok" | "error";
-              data?: components["schemas"]["def-2"];
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    id: number;
+                };
+                cookie?: never;
             };
-          };
+            requestBody?: never;
+            responses: {
+                /** @description Default Response */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status?: "ok" | "error";
+                            data?: components["schemas"]["def-2"];
+                        };
+                    };
+                };
+            };
         };
-      };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
     };
-    post: {
-      requestBody: {
-        content: {
-          "application/json": {
-            userId?: number;
-            text: string;
-            login?: string;
-            orderId?: number;
-            isActive?: boolean;
-          };
+    "/api/admin/files/createPublic": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
         };
-      };
-      responses: {
-        /** @description Default Response */
-        200: {
-          content: {
-            "application/json": {
-              /** @enum {string} */
-              status?: "ok" | "error";
-              data?: components["schemas"]["def-2"];
+        get?: never;
+        put?: never;
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
             };
-          };
+            requestBody?: never;
+            responses: {
+                /** @description Default Response */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status?: "ok" | "error";
+                            data?: components["schemas"]["def-1"];
+                        };
+                    };
+                };
+            };
         };
-      };
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
     };
-    delete: {
-      parameters: {
-        query: {
-          id: number;
+    "/api/manager/time/tasks/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
         };
-      };
-      responses: {
-        /** @description Default Response */
-        200: {
-          content: {
-            "application/json": {
-              /** @enum {string} */
-              status?: "ok" | "error";
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
             };
-          };
+            requestBody?: never;
+            responses: {
+                /** @description Default Response */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status: "ok";
+                            data: components["schemas"]["def-5"][];
+                        };
+                    };
+                };
+                /** @description Default Response */
+                240: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status: "error";
+                            field?: string;
+                            message: string;
+                        };
+                    };
+                };
+            };
         };
-      };
+        put: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody: {
+                content: {
+                    "application/json": {
+                        id: number;
+                        name: string;
+                        description?: string;
+                    };
+                };
+            };
+            responses: {
+                /** @description Default Response */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status?: "ok";
+                            data?: components["schemas"]["def-5"];
+                        };
+                    };
+                };
+                /** @description Default Response */
+                240: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status: "error";
+                            field?: string;
+                            message: string;
+                        };
+                    };
+                };
+            };
+        };
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody: {
+                content: {
+                    "application/json": {
+                        name: string;
+                        description?: string;
+                    };
+                };
+            };
+            responses: {
+                /** @description Default Response */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status?: "ok";
+                            data?: components["schemas"]["def-5"];
+                        };
+                    };
+                };
+                /** @description Default Response */
+                240: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status: "error";
+                            field?: string;
+                            message: string;
+                        };
+                    };
+                };
+            };
+        };
+        delete: {
+            parameters: {
+                query: {
+                    id: number;
+                };
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description Default Response */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status?: "ok";
+                        };
+                    };
+                };
+                /** @description Default Response */
+                240: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status: "error";
+                            field?: string;
+                            message?: string;
+                        };
+                    };
+                };
+            };
+        };
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
     };
-  };
-  "/api/admin/reviews/{id}": {
-    get: {
-      parameters: {
-        path: {
-          id: number;
+    "/api/manager/time/tasks/{id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
         };
-      };
-      responses: {
-        /** @description Default Response */
-        200: {
-          content: {
-            "application/json": {
-              /** @enum {string} */
-              status?: "ok" | "error";
-              data?: components["schemas"]["def-2"];
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    id: number;
+                };
+                cookie?: never;
             };
-          };
+            requestBody?: never;
+            responses: {
+                /** @description Default Response */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status?: "ok";
+                            data?: components["schemas"]["def-5"];
+                        };
+                    };
+                };
+                /** @description Default Response */
+                240: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status: "error";
+                            field?: string;
+                            message: string;
+                        };
+                    };
+                };
+            };
         };
-      };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
     };
-  };
-  "/api/admin/files/createPublic": {
-    post: {
-      responses: {
-        /** @description Default Response */
-        200: {
-          content: {
-            "application/json": {
-              /** @enum {string} */
-              status?: "ok" | "error";
-              data?: components["schemas"]["def-1"];
-            };
-          };
+    "/api/manager/time/tracks/start": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
         };
-      };
+        get?: never;
+        put?: never;
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody: {
+                content: {
+                    "application/json": {
+                        taskId: number;
+                        limit: number;
+                    };
+                };
+            };
+            responses: {
+                /** @description Default Response */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status: "ok";
+                            data: components["schemas"]["def-6"];
+                        };
+                    };
+                };
+                /** @description Default Response */
+                240: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status: "error";
+                            field?: string;
+                            message: string;
+                        };
+                    };
+                };
+            };
+        };
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
     };
-  };
-  "/api/manager/time/tasks/": {
-    get: {
-      responses: {
-        /** @description Default Response */
-        200: {
-          content: {
-            "application/json": {
-              /** @enum {string} */
-              status: "ok";
-              data: components["schemas"]["def-5"][];
-            };
-          };
+    "/api/manager/time/tracks/stop": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
         };
-        /** @description Default Response */
-        240: {
-          content: {
-            "application/json": {
-              /** @enum {string} */
-              status: "error";
-              field?: string;
-              message: string;
+        get?: never;
+        put: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
             };
-          };
+            requestBody: {
+                content: {
+                    "application/json": {
+                        id: number;
+                    };
+                };
+            };
+            responses: {
+                /** @description Default Response */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status: "ok";
+                            data: components["schemas"]["def-6"];
+                        };
+                    };
+                };
+                /** @description Default Response */
+                240: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status: "error";
+                            field?: string;
+                            message: string;
+                        };
+                    };
+                };
+            };
         };
-      };
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
     };
-    put: {
-      requestBody: {
-        content: {
-          "application/json": {
-            id: number;
-            name: string;
-            description?: string;
-          };
+    "/api/manager/time/tracks/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
         };
-      };
-      responses: {
-        /** @description Default Response */
-        200: {
-          content: {
-            "application/json": {
-              /** @enum {string} */
-              status?: "ok";
-              data?: components["schemas"]["def-5"];
+        get: {
+            parameters: {
+                query: {
+                    taskId: number;
+                    startData?: string;
+                    endData?: string;
+                };
+                header?: never;
+                path?: never;
+                cookie?: never;
             };
-          };
-        };
-        /** @description Default Response */
-        240: {
-          content: {
-            "application/json": {
-              /** @enum {string} */
-              status: "error";
-              field?: string;
-              message: string;
+            requestBody?: never;
+            responses: {
+                /** @description Default Response */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status?: "ok";
+                            data?: components["schemas"]["def-6"][];
+                        };
+                    };
+                };
             };
-          };
         };
-      };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
     };
-    post: {
-      requestBody: {
-        content: {
-          "application/json": {
-            name: string;
-            description?: string;
-          };
+    "/api/users/{id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
         };
-      };
-      responses: {
-        /** @description Default Response */
-        200: {
-          content: {
-            "application/json": {
-              /** @enum {string} */
-              status?: "ok";
-              data?: components["schemas"]["def-5"];
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    id: number;
+                };
+                cookie?: never;
             };
-          };
-        };
-        /** @description Default Response */
-        240: {
-          content: {
-            "application/json": {
-              /** @enum {string} */
-              status: "error";
-              field?: string;
-              message: string;
+            requestBody?: never;
+            responses: {
+                /** @description Default Response */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status?: "ok" | "error";
+                            data?: components["schemas"]["def-0"];
+                        };
+                    };
+                };
             };
-          };
         };
-      };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
     };
-    delete: {
-      parameters: {
-        query: {
-          id: number;
+    "/api/files/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
         };
-      };
-      responses: {
-        /** @description Default Response */
-        200: {
-          content: {
-            "application/json": {
-              /** @enum {string} */
-              status?: "ok";
+        get: {
+            parameters: {
+                query: {
+                    id: number;
+                };
+                header?: never;
+                path?: never;
+                cookie?: never;
             };
-          };
-        };
-        /** @description Default Response */
-        240: {
-          content: {
-            "application/json": {
-              /** @enum {string} */
-              status: "error";
-              field?: string;
-              message?: string;
+            requestBody?: never;
+            responses: {
+                /** @description Default Response */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": string;
+                    };
+                };
+                /** @description Default Response */
+                404: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            status?: string;
+                        };
+                    };
+                };
             };
-          };
         };
-      };
+        put?: never;
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description Default Response */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status?: "ok" | "error";
+                            data?: components["schemas"]["def-1"];
+                        };
+                    };
+                };
+                /** @description Default Response */
+                404: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            status?: string;
+                        };
+                    };
+                };
+            };
+        };
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
     };
-  };
-  "/api/manager/time/tasks/{id}": {
-    get: {
-      parameters: {
-        path: {
-          id: number;
+    "/api/files/fileInfo": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
         };
-      };
-      responses: {
-        /** @description Default Response */
-        200: {
-          content: {
-            "application/json": {
-              /** @enum {string} */
-              status?: "ok";
-              data?: components["schemas"]["def-5"];
+        get: {
+            parameters: {
+                query: {
+                    id: number;
+                };
+                header?: never;
+                path?: never;
+                cookie?: never;
             };
-          };
-        };
-        /** @description Default Response */
-        240: {
-          content: {
-            "application/json": {
-              /** @enum {string} */
-              status: "error";
-              field?: string;
-              message: string;
+            requestBody?: never;
+            responses: {
+                /** @description Default Response */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status?: "ok" | "error";
+                            data?: components["schemas"]["def-1"];
+                        };
+                    };
+                };
+                /** @description Default Response */
+                404: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            status?: string;
+                        };
+                    };
+                };
             };
-          };
         };
-      };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
     };
-  };
-  "/api/manager/time/tracks/start": {
-    post: {
-      requestBody: {
-        content: {
-          "application/json": {
-            taskId: number;
-            limit: number;
-          };
+    "/api/orders/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
         };
-      };
-      responses: {
-        /** @description Default Response */
-        200: {
-          content: {
-            "application/json": {
-              /** @enum {string} */
-              status: "ok";
-              data: components["schemas"]["def-6"];
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
             };
-          };
-        };
-        /** @description Default Response */
-        240: {
-          content: {
-            "application/json": {
-              /** @enum {string} */
-              status: "error";
-              field?: string;
-              message: string;
+            requestBody?: never;
+            responses: {
+                /** @description Default Response */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status?: "ok" | "error";
+                            data?: components["schemas"]["def-3"][];
+                        };
+                    };
+                };
             };
-          };
         };
-      };
+        put?: never;
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody: {
+                content: {
+                    "application/json": {
+                        topic: string;
+                        deadline?: string;
+                        discription?: string;
+                        price?: number;
+                        filesIds?: number[];
+                    };
+                };
+            };
+            responses: {
+                /** @description Default Response */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status: "ok" | "error";
+                            data?: components["schemas"]["def-3"];
+                        };
+                    };
+                };
+                /** @description Default Response */
+                240: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status: "error";
+                            field?: string;
+                            message: string;
+                        };
+                    };
+                };
+            };
+        };
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
     };
-  };
-  "/api/manager/time/tracks/stop": {
-    put: {
-      requestBody: {
-        content: {
-          "application/json": {
-            id: number;
-          };
+    "/api/orders/{id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
         };
-      };
-      responses: {
-        /** @description Default Response */
-        200: {
-          content: {
-            "application/json": {
-              /** @enum {string} */
-              status: "ok";
-              data: components["schemas"]["def-6"];
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    id: number;
+                };
+                cookie?: never;
             };
-          };
-        };
-        /** @description Default Response */
-        240: {
-          content: {
-            "application/json": {
-              /** @enum {string} */
-              status: "error";
-              field?: string;
-              message: string;
+            requestBody?: never;
+            responses: {
+                /** @description Default Response */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status: "ok" | "error";
+                            data?: components["schemas"]["def-3"];
+                        };
+                    };
+                };
             };
-          };
         };
-      };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
     };
-  };
-  "/api/users/{id}": {
-    get: {
-      parameters: {
-        path: {
-          id: number;
-        };
-      };
-      responses: {
-        /** @description Default Response */
-        200: {
-          content: {
-            "application/json": {
-              /** @enum {string} */
-              status?: "ok" | "error";
-              data?: components["schemas"]["def-0"];
-            };
-          };
-        };
-      };
-    };
-  };
-  "/api/files/": {
-    get: {
-      parameters: {
-        query: {
-          id: number;
-        };
-      };
-      responses: {
-        /** @description Default Response */
-        200: {
-          content: {
-            "application/json": string;
-          };
-        };
-        /** @description Default Response */
-        404: {
-          content: {
-            "application/json": {
-              status?: string;
-            };
-          };
-        };
-      };
-    };
-    post: {
-      responses: {
-        /** @description Default Response */
-        200: {
-          content: {
-            "application/json": {
-              /** @enum {string} */
-              status?: "ok" | "error";
-              data?: components["schemas"]["def-1"];
-            };
-          };
-        };
-        /** @description Default Response */
-        404: {
-          content: {
-            "application/json": {
-              status?: string;
-            };
-          };
-        };
-      };
-    };
-  };
-  "/api/files/fileInfo": {
-    get: {
-      parameters: {
-        query: {
-          id: number;
-        };
-      };
-      responses: {
-        /** @description Default Response */
-        200: {
-          content: {
-            "application/json": {
-              /** @enum {string} */
-              status?: "ok" | "error";
-              data?: components["schemas"]["def-1"];
-            };
-          };
-        };
-        /** @description Default Response */
-        404: {
-          content: {
-            "application/json": {
-              status?: string;
-            };
-          };
-        };
-      };
-    };
-  };
-  "/api/orders/": {
-    get: {
-      responses: {
-        /** @description Default Response */
-        200: {
-          content: {
-            "application/json": {
-              /** @enum {string} */
-              status?: "ok" | "error";
-              data?: components["schemas"]["def-3"][];
-            };
-          };
-        };
-      };
-    };
-    post: {
-      requestBody: {
-        content: {
-          "application/json": {
-            topic: string;
-            deadline?: string;
-            discription?: string;
-            price?: number;
-            filesIds?: number[];
-          };
-        };
-      };
-      responses: {
-        /** @description Default Response */
-        200: {
-          content: {
-            "application/json": {
-              /** @enum {string} */
-              status: "ok" | "error";
-              data?: components["schemas"]["def-3"];
-            };
-          };
-        };
-        /** @description Default Response */
-        240: {
-          content: {
-            "application/json": {
-              /** @enum {string} */
-              status: "error";
-              field?: string;
-              message: string;
-            };
-          };
-        };
-      };
-    };
-  };
-  "/api/orders/{id}": {
-    get: {
-      parameters: {
-        path: {
-          id: number;
-        };
-      };
-      responses: {
-        /** @description Default Response */
-        200: {
-          content: {
-            "application/json": {
-              /** @enum {string} */
-              status: "ok" | "error";
-              data?: components["schemas"]["def-3"];
-            };
-          };
-        };
-      };
-    };
-  };
 }
-
 export type webhooks = Record<string, never>;
-
 export interface components {
-  schemas: {
-    /** User */
-    "def-0": {
-      id: number;
-      email: string;
-      login: string;
-      phone: string;
-      role: string;
-      createdAt?: string;
-      updatedAt?: string;
+    schemas: {
+        /** User */
+        "def-0": {
+            id: number;
+            email: string;
+            login: string;
+            phone: string;
+            role: string;
+            createdAt?: string;
+            updatedAt?: string;
+        };
+        /** File */
+        "def-1": {
+            id: number;
+            isPublic?: boolean;
+            fieldname: string;
+            originalname: string;
+            encoding: string;
+            destination: string;
+            filename: string;
+            mimetype: string;
+            path: string;
+            size: number;
+            createdAt?: string;
+            updatedAt?: string;
+            order?: components["schemas"]["def-3"] & Record<string, never>;
+            user?: components["schemas"]["def-0"] & Record<string, never>;
+        };
+        /** Review */
+        "def-2": {
+            id: number;
+            text: string;
+            user?: components["schemas"]["def-0"] & Record<string, never>;
+            login?: string;
+            isActive?: boolean;
+            createdAt?: string;
+        };
+        /** Order */
+        "def-3": {
+            id: number;
+            topic: string;
+            discription: string;
+            deadline: string;
+            price: number;
+            /** @enum {string} */
+            status: "initial" | "ready-for-work" | "process" | "warranty" | "rework" | "done";
+            createdAt: string;
+            updatedAt?: string;
+            customer: components["schemas"]["def-0"];
+            files: components["schemas"]["def-1"][];
+        };
+        /** Offer */
+        "def-4": {
+            id: number;
+            email: string;
+            phone: string;
+            createdAt?: string;
+            updatedAt?: string;
+        };
+        /** Task */
+        "def-5": {
+            id: number;
+            name: string;
+            description?: string;
+            userId: number;
+            createdAt?: string;
+            updatedAt?: string;
+            currentTrack?: components["schemas"]["def-6"];
+            totalTime: number;
+        };
+        /** Track */
+        "def-6": {
+            id: number;
+            dateStart: string;
+            dateStop?: string | null;
+            limit: number;
+            deltaTime?: number;
+        };
     };
-    /** File */
-    "def-1": {
-      id: number;
-      isPublic?: boolean;
-      fieldname: string;
-      originalname: string;
-      encoding: string;
-      destination: string;
-      filename: string;
-      mimetype: string;
-      path: string;
-      size: number;
-      createdAt?: string;
-      updatedAt?: string;
-      order?: components["schemas"]["def-3"] & (Record<string, unknown> | null);
-      user?: components["schemas"]["def-0"] & (Record<string, unknown> | null);
-    };
-    /** Review */
-    "def-2": {
-      id: number;
-      text: string;
-      user?: components["schemas"]["def-0"] & (Record<string, unknown> | null);
-      login?: string;
-      isActive?: boolean;
-      createdAt?: string;
-    };
-    /** Order */
-    "def-3": {
-      id: number;
-      topic: string;
-      discription: string;
-      deadline: string;
-      price: number;
-      /** @enum {string} */
-      status: "initial" | "ready-for-work" | "process" | "warranty" | "rework" | "done";
-      createdAt: string;
-      updatedAt?: string;
-      customer: components["schemas"]["def-0"];
-      files: components["schemas"]["def-1"][];
-    };
-    /** Offer */
-    "def-4": {
-      id: number;
-      email: string;
-      phone: string;
-      createdAt?: string;
-      updatedAt?: string;
-    };
-    /** Task */
-    "def-5": {
-      id: number;
-      name: string;
-      description?: string;
-      userId: number;
-      createdAt?: string;
-      updatedAt?: string;
-      tracks?: components["schemas"]["def-6"][];
-    };
-    /** Track */
-    "def-6": {
-      id: number;
-      dateStart: string;
-      dateStop?: string | null;
-      limit: number;
-    };
-  };
-  responses: never;
-  parameters: never;
-  requestBodies: never;
-  headers: never;
-  pathItems: never;
+    responses: never;
+    parameters: never;
+    requestBodies: never;
+    headers: never;
+    pathItems: never;
 }
-
 export type $defs = Record<string, never>;
-
-export type external = Record<string, never>;
-
 export type operations = Record<string, never>;
