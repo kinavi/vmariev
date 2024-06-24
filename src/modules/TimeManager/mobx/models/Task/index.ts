@@ -98,6 +98,7 @@ export class Task {
     } else {
       this.initialTime += deltaTimeSeconds;
     }
+    this.calendar.tracks.push(this.currentTrack);
     this.currentTrack = null;
   };
 }
