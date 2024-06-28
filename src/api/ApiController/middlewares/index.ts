@@ -16,12 +16,9 @@ export const middleware = (controller: AxiosInstance) => {
   controller.interceptors.response.use(
     (response) => response,
     async (error) => {
-      if (error.response.status === 403) {
-        token.clear();
-        window.location.assign(NAVIGATION.signIn);
-      }
       if (error.response && error.response.status) {
         switch (error.response.status) {
+          case 403:
           case 401: {
             token.removeAccessToken();
             const accessToken = await token.tryRefresh();

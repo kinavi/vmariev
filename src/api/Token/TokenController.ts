@@ -63,6 +63,7 @@ export class TokenController {
     );
 
     if (!result) {
+      this.clear();
       return null;
     }
 
