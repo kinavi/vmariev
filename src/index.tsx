@@ -9,6 +9,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import './index.css';
 import './loader.css';
+import { translate } from './translator';
 
 const darkTheme = createTheme({
   palette: {
@@ -33,7 +34,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   if (container === null) {
     throw new Error('root container did not find');
   }
-  document.title = 'VMariev';
+  document.title = translate.tryTranslate('Профессиональная веб-разработка');
   const root = createRoot(container);
   root.render(
     <React.StrictMode>
