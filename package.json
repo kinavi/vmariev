@@ -1,5 +1,5 @@
 {
-  "proxy": "http://localhost:3003",
+  "proxy": "https://localhost:3003",
   "name": "vmariev",
   "version": "0.1.0",
   "private": true,
@@ -9,6 +9,7 @@
     "@emotion/styled": "^11.11.5",
     "@mui/icons-material": "^5.15.15",
     "@mui/material": "^5.15.15",
+    "@pbe/react-yandex-maps": "^1.2.5",
     "@reduxjs/toolkit": "^2.2.5",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -74,6 +75,7 @@
     "@eslint/js": "^9.0.0",
     "@types/qs": "^6.9.15",
     "@typescript-eslint/eslint-plugin": "^6.4.0",
+    "dotenv": "^16.4.5",
     "eslint": "^8.57.0",
     "eslint-config-standard-with-typescript": "^43.0.1",
     "eslint-plugin-import": "^2.25.2",

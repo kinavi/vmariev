@@ -18,8 +18,12 @@ export const middleware = (controller: AxiosInstance) => {
     async (error) => {
       if (error.response && error.response.status) {
         switch (error.response.status) {
-          case 403:
           case 401: {
+            token.removeAccessToken();
+            window.location.assign(NAVIGATION.signIn);
+            break;
+          }
+          case 440: {
             token.removeAccessToken();
             const accessToken = await token.tryRefresh();
             const config = error?.config;

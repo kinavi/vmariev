@@ -4,4 +4,6 @@ export const NAVIGATION = {
   signUp: '/signUp',
   time: '/time',
   coins: '/coins',
+  obzhorka: '/obzhorka/*',
+  olesia: '/olesia/*'
 };
