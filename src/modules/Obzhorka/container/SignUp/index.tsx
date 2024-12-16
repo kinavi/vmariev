@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { GlobalStyle } from '../SignIn/styled';
 import Logo from '../../assets/logo.png';
 import { translate } from '../../../../translator';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { NAVIGATION } from '../../constants';
 
 import { SignUpContainer } from './styled';
@@ -19,6 +19,7 @@ const Steps = withStep({
 });
 
 export const SignUp = () => {
+  const navigate = useNavigate();
   return (
     <SignUpContainer>
       <GlobalStyle />
@@ -30,14 +31,11 @@ export const SignUp = () => {
       <h1 className="sign-up__title">
         {translate.tryTranslate('Регистрация')}
       </h1>
-      {/* <p className="sign-up__description">
-        {translate.tryTranslate(
-          'Укажите почту на которую будет отправленная ссылка для регистрации'
-        )}
-      </p> */}
       <Steps
         steps={['Email', 'Code', 'Password']}
-        onSubmit={() => {}}
+        onSubmit={() => {
+          navigate(NAVIGATION.main);
+        }}
       />
       <div className="sign-up__footer">
         <div>

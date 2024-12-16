@@ -16,8 +16,10 @@ import { ReactComponent as linkedin } from './assets/linkedin.svg';
 import { ReactComponent as chevronUp } from './assets/chevron-up.svg';
 
 import * as timeIcons from './assets/time-manager';
+import * as obzhorkaIcons from './assets/obzhorka';
 
 export const ICONS = {
+  ...obzhorkaIcons,
   chevronUp,
   linkedin,
   github,

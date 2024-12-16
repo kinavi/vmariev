@@ -121,6 +121,61 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/offers/check": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: {
+            parameters: {
+                query: {
+                    email: string;
+                    code: number;
+                };
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description Default Response */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status: "ok";
+                        };
+                    };
+                };
+                /** @description Default Response */
+                240: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status: "error";
+                            field?: string;
+                            message: string;
+                        };
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/auth/signUp": {
         parameters: {
             query?: never;
@@ -922,6 +977,388 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/glutton/foods/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description Default Response */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status: "ok";
+                            data: components["schemas"]["def-7"][];
+                        };
+                    };
+                };
+                /** @description Default Response */
+                240: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status: "error";
+                            field?: string;
+                            message: string;
+                        };
+                    };
+                };
+            };
+        };
+        put?: never;
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody: {
+                content: {
+                    "application/json": {
+                        title: string;
+                        proteins: number;
+                        fats: number;
+                        carbohydrates: number;
+                    };
+                };
+            };
+            responses: {
+                /** @description Default Response */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status: "ok";
+                            data: components["schemas"]["def-7"];
+                        };
+                    };
+                };
+                /** @description Default Response */
+                240: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status: "error";
+                            field?: string;
+                            message: string;
+                        };
+                    };
+                };
+            };
+        };
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/glutton/foods/{id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    id: string;
+                };
+                cookie?: never;
+            };
+            requestBody: {
+                content: {
+                    "application/json": {
+                        title: string;
+                        proteins: number;
+                        fats: number;
+                        carbohydrates: number;
+                    };
+                };
+            };
+            responses: {
+                /** @description Default Response */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status: "ok";
+                            data: components["schemas"]["def-7"];
+                        };
+                    };
+                };
+                /** @description Default Response */
+                240: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status: "error";
+                            field?: string;
+                            message: string;
+                        };
+                    };
+                };
+            };
+        };
+        post?: never;
+        delete: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    id: string;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description Default Response */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status: "ok";
+                        };
+                    };
+                };
+                /** @description Default Response */
+                240: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status: "error";
+                            field?: string;
+                            message: string;
+                        };
+                    };
+                };
+            };
+        };
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/glutton/userProgram/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody: {
+                content: {
+                    "application/json": {
+                        /** @enum {string} */
+                        sex: "MALE" | "FEMALE";
+                        age: number;
+                        weight: number;
+                        height: number;
+                        /** @enum {string} */
+                        physicalActivity: "LOW" | "LIGHT" | "MIDDLE" | "HIGH" | "EXTREME";
+                        /** @enum {string} */
+                        goal: "MASS_GAIN" | "NORMAL" | "WEIGHT_LOSS";
+                        ratioCarbohydrates: number;
+                        ratioProteins: number;
+                        ratioFats: number;
+                        isExcludeActivity: boolean;
+                    };
+                };
+            };
+            responses: {
+                /** @description Default Response */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status: "ok";
+                            data: components["schemas"]["def-8"];
+                        };
+                    };
+                };
+                /** @description Default Response */
+                240: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status: "error";
+                            field?: string;
+                            message: string;
+                        };
+                    };
+                };
+            };
+        };
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/glutton/userProgram/user/{userId}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    userId: string;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description Default Response */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status: "ok";
+                            data: components["schemas"]["def-8"];
+                        };
+                    };
+                };
+                /** @description Default Response */
+                240: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status: "error";
+                            field?: string;
+                            message: string;
+                        };
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/glutton/mealEntries/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: {
+            parameters: {
+                query: {
+                    targetDate: string;
+                };
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description Default Response */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status: "ok";
+                            data: components["schemas"]["def-9"][];
+                        };
+                    };
+                };
+                /** @description Default Response */
+                240: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status: "error";
+                            field?: string;
+                            message: string;
+                        };
+                    };
+                };
+            };
+        };
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/users/{id}": {
         parameters: {
             query?: never;
@@ -1294,7 +1731,7 @@ export interface components {
             userId: number;
             createdAt?: string;
             updatedAt?: string;
-            currentTrack?: components["schemas"]["def-6"];
+            currentTrack?: components["schemas"]["def-6"] & Record<string, never>;
             totalTime: number;
         };
         /** Track */
@@ -1304,6 +1741,40 @@ export interface components {
             dateStop?: string | null;
             limit: number;
             deltaTime?: number;
+        };
+        /** Food */
+        "def-7": {
+            id: number;
+            title: string;
+            proteins: number;
+            fats: number;
+            carbohydrates: number;
+        };
+        /** UserProgram */
+        "def-8": {
+            id: number;
+            /** @enum {string} */
+            sex: "MALE" | "FEMALE";
+            age: number;
+            /** @enum {string} */
+            physicalActivity: "LOW" | "LIGHT" | "MIDDLE" | "HIGH" | "EXTREME";
+            /** @enum {string} */
+            goal: "MASS_GAIN" | "NORMAL" | "WEIGHT_LOSS";
+            weight: number;
+            height: number;
+            ratioCarbohydrates: number;
+            ratioProteins: number;
+            ratioFats: number;
+            isExcludeActivity: boolean;
+        };
+        /** MealEntry */
+        "def-9": {
+            id: number;
+            food: components["schemas"]["def-7"];
+            user: components["schemas"]["def-0"];
+            userProgram: components["schemas"]["def-8"];
+            weight: number;
+            createdAt: string;
         };
     };
     responses: never;

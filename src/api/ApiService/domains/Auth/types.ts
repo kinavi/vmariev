@@ -27,5 +27,10 @@ export type ConfirmOfferBodyType =
 
 export type ConfirmOffer200ResponseType =
   paths['/api/offers/confirm']['put']['responses']['200']['content']['application/json'];
-export type ConfirmOffer400ResponseType =
+export type ConfirmOffer240ResponseType =
   paths['/api/offers/confirm']['put']['responses']['240']['content']['application/json'];
+
+export type CheckOffer200ResponseType =
+  paths['/api/offers/check']['get']['responses']['200']['content']['application/json'];
+export type CheckOffer240ResponseType =
+  paths['/api/offers/check']['get']['responses']['240']['content']['application/json'];

@@ -14,6 +14,10 @@ export class AuthController {
 
   codeTimer = DEFAULT_TIME_VALUE;
 
+  snapshotEmail: string = '';
+
+  snapshotCode: string = '';
+
   constructor() {
     makeAutoObservable(this);
   }
@@ -33,28 +37,51 @@ export class AuthController {
     code: number;
     password: string;
   }) => {
-    const result = await apiServise.domains.auth.signUp(values);
-    if (result.status === 'error') {
-      this.error = result;
-      return false;
-    }
-    token.save(result.data);
-    return true;
+    const result = await apiServise.domains.auth.signUp({
+      password: values.password,
+      code: values.code,
+      email: values.email,
+    });
+    runInAction(() => {
+      if (result.status === 'error') {
+        this.error = result;
+      } else {
+        this.snapshotCode = '';
+        this.snapshotEmail = '';
+        token.save(result.data);
+      }
+    });
+    return result.status === 'ok';
   };
 
   createOffer = async (email: string) => {
+    this.snapshotEmail = email;
     const result = await apiServise.domains.auth.createOffer({ email });
     runInAction(() => {
       if (result.status === 'error') {
         this.error = result;
         this.isSendedCode = false;
-        return false;
       }
       this.isSendedCode = true;
       this.codeTimer = DEFAULT_TIME_VALUE;
       this.error = null;
-      return true;
     });
+    return result.status === 'ok';
+  };
+
+  checkCode = async (code: string) => {
+    this.snapshotCode = code;
+    const result = await apiServise.domains.auth.check({
+      email: this.snapshotEmail,
+      code: Number(code),
+    });
+    runInAction(() => {
+      if (result.status === 'error') {
+        this.error = result;
+      }
+      this.error = null;
+    });
+    return result.status === 'ok';
   };
 
   // confirOffer = async (email: string, code: number) => {

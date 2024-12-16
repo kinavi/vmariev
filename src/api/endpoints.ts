@@ -1,4 +1,4 @@
-import { stringify } from 'qs';
+import QueryString, { stringify } from 'qs';
 
 export const ENDPOINTS = {
   auth: {
@@ -7,6 +7,8 @@ export const ENDPOINTS = {
     refreshToken: '/api/auth/refreshToken',
     createOffer: '/api/offers/create',
     confirmOffer: '/api/offers/confirm',
+    checkOffer: <T>(query: T) =>
+      `/api/offers/check${stringify(query, { addQueryPrefix: true })}`,
   },
   offer: {
     create: '/api/offers/create',
@@ -31,6 +33,18 @@ export const ENDPOINTS = {
       edit: '/api/manager/time/tasks',
       getAll: '/api/manager/time/tasks',
       get: (taskId: number) => `/api/manager/time/tasks${taskId}`,
+    },
+  },
+  objorka: {
+    userProgram: {
+      create: '/api/glutton/userProgram',
+      get: (userId: number) => `/api/glutton/userProgram/user/${userId}`,
+    },
+    mealEntries: {
+      get: <T>(query: T) =>
+        `/api/glutton/mealEntries/${stringify(query, {
+          addQueryPrefix: true,
+        })}`,
     },
   },
 };

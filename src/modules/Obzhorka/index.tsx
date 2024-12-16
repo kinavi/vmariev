@@ -11,11 +11,13 @@ import { createTheme, ThemeProvider } from '@mui/material';
 import { createGlobalStyle } from 'styled-components';
 import { SignIn } from './container/SignIn';
 import { SignUp } from './container/SignUp';
-import { Main } from './container/Main/ibndex';
+import { Main } from './container/Main';
 import { token } from '../../api/Token';
 import { GlobalStyle } from './styled';
 import { NAVIGATION } from './constants';
 import { observer } from 'mobx-react-lite';
+import { ObjorkaStateContext } from './mobx';
+import { Store } from './mobx/store';
 
 const theme = createTheme({
   palette: {
@@ -43,29 +45,41 @@ const mainLoader: ActionFunction = () => {
   return null;
 };
 
+const store = new Store();
+
 export const Obzhorka = observer(() => {
-  const hasUserData = token.userData;
+  const currentUser = token.userData;
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <Routes>
-        <Route
-          path="signIn"
-          element={<SignIn />}
-        />
-        <Route
-          path="signUp"
-          element={<SignUp />}
-        />
-        <Route
+    <ObjorkaStateContext.Provider value={store}>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <Routes>
+          <Route
+            path="signIn"
+            element={<SignIn />}
+          />
+          <Route
+            path="signUp"
+            element={<SignUp />}
+          />
+          {/* <Route
           path="welcome"
+
+          
           element={<Welcome />}
-        />
-        <Route
-          path="*"
-          element={hasUserData ? <Main /> : <Welcome />}
-        />
-      </Routes>
-    </ThemeProvider>
+        /> */}
+          <Route
+            path="*"
+            element={
+              currentUser ? (
+                <Main currentUserId={currentUser.id} />
+              ) : (
+                <Welcome />
+              )
+            }
+          />
+        </Routes>
+      </ThemeProvider>
+    </ObjorkaStateContext.Provider>
   );
 });

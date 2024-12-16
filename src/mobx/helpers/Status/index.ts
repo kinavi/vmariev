@@ -14,7 +14,7 @@ export class Status {
   }
 
   get isInitial() {
-    return this.value === 'loading';
+    return this.value === 'initial';
   }
 
   get isLoading() {
