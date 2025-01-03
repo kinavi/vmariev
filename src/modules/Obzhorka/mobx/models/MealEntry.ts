@@ -1,11 +1,15 @@
 import { makeAutoObservable } from 'mobx';
 import { MealEntriesApiDataType } from '../../../../api/ApiService/domains/Objorka/MealEntries/types';
 import { UserProgram } from './UserProgram';
+import { Dish } from './Dish';
+import { Food } from './Food';
 
 export class MealEntry {
   id;
 
   food;
+
+  dish;
 
   user;
 
@@ -15,14 +19,43 @@ export class MealEntry {
 
   userProgram;
 
+  entryType;
+
   constructor(private initialData: MealEntriesApiDataType) {
-    const { food, id, user, weight, createdAt, userProgram } = initialData;
+    const { id, user, weight, createdAt, userProgram } = initialData;
     this.id = id;
-    this.food = food;
+    this.entryType = initialData.entryType;
+    this.food =
+      initialData.entryType === 'food' ? new Food(initialData.food) : null;
+    this.dish =
+      initialData.entryType === 'dish' ? new Dish(initialData.dish) : null;
     this.user = user;
     this.weight = weight;
     this.createdAt = createdAt;
     this.userProgram = new UserProgram(userProgram);
     makeAutoObservable(this);
+  }
+
+  get titel() {
+    if (this.entryType === 'dish') {
+      return this.dish?.title;
+    }
+    return this.food?.title;
+  }
+
+  get totalCalories() {
+    if (this.entryType === 'dish' && this.dish) {
+      return (this.dish.totalСalories / this.dish.totalWeight) * this.weight;
+    }
+    return this.food?.totalCalories || 0;
+  }
+
+  get totalProteinsСalories() {
+    if (this.entryType === 'dish' && this.dish) {
+      return (
+        (this.dish.totalProteinsСalories / this.dish.totalWeight) * this.weight
+      );
+    }
+    return this.food?.totalProteinsСalories || 0;
   }
 }

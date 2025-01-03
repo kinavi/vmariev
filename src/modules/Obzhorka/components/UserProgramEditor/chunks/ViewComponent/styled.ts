@@ -58,9 +58,6 @@ export const ViewComponentContainer = styled.div`
       flex-direction: column;
       gap: 30px;
     }
-    &__column-content {
-      font-size: 22px;
-    }
   }
 `;
 

@@ -3,6 +3,8 @@ import { ApiController } from '../ApiController';
 import { Auth } from './domains/Auth';
 import { Task, Track } from './domains/TimeManager';
 import { MealEntries } from './domains/Objorka/MealEntries';
+import { Foods } from './domains/Objorka/Foods';
+import { Dishes } from './domains/Objorka/Dishes';
 
 export class ApiService {
   controller: ApiController;
@@ -22,6 +24,8 @@ export class ApiService {
       objorka: {
         userProgram: new UserProgram(this.controller),
         mealEntries: new MealEntries(this.controller),
+        foods: new Foods(this.controller),
+        dishes: new Dishes(this.controller),
       },
     };
   }

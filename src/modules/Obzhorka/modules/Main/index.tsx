@@ -9,6 +9,13 @@ import { Profile } from '../Profile';
 import { NAVIGATION } from '../../constants';
 import { Loader } from '../../../TimeManager/component/UI/Loader';
 import { MealEntries } from '../MealEntries';
+import { Favorites } from '../Favorites';
+import { CreateFood } from '../CreateFood';
+import { Food } from '../Food';
+import { CreateMealEntry } from '../CreateMealEntry';
+import { CreateDishes } from '../CreateDishes';
+import { Dish } from '../Dish';
+import { Faq } from '../Faq';
 
 const MainContainer = styled.div`
   display: flex;
@@ -23,6 +30,7 @@ export const Main = observer((props: { currentUserId: number }) => {
     onInitial,
     status: { isLoading, isInitial, isReady },
     setUserProgram,
+    foods,
   } = useObjorkaStore();
   const navigate = useNavigate();
 
@@ -49,12 +57,44 @@ export const Main = observer((props: { currentUserId: number }) => {
       <div style={{ flexGrow: '1' }}>
         <Routes>
           <Route
+            path="/"
+            element={<MealEntries />}
+          />
+          <Route
             path="profile"
             element={<Profile />}
           />
           <Route
+            path="favorites"
+            element={<Favorites />}
+          />
+          <Route
+            path={'dishes/new'}
+            element={<CreateDishes />}
+          />
+          <Route
+            path={'dishes/:foodId'}
+            element={<Dish />}
+          />
+          <Route
+            path={'foods/new'}
+            element={<CreateFood />}
+          />
+          <Route
+            path={'foods/:foodId'}
+            element={<Food />}
+          />
+          <Route
+            path={'createMealEntry'}
+            element={<CreateMealEntry />}
+          />
+          <Route
+            path={'faq'}
+            element={<Faq />}
+          />
+          <Route
             path="*"
-            element={<MealEntries />}
+            element={<div>404</div>}
           />
         </Routes>
       </div>

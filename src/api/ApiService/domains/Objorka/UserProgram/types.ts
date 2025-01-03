@@ -12,4 +12,4 @@ export type CreateUserProgramBodyType =
 export type CreateUserProgram240ResponseType =
   paths['/api/glutton/userProgram/']['post']['responses']['240']['content']['application/json'];
 
-export type UserProgramApiDataType = components['schemas']['def-8'];
+export type UserProgramApiDataType = UserProgram200ResponseType['data'];

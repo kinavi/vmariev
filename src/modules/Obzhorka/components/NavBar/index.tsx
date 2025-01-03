@@ -3,6 +3,9 @@ import { Icon } from '../../../../ui/components/Icon';
 import { NavLink, useMatch } from 'react-router-dom';
 import { NAVIGATION } from '../../constants';
 import classNames from 'classnames';
+import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
+import PersonIcon from '@mui/icons-material/Person';
+import BookmarkIcon from '@mui/icons-material/Bookmark';
 
 const NavBarContainer = styled.div`
   position: sticky;
@@ -42,16 +45,28 @@ export const NavBar = () => {
         />
       </NavLink>
       <NavLink
+        to={NAVIGATION.foods}
+        className={({ isActive }) =>
+          classNames('nav-bar__link', { ['nav-bar__link_active']: isActive })
+        }
+      >
+        <BookmarkIcon sx={{ fontSize: 40, color: '#999999' }} />
+      </NavLink>
+      <NavLink
         to={NAVIGATION.profile}
         className={({ isActive }) =>
           classNames('nav-bar__link', { ['nav-bar__link_active']: isActive })
         }
       >
-        <Icon
-          color="#999999"
-          type="Profile"
-          size="40px"
-        />
+        <PersonIcon sx={{ fontSize: 40, color: '#999999' }} />
+      </NavLink>
+      <NavLink
+        to={NAVIGATION.faq}
+        className={({ isActive }) =>
+          classNames('nav-bar__link', { ['nav-bar__link_active']: isActive })
+        }
+      >
+        <QuestionMarkIcon sx={{ fontSize: 40, color: '#999999' }} />
       </NavLink>
     </NavBarContainer>
   );

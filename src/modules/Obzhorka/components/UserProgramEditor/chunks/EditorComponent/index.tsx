@@ -55,7 +55,6 @@ export const EditorComponent = observer(
           isExcludeActivity: !!program?.isExcludeActivity,
         },
         onSubmit: async (values) => {
-          console.log('values', values);
           await onSubmit({
             age: Number(values.age),
             goal: values.goal,
@@ -74,10 +73,6 @@ export const EditorComponent = observer(
           age: number().required(),
           weight: number().required(),
           height: number().required(),
-
-          // email: string().email(),
-          // website: string().url().nullable(),
-          // createdOn: date().default(() => new Date()),
         }),
       });
     const { max: maxProteins, min: minProteins } =

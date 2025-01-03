@@ -5,6 +5,7 @@ import {
 } from '../../../../api/ApiService/domains/Objorka/UserProgram/types';
 import { getActivityIndex } from '../helpers/getActivityIndex';
 import { PFC_BY_GOAL } from '../../constants';
+import { translate } from '../../../../translator';
 
 // https://primekraft.ru/articles/kak-rasschitat-sutochnuyu-kalorijnost-ratsiona-formulyi-rascheta/?srsltid=AfmBOoqV9n3mwg0fNbhcZxc8DNOCcZ3ug2qWRKs7UqIMDF83NWr25hyx
 // https://clinic-cvetkov.ru/blog/kalkulyator-sutochnoy-normy-kaloriy/#:~:text=%D0%A4%D0%BE%D1%80%D0%BC%D1%83%D0%BB%D0%B0%20%D0%B2%D1%8B%D0%B3%D0%BB%D1%8F%D0%B4%D0%B8%D1%82%20%D1%82%D0%B0%D0%BA%3A,%D0%B2%D0%BE%D0%B7%D1%80%D0%B0%D1%81%D1%82%20%D0%B2%20%D0%B3%D0%BE%D0%B4%D0%B0%D1%85)%20%E2%88%92%20161.
@@ -80,7 +81,41 @@ export class UserProgram {
     return Math.round(result);
   }
 
-  // get proteinsNormPerDay() {
-  //   return PFC_BY_GOAL[this.goal].proteins;
-  // }
+  get caloriesNormPerDayToString() {
+    return [this.caloriesNormPerDay, translate.tryTranslate('ккал')]
+      .join(' ')
+      .trim();
+  }
+
+  get proteinsNormPerDay() {
+    return Math.round((this.ratioProteins / 100) * this.caloriesNormPerDay);
+  }
+
+  get fatsNormPerDay() {
+    return Math.round((this.ratioFats / 100) * this.caloriesNormPerDay);
+  }
+
+  get carbohydratesNormPerDay() {
+    return Math.round(
+      (this.ratioCarbohydrates / 100) * this.caloriesNormPerDay
+    );
+  }
+
+  get proteinsNormPerDayToString() {
+    return [this.proteinsNormPerDay, translate.tryTranslate('ккал')]
+      .join(' ')
+      .trim();
+  }
+
+  get fatsNormPerDayToString() {
+    return [this.fatsNormPerDay, translate.tryTranslate('ккал')]
+      .join(' ')
+      .trim();
+  }
+
+  get carbohydratesNormPerDayToString() {
+    return [this.carbohydratesNormPerDay, translate.tryTranslate('ккал')]
+      .join(' ')
+      .trim();
+  }
 }

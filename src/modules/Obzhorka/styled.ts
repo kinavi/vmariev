@@ -9,6 +9,9 @@ export const GlobalStyle = createGlobalStyle`
 
 export const BodyWrapper = styled.div`
   padding: 32px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 `;
 
 export const HeaderContentWrapper = styled.div`

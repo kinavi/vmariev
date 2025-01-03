@@ -394,7 +394,7 @@ export interface paths {
                         "application/json": {
                             /** @enum {string} */
                             status?: "ok" | "error";
-                            data?: components["schemas"]["def-2"][];
+                            data?: components["schemas"]["def-3"][];
                         };
                     };
                 };
@@ -430,7 +430,7 @@ export interface paths {
                         "application/json": {
                             /** @enum {string} */
                             status: "ok" | "error";
-                            data?: components["schemas"]["def-2"];
+                            data?: components["schemas"]["def-3"];
                         };
                     };
                 };
@@ -464,7 +464,7 @@ export interface paths {
                         "application/json": {
                             /** @enum {string} */
                             status?: "ok" | "error";
-                            data?: components["schemas"]["def-2"];
+                            data?: components["schemas"]["def-3"];
                         };
                     };
                 };
@@ -527,7 +527,7 @@ export interface paths {
                         "application/json": {
                             /** @enum {string} */
                             status?: "ok" | "error";
-                            data?: components["schemas"]["def-2"];
+                            data?: components["schemas"]["def-3"];
                         };
                     };
                 };
@@ -568,7 +568,7 @@ export interface paths {
                         "application/json": {
                             /** @enum {string} */
                             status?: "ok" | "error";
-                            data?: components["schemas"]["def-1"];
+                            data?: components["schemas"]["def-2"];
                         };
                     };
                 };
@@ -605,7 +605,7 @@ export interface paths {
                         "application/json": {
                             /** @enum {string} */
                             status: "ok";
-                            data: components["schemas"]["def-5"][];
+                            data: components["schemas"]["def-6"][];
                         };
                     };
                 };
@@ -651,7 +651,7 @@ export interface paths {
                         "application/json": {
                             /** @enum {string} */
                             status?: "ok";
-                            data?: components["schemas"]["def-5"];
+                            data?: components["schemas"]["def-6"];
                         };
                     };
                 };
@@ -696,7 +696,7 @@ export interface paths {
                         "application/json": {
                             /** @enum {string} */
                             status?: "ok";
-                            data?: components["schemas"]["def-5"];
+                            data?: components["schemas"]["def-6"];
                         };
                     };
                 };
@@ -787,7 +787,7 @@ export interface paths {
                         "application/json": {
                             /** @enum {string} */
                             status?: "ok";
-                            data?: components["schemas"]["def-5"];
+                            data?: components["schemas"]["def-6"];
                         };
                     };
                 };
@@ -849,7 +849,7 @@ export interface paths {
                         "application/json": {
                             /** @enum {string} */
                             status: "ok";
-                            data: components["schemas"]["def-6"];
+                            data: components["schemas"]["def-7"];
                         };
                     };
                 };
@@ -907,7 +907,7 @@ export interface paths {
                         "application/json": {
                             /** @enum {string} */
                             status: "ok";
-                            data: components["schemas"]["def-6"];
+                            data: components["schemas"]["def-7"];
                         };
                     };
                 };
@@ -963,7 +963,7 @@ export interface paths {
                         "application/json": {
                             /** @enum {string} */
                             status?: "ok";
-                            data?: components["schemas"]["def-6"][];
+                            data?: components["schemas"]["def-7"][];
                         };
                     };
                 };
@@ -977,7 +977,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/api/glutton/foods/": {
+    "/api/glutton/foods/saved": {
         parameters: {
             query?: never;
             header?: never;
@@ -1002,7 +1002,7 @@ export interface paths {
                         "application/json": {
                             /** @enum {string} */
                             status: "ok";
-                            data: components["schemas"]["def-7"][];
+                            data: components["schemas"]["def-8"][];
                         };
                     };
                 };
@@ -1050,7 +1050,7 @@ export interface paths {
                         "application/json": {
                             /** @enum {string} */
                             status: "ok";
-                            data: components["schemas"]["def-7"];
+                            data: components["schemas"]["def-8"];
                         };
                     };
                 };
@@ -1076,14 +1076,53 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/api/glutton/foods/{id}": {
+    "/api/glutton/foods/saved/{id}": {
         parameters: {
             query?: never;
             header?: never;
             path?: never;
             cookie?: never;
         };
-        get?: never;
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    id: number;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description Default Response */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status: "ok";
+                            data?: components["schemas"]["def-8"];
+                        };
+                    };
+                };
+                /** @description Default Response */
+                240: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status: "error";
+                            field?: string;
+                            message: string;
+                        };
+                    };
+                };
+            };
+        };
         put: {
             parameters: {
                 query?: never;
@@ -1113,7 +1152,7 @@ export interface paths {
                         "application/json": {
                             /** @enum {string} */
                             status: "ok";
-                            data: components["schemas"]["def-7"];
+                            data: components["schemas"]["def-8"];
                         };
                     };
                 };
@@ -1223,7 +1262,7 @@ export interface paths {
                         "application/json": {
                             /** @enum {string} */
                             status: "ok";
-                            data: components["schemas"]["def-8"];
+                            data: components["schemas"]["def-9"];
                         };
                     };
                 };
@@ -1276,7 +1315,7 @@ export interface paths {
                         "application/json": {
                             /** @enum {string} */
                             status: "ok";
-                            data: components["schemas"]["def-8"];
+                            data: components["schemas"]["def-9"];
                         };
                     };
                 };
@@ -1331,7 +1370,7 @@ export interface paths {
                         "application/json": {
                             /** @enum {string} */
                             status: "ok";
-                            data: components["schemas"]["def-9"][];
+                            data: (components["schemas"]["def-12"] | components["schemas"]["def-11"])[];
                         };
                     };
                 };
@@ -1352,8 +1391,296 @@ export interface paths {
             };
         };
         put?: never;
-        post?: never;
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody: {
+                content: {
+                    "application/json": {
+                        entryId: number;
+                        weight: number;
+                        /** @enum {string} */
+                        entryType: "dish" | "food";
+                    };
+                };
+            };
+            responses: {
+                /** @description Default Response */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status: "ok";
+                            data: components["schemas"]["def-12"] | components["schemas"]["def-11"];
+                        };
+                    };
+                };
+                /** @description Default Response */
+                240: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status: "error";
+                            field?: string;
+                            message: string;
+                        };
+                    };
+                };
+            };
+        };
         delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/glutton/dishes/saved": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description Default Response */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status: "ok";
+                            data: components["schemas"]["def-10"][];
+                        };
+                    };
+                };
+                /** @description Default Response */
+                240: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status: "error";
+                            field?: string;
+                            message: string;
+                        };
+                    };
+                };
+            };
+        };
+        put?: never;
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody: {
+                content: {
+                    "application/json": {
+                        title: string;
+                        foods: {
+                            foodId: number;
+                            weight: number;
+                        }[];
+                    };
+                };
+            };
+            responses: {
+                /** @description Default Response */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status: "ok";
+                            data: components["schemas"]["def-10"];
+                        };
+                    };
+                };
+                /** @description Default Response */
+                240: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status: "error";
+                            field?: string;
+                            message: string;
+                        };
+                    };
+                };
+            };
+        };
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/glutton/dishes/saved/{id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    id: number;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description Default Response */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status: "ok";
+                            data?: components["schemas"]["def-10"];
+                        };
+                    };
+                };
+                /** @description Default Response */
+                240: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status: "error";
+                            field?: string;
+                            message: string;
+                        };
+                    };
+                };
+            };
+        };
+        put: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    id: string;
+                };
+                cookie?: never;
+            };
+            requestBody: {
+                content: {
+                    "application/json": {
+                        title: string;
+                        foods: {
+                            foodId: number;
+                            weight: number;
+                        }[];
+                    };
+                };
+            };
+            responses: {
+                /** @description Default Response */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status: "ok";
+                            data: components["schemas"]["def-10"];
+                        };
+                    };
+                };
+                /** @description Default Response */
+                240: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status: "error";
+                            field?: string;
+                            message: string;
+                        };
+                    };
+                };
+            };
+        };
+        post?: never;
+        delete: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path: {
+                    id: string;
+                };
+                cookie?: never;
+            };
+            requestBody?: never;
+            responses: {
+                /** @description Default Response */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status: "ok";
+                        };
+                    };
+                };
+                /** @description Default Response */
+                240: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": {
+                            /** @enum {string} */
+                            status: "error";
+                            field?: string;
+                            message: string;
+                        };
+                    };
+                };
+            };
+        };
         options?: never;
         head?: never;
         patch?: never;
@@ -1459,7 +1786,7 @@ export interface paths {
                         "application/json": {
                             /** @enum {string} */
                             status?: "ok" | "error";
-                            data?: components["schemas"]["def-1"];
+                            data?: components["schemas"]["def-2"];
                         };
                     };
                 };
@@ -1509,7 +1836,7 @@ export interface paths {
                         "application/json": {
                             /** @enum {string} */
                             status?: "ok" | "error";
-                            data?: components["schemas"]["def-1"];
+                            data?: components["schemas"]["def-2"];
                         };
                     };
                 };
@@ -1559,7 +1886,7 @@ export interface paths {
                         "application/json": {
                             /** @enum {string} */
                             status?: "ok" | "error";
-                            data?: components["schemas"]["def-3"][];
+                            data?: components["schemas"]["def-4"][];
                         };
                     };
                 };
@@ -1594,7 +1921,7 @@ export interface paths {
                         "application/json": {
                             /** @enum {string} */
                             status: "ok" | "error";
-                            data?: components["schemas"]["def-3"];
+                            data?: components["schemas"]["def-4"];
                         };
                     };
                 };
@@ -1647,7 +1974,7 @@ export interface paths {
                         "application/json": {
                             /** @enum {string} */
                             status: "ok" | "error";
-                            data?: components["schemas"]["def-3"];
+                            data?: components["schemas"]["def-4"];
                         };
                     };
                 };
@@ -1675,8 +2002,13 @@ export interface components {
             createdAt?: string;
             updatedAt?: string;
         };
-        /** File */
+        /** SlimUser */
         "def-1": {
+            id: number;
+            email: string;
+        };
+        /** File */
+        "def-2": {
             id: number;
             isPublic?: boolean;
             fieldname: string;
@@ -1689,11 +2021,11 @@ export interface components {
             size: number;
             createdAt?: string;
             updatedAt?: string;
-            order?: components["schemas"]["def-3"] & Record<string, never>;
+            order?: components["schemas"]["def-4"] & Record<string, never>;
             user?: components["schemas"]["def-0"] & Record<string, never>;
         };
         /** Review */
-        "def-2": {
+        "def-3": {
             id: number;
             text: string;
             user?: components["schemas"]["def-0"] & Record<string, never>;
@@ -1702,7 +2034,7 @@ export interface components {
             createdAt?: string;
         };
         /** Order */
-        "def-3": {
+        "def-4": {
             id: number;
             topic: string;
             discription: string;
@@ -1713,10 +2045,10 @@ export interface components {
             createdAt: string;
             updatedAt?: string;
             customer: components["schemas"]["def-0"];
-            files: components["schemas"]["def-1"][];
+            files: components["schemas"]["def-2"][];
         };
         /** Offer */
-        "def-4": {
+        "def-5": {
             id: number;
             email: string;
             phone: string;
@@ -1724,18 +2056,18 @@ export interface components {
             updatedAt?: string;
         };
         /** Task */
-        "def-5": {
+        "def-6": {
             id: number;
             name: string;
             description?: string;
             userId: number;
             createdAt?: string;
             updatedAt?: string;
-            currentTrack?: components["schemas"]["def-6"] & Record<string, never>;
+            currentTrack?: components["schemas"]["def-7"] & Record<string, never>;
             totalTime: number;
         };
         /** Track */
-        "def-6": {
+        "def-7": {
             id: number;
             dateStart: string;
             dateStop?: string | null;
@@ -1743,15 +2075,16 @@ export interface components {
             deltaTime?: number;
         };
         /** Food */
-        "def-7": {
+        "def-8": {
             id: number;
             title: string;
             proteins: number;
             fats: number;
             carbohydrates: number;
+            description?: string | null;
         };
         /** UserProgram */
-        "def-8": {
+        "def-9": {
             id: number;
             /** @enum {string} */
             sex: "MALE" | "FEMALE";
@@ -1767,14 +2100,46 @@ export interface components {
             ratioFats: number;
             isExcludeActivity: boolean;
         };
-        /** MealEntry */
-        "def-9": {
+        /** Dish */
+        "def-10": {
             id: number;
-            food: components["schemas"]["def-7"];
-            user: components["schemas"]["def-0"];
-            userProgram: components["schemas"]["def-8"];
+            title: string;
+            /** @enum {string} */
+            status: "ACTIVE" | "CLOSE";
+            createdAt: string;
+            foods: {
+                id: number;
+                title: string;
+                proteins: number;
+                fats: number;
+                carbohydrates: number;
+                dishInfo: {
+                    weight: number;
+                };
+            }[];
+            user: components["schemas"]["def-1"];
+        };
+        /** DishMealEntry */
+        "def-11": {
+            id: number;
+            user: components["schemas"]["def-1"];
+            userProgram: components["schemas"]["def-9"];
             weight: number;
             createdAt: string;
+            /** @enum {string} */
+            entryType: "dish";
+            dish: components["schemas"]["def-10"];
+        };
+        /** FoodMealEntry */
+        "def-12": {
+            id: number;
+            user: components["schemas"]["def-1"];
+            userProgram: components["schemas"]["def-9"];
+            weight: number;
+            createdAt: string;
+            /** @enum {string} */
+            entryType: "food";
+            food: components["schemas"]["def-8"];
         };
     };
     responses: never;

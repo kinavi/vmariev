@@ -6,6 +6,13 @@ export const NAVIGATION = {
   signUp: '/obzhorka/signUp',
   main: '/obzhorka',
   profile: '/obzhorka/profile',
+  faq: '/obzhorka/faq',
+  foods: '/obzhorka/favorites',
+  createFoods: '/obzhorka/foods/new',
+  createDishes: '/obzhorka/dishes/new',
+  food: (foodId: number) => `/obzhorka/foods/${foodId}`,
+  dish: (foodId: number) => `/obzhorka/dishes/${foodId}`,
+  createMealEntry: '/obzhorka/createMealEntry',
 };
 
 export const PFC_BY_GOAL: {

@@ -3,6 +3,9 @@ import { Status } from '../../../mobx/helpers/Status';
 import { apiServise } from '../../../api';
 import { UserProgram } from './models/UserProgram';
 import { MealEntriesController } from './controllers/MealEntriesController';
+import { FoodsController } from './controllers/FoodsController';
+import { DishesController } from './controllers/DishesController';
+import { ModalController } from './controllers/ModalController';
 
 export class Store {
   status: Status;
@@ -11,10 +14,19 @@ export class Store {
 
   mealEntries: MealEntriesController;
 
+  foods: FoodsController;
+
+  dishes: DishesController;
+
+  modal: ModalController;
+
   constructor() {
     this.status = new Status();
     this.userProgram = null;
     this.mealEntries = new MealEntriesController();
+    this.foods = new FoodsController();
+    this.dishes = new DishesController();
+    this.modal = new ModalController();
     makeAutoObservable(this);
   }
 
@@ -53,5 +65,18 @@ export class Store {
       this.setUserProgram(new UserProgram(result));
     }
     return result !== null;
+  };
+
+  refreshMealEntries = () => {
+    this.mealEntries = new MealEntriesController();
+    return this.mealEntries.onInitial();
+  };
+
+  resetDishes = () => {
+    this.dishes = new DishesController();
+  };
+
+  resetFoods = () => {
+    this.foods = new FoodsController();
   };
 }

@@ -1,23 +1,16 @@
-import {
-  ActionFunction,
-  createBrowserRouter,
-  redirect,
-  Route,
-  RouterProvider,
-  Routes,
-} from 'react-router-dom';
-import { Welcome } from './container/Welcome';
+import { ActionFunction, redirect, Route, Routes } from 'react-router-dom';
+import { Welcome } from './modules/Welcome';
 import { createTheme, ThemeProvider } from '@mui/material';
-import { createGlobalStyle } from 'styled-components';
-import { SignIn } from './container/SignIn';
-import { SignUp } from './container/SignUp';
-import { Main } from './container/Main';
+import { SignIn } from './modules/SignIn';
+import { SignUp } from './modules/SignUp';
+import { Main } from './modules/Main';
 import { token } from '../../api/Token';
 import { GlobalStyle } from './styled';
 import { NAVIGATION } from './constants';
 import { observer } from 'mobx-react-lite';
 import { ObjorkaStateContext } from './mobx';
 import { Store } from './mobx/store';
+import { Modals } from './components/Modals';
 
 const theme = createTheme({
   palette: {
@@ -49,6 +42,7 @@ const store = new Store();
 
 export const Obzhorka = observer(() => {
   const currentUser = token.userData;
+
   return (
     <ObjorkaStateContext.Provider value={store}>
       <ThemeProvider theme={theme}>
@@ -62,12 +56,7 @@ export const Obzhorka = observer(() => {
             path="signUp"
             element={<SignUp />}
           />
-          {/* <Route
-          path="welcome"
 
-          
-          element={<Welcome />}
-        /> */}
           <Route
             path="*"
             element={
@@ -79,6 +68,7 @@ export const Obzhorka = observer(() => {
             }
           />
         </Routes>
+        <Modals modal={store.modal.showModal} />
       </ThemeProvider>
     </ObjorkaStateContext.Provider>
   );

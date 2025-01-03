@@ -41,10 +41,27 @@ export const ENDPOINTS = {
       get: (userId: number) => `/api/glutton/userProgram/user/${userId}`,
     },
     mealEntries: {
+      create: '/api/glutton/mealEntries/',
       get: <T>(query: T) =>
         `/api/glutton/mealEntries/${stringify(query, {
           addQueryPrefix: true,
         })}`,
+    },
+    foods: {
+      saved: {
+        get: '/api/glutton/foods/saved',
+        create: '/api/glutton/foods/saved',
+        getById: (foodId: number) => `/api/glutton/foods/saved/${foodId}`,
+        update: (foodId: number) => `/api/glutton/foods/saved/${foodId}`,
+      },
+    },
+    dishes: {
+      saved: {
+        get: '/api/glutton/dishes/saved',
+        create: '/api/glutton/dishes/saved',
+        getById: (foodId: number) => `/api/glutton/dishes/saved/${foodId}`,
+        update: (foodId: number) => `/api/glutton/dishes/saved/${foodId}`,
+      },
     },
   },
 };
