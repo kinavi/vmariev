@@ -1,20 +1,14 @@
 import { observer } from 'mobx-react-lite';
 import { useEffect, useState } from 'react';
-import { Food as FoodModel } from '../../mobx/models/Food';
 import styled from 'styled-components';
-import { ApiService } from '../../../../api/ApiService';
-import { apiServise } from '../../../../api';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Status } from '../../../../mobx/helpers/Status';
 import { Loader } from '../../../TimeManager/component/UI/Loader';
 import { Header } from '../../components/Header';
 import { BodyWrapper, HeaderContentWrapper } from '../../styled';
 import { translate } from '../../../../translator';
 import { IconButton } from '@mui/material';
 import { Icon } from '../../../../ui/components/Icon';
-import { NAVIGATION } from '../../constants';
 import { FoodEditor } from '../../components/FoodEditor';
-import { makeAutoObservable } from 'mobx';
 import { FoodController } from './mobx/FoodController';
 
 const FoodContainer = styled.div`
@@ -42,7 +36,7 @@ export const Food = observer(() => {
     if (foodId && Number(foodId)) {
       foodController.onInitial(Number(foodId));
     }
-  }, [foodId]);
+  }, [foodId, foodController]);
 
   return (
     <FoodContainer>

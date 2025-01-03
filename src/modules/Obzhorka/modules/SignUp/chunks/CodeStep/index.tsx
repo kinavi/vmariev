@@ -11,33 +11,26 @@ export const CodeStep = observer(
       controllers: { auth },
     } = useStore();
     const { onForward, onBack } = props;
-    const {
-      values,
-      setFieldValue,
-      handleSubmit,
-      handleReset,
-      isSubmitting,
-      isValid,
-      errors,
-    } = useFormik({
-      initialValues: {
-        code: '',
-      },
-      onSubmit: async (value, helper) => {
-        const isSuccess = await auth.checkCode(value.code);
-        if (isSuccess) {
-          onForward();
-        } else {
-          helper.setErrors({
-            code: 'Код неверный. Давайте попробуем еще раз!',
-          });
-        }
-      },
-      validationSchema: Yup.object().shape({
-        code: Yup.string().required('Введи код из письма для продолжения!'),
-      }),
-      validateOnChange: true,
-    });
+    const { values, setFieldValue, handleSubmit, isSubmitting, errors } =
+      useFormik({
+        initialValues: {
+          code: '',
+        },
+        onSubmit: async (value, helper) => {
+          const isSuccess = await auth.checkCode(value.code);
+          if (isSuccess) {
+            onForward();
+          } else {
+            helper.setErrors({
+              code: 'Код неверный. Давайте попробуем еще раз!',
+            });
+          }
+        },
+        validationSchema: Yup.object().shape({
+          code: Yup.string().required('Введи код из письма для продолжения!'),
+        }),
+        validateOnChange: true,
+      });
     const isDisable = !values.code;
     return (
       <form

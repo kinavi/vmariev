@@ -5,7 +5,6 @@ import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
-  IconButton,
   Typography,
 } from '@mui/material';
 import { translate } from '../../../../translator';

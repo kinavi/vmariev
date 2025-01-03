@@ -1,5 +1,4 @@
 import { GiftType } from './types';
-import gift2 from '../../assets/gift_2.png';
 import bee from '../../assets/bee.png';
 import leo from '../../assets/leo.png';
 import tradishions from '../../assets/tradishions.png';

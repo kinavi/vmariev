@@ -25,7 +25,7 @@ export const Gift = (props: {
     return () => {
       clearInterval(intervalId);
     };
-  }, []);
+  }, [availabilityDate]);
 
   const s = Math.floor(time / 1000) % 60;
   const m = Math.floor(time / 1000 / 60) % 60;

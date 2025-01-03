@@ -9,7 +9,7 @@ export const createColorTheme = (
   const colorMap = THEME_LIST[theme];
   const themeKeys = getObjectKeys(colorMap);
   const result = new Map<ThemeKeyType, ColorsType>();
-  themeKeys.map((key) => {
+  themeKeys.forEach((key) => {
     result.set(key, createColorPalette(colorMap[key]));
   });
   return result;

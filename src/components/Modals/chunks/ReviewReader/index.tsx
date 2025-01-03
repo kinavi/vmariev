@@ -9,7 +9,7 @@ export const ReviewReader = observer(() => {
       onCloseLastModal,
       modals: {
         reviewReader: {
-          payload: { name, rait, text },
+          payload: { name, text },
         },
       },
     },

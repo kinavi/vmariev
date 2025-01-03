@@ -1,7 +1,6 @@
 import React from 'react';
 import DATA from '../../INITIAL_DATA.json';
 import { BlockHeader } from '../../components/BlockHeader';
-import { Button } from '../../ui/components/Button';
 import { ServicesContainer } from './styled';
 import { Icon } from '../../ui/components/Icon';
 import { observer } from 'mobx-react-lite';

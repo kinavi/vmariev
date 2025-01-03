@@ -1,12 +1,11 @@
 import { observer } from 'mobx-react-lite';
-import styled from 'styled-components';
 import { MealEntry } from '../../mobx/models/MealEntry';
 import { translate } from '../../../../translator';
 import { MealEntryItemContainer } from './styled';
 
 export const MealEntryItem = observer((props: { value: MealEntry }) => {
   const {
-    value: { titel, entryType, totalCalories, totalProteinsСalories },
+    value: { titel, entryType, totalCalories },
   } = props;
   return (
     <MealEntryItemContainer>

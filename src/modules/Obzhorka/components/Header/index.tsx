@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { memo } from 'react';
 
 import Logo from '../../assets/logo.png';
 import { observer } from 'mobx-react-lite';

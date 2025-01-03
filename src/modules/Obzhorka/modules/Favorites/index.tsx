@@ -6,7 +6,6 @@ import { IconButton, ToggleButton, ToggleButtonGroup } from '@mui/material';
 import { Icon } from '../../../../ui/components/Icon';
 import { translate } from '../../../../translator';
 import { useObjorkaStore } from '../../mobx';
-import { Loader } from '../../../TimeManager/component/UI/Loader';
 import { FoodList } from './chunks/FoodList';
 import { NAVIGATION } from '../../constants';
 import { Link } from 'react-router-dom';
@@ -59,7 +58,7 @@ export const Favorites = observer(() => {
       resetDishes();
       foods.onInitial();
     }
-  }, [section]);
+  }, [section, dishes, foods, resetDishes, resetFoods]);
 
   return (
     <FoodsContainer>

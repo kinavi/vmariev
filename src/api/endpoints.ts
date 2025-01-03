@@ -1,4 +1,4 @@
-import QueryString, { stringify } from 'qs';
+import { stringify } from 'qs';
 
 export const ENDPOINTS = {
   auth: {

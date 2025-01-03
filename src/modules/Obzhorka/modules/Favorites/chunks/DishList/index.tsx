@@ -1,21 +1,12 @@
 import { observer } from 'mobx-react-lite';
 import { useObjorkaStore } from '../../../../mobx';
 import { ViewComponentPlaceholderContainer } from '../../../../components/UserProgramEditor/chunks/ViewComponent/styled';
-import {
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
-  Button,
-  Typography,
-} from '@mui/material';
+import { Button } from '@mui/material';
 import { NAVIGATION } from '../../../../constants';
 import { Link } from 'react-router-dom';
 import { translate } from '../../../../../../translator';
 import { FoodListContainer } from '../FoodList';
 import { DishItem } from '../DishItem';
-import styled from 'styled-components';
-
-
 
 export const DishList = observer(() => {
   const {

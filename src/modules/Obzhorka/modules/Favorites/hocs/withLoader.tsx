@@ -1,4 +1,3 @@
-import { Component } from 'react';
 import { WithLoaderType } from './types';
 import { Loader } from '../../../../TimeManager/component/UI/Loader';
 import { observer } from 'mobx-react-lite';

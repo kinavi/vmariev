@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react-lite';
 import { Header } from '../../components/Header';
-import { Box, Button, IconButton } from '@mui/material';
+import { Button, IconButton } from '@mui/material';
 import { Icon } from '../../../../ui/components/Icon';
 import { BodyWrapper, HeaderContentWrapper } from '../../styled';
 import { MealCircularProgress } from '../../components/MealCircularProgress';
@@ -13,10 +13,6 @@ import { MealEntriesList } from './chunks/MealEntriesList';
 import format from 'date-fns/format';
 import ru from 'date-fns/locale/ru';
 import en from 'date-fns/locale/en-US';
-
-function roundByCount(value: number, count: number) {
-  return Number(value.toFixed(count));
-}
 
 function calcProgress(value: number, maxCount: number) {
   if (value >= maxCount) {

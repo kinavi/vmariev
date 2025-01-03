@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { GlobalStyle } from '../SignIn/styled';
 import Logo from '../../assets/logo.png';
 import { translate } from '../../../../translator';

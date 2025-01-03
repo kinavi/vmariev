@@ -1,4 +1,3 @@
-import styled from 'styled-components';
 import { GiftCard } from '../GiftCard';
 import { GiftCardModalContainer } from './styled';
 import { GiftType } from '../../types';

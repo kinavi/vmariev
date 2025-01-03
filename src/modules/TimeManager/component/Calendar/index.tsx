@@ -2,7 +2,6 @@ import format from 'date-fns/format';
 import { Icon } from '../../../../ui/components/Icon';
 import { Task } from '../../mobx/models/Task';
 import { Button } from '../UI/Button';
-import styled from 'styled-components';
 import { observer } from 'mobx-react-lite';
 import { translate } from '../../../../translator';
 import startOfMonth from 'date-fns/startOfMonth';
@@ -17,7 +16,7 @@ import { TracksOfDay } from './chunks/TracksOfDay';
 
 export const Calendar = observer(
   (props: { task: Task; isExcludeFuture?: boolean }) => {
-    const { task, isExcludeFuture = false } = props;
+    const { task } = props;
     const {
       targetDate,
       toggleToPreviousMonth,
@@ -26,7 +25,6 @@ export const Calendar = observer(
       targetDay,
       status: { isLoading, isReady },
       tracksOfDay,
-      totalTracksTime,
     } = task.calendar;
 
     // Определяем первый день текущего месяца

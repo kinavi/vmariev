@@ -1,8 +1,7 @@
-import styled, { createGlobalStyle } from 'styled-components';
 import Logo from '../../assets/logo.png';
 import { Button } from '@mui/material';
 import { GlobalStyle, WelcomeContainer } from './styled';
-import { useLocation, useMatch, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { NAVIGATION } from '../../constants';
 
 export const Welcome = () => {

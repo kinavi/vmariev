@@ -1,4 +1,3 @@
-import styled, { createGlobalStyle } from 'styled-components';
 import Logo from '../../assets/logo.png';
 import { Button, TextField } from '@mui/material';
 import { useFormik } from 'formik';
@@ -17,24 +16,23 @@ export const SignIn = observer(() => {
     },
   } = useStore();
   const navigate = useNavigate();
-  const { values, setFieldValue, handleSubmit, handleReset, isSubmitting } =
-    useFormik({
-      initialValues: {
-        email: '',
-        password: '',
-      },
-      onSubmit: async (value) => {
-        const isSuccess = await login(value);
-        if (isSuccess) {
-          navigate(NAVIGATION.main);
-        }
-      },
-      validationSchema: Yup.object().shape({
-        email: Yup.string().required('Required'),
-        password: Yup.string().required('Required'),
-      }),
-      validateOnMount: true,
-    });
+  const { values, setFieldValue, handleSubmit, isSubmitting } = useFormik({
+    initialValues: {
+      email: '',
+      password: '',
+    },
+    onSubmit: async (value) => {
+      const isSuccess = await login(value);
+      if (isSuccess) {
+        navigate(NAVIGATION.main);
+      }
+    },
+    validationSchema: Yup.object().shape({
+      email: Yup.string().required('Required'),
+      password: Yup.string().required('Required'),
+    }),
+    validateOnMount: true,
+  });
   const isDisable = !values.email || !values.password;
   return (
     <SignInContainer>

@@ -1,10 +1,9 @@
-import styled, { createGlobalStyle } from 'styled-components';
+import styled from 'styled-components';
 import { NavBar } from '../../components/NavBar';
-import { Header } from '../../components/Header';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect } from 'react';
 import { observer } from 'mobx-react-lite';
 import { useObjorkaStore } from '../../mobx';
-import { Route, Routes, useNavigate, useNavigation } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import { Profile } from '../Profile';
 import { NAVIGATION } from '../../constants';
 import { Loader } from '../../../TimeManager/component/UI/Loader';
@@ -29,20 +28,18 @@ export const Main = observer((props: { currentUserId: number }) => {
     userProgram,
     onInitial,
     status: { isLoading, isInitial, isReady },
-    setUserProgram,
-    foods,
   } = useObjorkaStore();
   const navigate = useNavigate();
 
   useEffect(() => {
     onInitial(currentUserId);
-  }, [currentUserId]);
+  }, [currentUserId, onInitial]);
 
   useEffect(() => {
     if (!userProgram && isReady) {
       navigate(NAVIGATION.profile);
     }
-  }, [userProgram, isReady]);
+  }, [userProgram, isReady, navigate]);
 
   if (isLoading || isInitial) {
     return (

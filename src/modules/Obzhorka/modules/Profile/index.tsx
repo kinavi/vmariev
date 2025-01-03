@@ -1,4 +1,3 @@
-import styled from 'styled-components';
 import { translate } from '../../../../translator';
 import { Header } from '../../components/Header';
 import { observer } from 'mobx-react-lite';

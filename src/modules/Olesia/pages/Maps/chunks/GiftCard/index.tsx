@@ -12,7 +12,7 @@ export const GiftCard = (props: { gift: GiftType; onClose: () => void }) => {
     },
     onClose,
   } = props;
-  const [isReceived, setIsReceived] = useState(props.gift.isReceived);
+  // const [isReceived, setIsReceived] = useState(props.gift.isReceived);
   const [needClose, setNeedClose] = useState(false);
   useEffect(() => {
     if (needClose) {
@@ -28,7 +28,10 @@ export const GiftCard = (props: { gift: GiftType; onClose: () => void }) => {
         needClose ? 'animate__bounceOut' : ''
       )}
     >
-      <img src={img} />
+      <img
+        src={img}
+        alt="img"
+      />
       <div className="gift-card__content">
         <div className="gift-card__title">{title}</div>
         <div className="gift-card__text">{text}</div>

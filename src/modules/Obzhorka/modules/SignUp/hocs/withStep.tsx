@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { WithStepType } from './types';
-import { StepType } from '..';
 
 export const withStep: WithStepType = (Components) => (props) => {
   const [step, setStep] = useState<number>(0);

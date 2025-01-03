@@ -1,8 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components';
-import { withTimer } from '../../hocks/withTime';
-import TimerBg from './assets/olesia-time-bg.png';
 import { TimerPage } from './pages/Timer';
-import { isInRadius } from './geo';
 import { redirect, Route, Routes } from 'react-router-dom';
 import { Maps } from './pages/Maps';
 import { NAVIGATION } from './constants';

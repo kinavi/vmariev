@@ -50,7 +50,7 @@ const Timer = (props: TimerPropsType) => {
     } else {
       onAfterTime();
     }
-  }, [time]);
+  }, [time, initialDate, onAfterTime]);
 
   const sortTime = (number: number) => {
     if (number < 10) {

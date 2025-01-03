@@ -22,21 +22,20 @@ export const DishEditorComponent = observer(
     const { dish, onEdit } = props;
     const { modal } = useObjorkaStore();
 
-    const { values, setFieldValue, isSubmitting, isValid, handleSubmit } =
-      useFormik({
-        initialValues: {
-          title: dish?.title || '',
-          foods: dish?.foods || [],
-        },
-        onSubmit: async (values) => {
-          return onEdit(values);
-        },
-        validationSchema: Yup.object().shape({
-          title: Yup.string().required(),
-        }),
-        validateOnMount: true,
-        validateOnChange: true,
-      });
+    const { values, setFieldValue, isSubmitting, handleSubmit } = useFormik({
+      initialValues: {
+        title: dish?.title || '',
+        foods: dish?.foods || [],
+      },
+      onSubmit: async (values) => {
+        return onEdit(values);
+      },
+      validationSchema: Yup.object().shape({
+        title: Yup.string().required(),
+      }),
+      validateOnMount: true,
+      validateOnChange: true,
+    });
 
     const handleRemoveFood = (foodKey: string) => {
       const updatedFood = values.foods.filter((item) => item.key !== foodKey);

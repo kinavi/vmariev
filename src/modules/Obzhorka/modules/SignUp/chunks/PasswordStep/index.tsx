@@ -11,40 +11,34 @@ export const PasswordStep = observer(
     const {
       controllers: { auth },
     } = useStore();
-    const {
-      values,
-      setFieldValue,
-      handleSubmit,
-      handleReset,
-      isSubmitting,
-      errors,
-    } = useFormik({
-      initialValues: {
-        password: '',
-        repidPassword: '',
-      },
-      onSubmit: async (value, helper) => {
-        const isSuccess = await auth.register({
-          password: value.password,
-          code: Number(auth.snapshotCode),
-          email: auth.snapshotEmail,
-        });
-        if (isSuccess) {
-          onForward();
-        } else {
-          helper.setErrors({
-            password: 'Не удалось установить пароль',
+    const { values, setFieldValue, handleSubmit, isSubmitting, errors } =
+      useFormik({
+        initialValues: {
+          password: '',
+          repidPassword: '',
+        },
+        onSubmit: async (value, helper) => {
+          const isSuccess = await auth.register({
+            password: value.password,
+            code: Number(auth.snapshotCode),
+            email: auth.snapshotEmail,
           });
-        }
-      },
-      validationSchema: Yup.object().shape({
-        password: Yup.string().required('Введите пароль, чтобы продолжить'),
-        repidPassword: Yup.string()
-          .oneOf([Yup.ref('password')], 'Пароли должны совпадать')
-          .required('Подтверждение пароля обязательно'),
-      }),
-      validateOnChange: true,
-    });
+          if (isSuccess) {
+            onForward();
+          } else {
+            helper.setErrors({
+              password: 'Не удалось установить пароль',
+            });
+          }
+        },
+        validationSchema: Yup.object().shape({
+          password: Yup.string().required('Введите пароль, чтобы продолжить'),
+          repidPassword: Yup.string()
+            .oneOf([Yup.ref('password')], 'Пароли должны совпадать')
+            .required('Подтверждение пароля обязательно'),
+        }),
+        validateOnChange: true,
+      });
     const isDisable = !values.password || !values.repidPassword;
     return (
       <form

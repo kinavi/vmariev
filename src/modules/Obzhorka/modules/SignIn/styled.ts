@@ -1,4 +1,3 @@
-import { Style } from '@mui/icons-material';
 import styled, { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`

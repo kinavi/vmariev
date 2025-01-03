@@ -1,6 +1,5 @@
 import { observer } from 'mobx-react-lite';
 import styled from 'styled-components';
-import { Food } from '../../../../mobx/models/Food';
 import { Field } from '../../../Field';
 import { translate } from '../../../../../../translator';
 import { FoodEditorField } from '../../types';
@@ -15,7 +14,9 @@ export const ViewComponent = observer((props: { food?: FoodEditorField }) => {
   const { food } = props;
   if (!food) {
     return (
-      <ViewComponentContainer>данны по продукту нет</ViewComponentContainer>
+      <ViewComponentContainer>
+        {translate.tryTranslate('Данных по продукту нет')}
+      </ViewComponentContainer>
     );
   }
   return (

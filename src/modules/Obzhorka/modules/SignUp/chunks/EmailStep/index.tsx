@@ -12,36 +12,29 @@ export const EmailStep = (props: {
   const {
     controllers: { auth },
   } = useStore();
-  const {
-    isValid,
-    values,
-    setFieldValue,
-    handleSubmit,
-    handleReset,
-    isSubmitting,
-    errors,
-  } = useFormik({
-    initialValues: {
-      email: auth.snapshotEmail,
-    },
-    onSubmit: async (value, helper) => {
-      const isSuccess = await auth.createOffer(value.email);
-      if (isSuccess) {
-        onForward();
-      } else {
-        helper.setErrors({
-          email: 'Не удалось отправить код на почту',
-        });
-      }
-    },
-    validationSchema: Yup.object().shape({
-      email: Yup.string()
-        .required('Введите ваш email')
-        .email('Пожалуйста, введите корректный email для продолжения'),
-    }),
-    validateOnChange: true,
-    // validateOnMount: true,
-  });
+  const { isValid, values, setFieldValue, handleSubmit, isSubmitting, errors } =
+    useFormik({
+      initialValues: {
+        email: auth.snapshotEmail,
+      },
+      onSubmit: async (value, helper) => {
+        const isSuccess = await auth.createOffer(value.email);
+        if (isSuccess) {
+          onForward();
+        } else {
+          helper.setErrors({
+            email: 'Не удалось отправить код на почту',
+          });
+        }
+      },
+      validationSchema: Yup.object().shape({
+        email: Yup.string()
+          .required('Введите ваш email')
+          .email('Пожалуйста, введите корректный email для продолжения'),
+      }),
+      validateOnChange: true,
+      // validateOnMount: true,
+    });
   const isDisable = !values.email || !isValid;
   return (
     <form
