@@ -19,6 +19,7 @@ export const fetchRefreshToken = async (
         headers: {
           'Content-Type': 'application/json',
         },
+        credentials: 'include',
       }
     );
     if (response.status === 403) {
@@ -35,4 +36,5 @@ export const fetchRefreshToken = async (
 
 export const memFetchRefreshToken = mem(fetchRefreshToken, {
   cacheKey: JSON.stringify,
+  maxAge: 500,
 });

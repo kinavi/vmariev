@@ -1,10 +1,6 @@
 import { makeAutoObservable } from 'mobx';
-import {
-  UserProgram200ResponseType,
-  UserProgramApiDataType,
-} from '../../../../api/ApiService/domains/Objorka/UserProgram/types';
+import { UserProgramApiDataType } from '../../../../api/ApiService/domains/Objorka/UserProgram/types';
 import { getActivityIndex } from '../helpers/getActivityIndex';
-import { PFC_BY_GOAL } from '../../constants';
 import { translate } from '../../../../translator';
 
 // https://primekraft.ru/articles/kak-rasschitat-sutochnuyu-kalorijnost-ratsiona-formulyi-rascheta/?srsltid=AfmBOoqV9n3mwg0fNbhcZxc8DNOCcZ3ug2qWRKs7UqIMDF83NWr25hyx

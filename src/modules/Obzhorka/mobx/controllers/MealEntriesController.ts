@@ -2,8 +2,6 @@ import { makeAutoObservable, runInAction } from 'mobx';
 import { Status } from '../../../../mobx/helpers/Status';
 import { MealEntry } from '../models/MealEntry';
 import { apiServise } from '../../../../api';
-import { MealEntriesApiDataType } from '../../../../api/ApiService/domains/Objorka/MealEntries/types';
-import isSameDay from 'date-fns/isSameDay';
 import subDays from 'date-fns/subDays';
 import addDays from 'date-fns/addDays';
 
@@ -34,7 +32,7 @@ export class MealEntriesController {
       }
       if (dish) {
         const currentEatenCarbohydrates =
-          (item.weight / dish.totalWeight) * dish.totalСalories;
+          (item.weight / dish.totalWeight) * dish.totalCalories;
         return acc + currentEatenCarbohydrates;
       }
       return acc;
@@ -50,7 +48,7 @@ export class MealEntriesController {
       }
       if (dish) {
         return (
-          acc + (item.weight / dish.totalWeight) * dish.totalProteinsСalories
+          acc + (item.weight / dish.totalWeight) * dish.totalProteinsCalories
         );
       }
       return acc;
@@ -65,7 +63,7 @@ export class MealEntriesController {
         return acc + (item.weight / 100) * food.fats * 9;
       }
       if (dish) {
-        return acc + (item.weight / dish.totalWeight) * dish.totalFatsСalories;
+        return acc + (item.weight / dish.totalWeight) * dish.totalFatsCalories;
       }
       return acc;
     }, 0);

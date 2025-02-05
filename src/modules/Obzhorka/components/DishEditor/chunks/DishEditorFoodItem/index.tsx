@@ -4,6 +4,7 @@ import { Box, IconButton } from '@mui/material';
 import { FoodItem } from '../../../../modules/Favorites/chunks/FoodItem';
 import styled from 'styled-components';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { translate } from '../../../../../../translator';
 
 const DishEditorFoodItemContainer = styled.div`
   display: flex;
@@ -13,8 +14,9 @@ const DishEditorFoodItemContainer = styled.div`
 export const DishEditorFoodItem = observer(
   (props: {
     value: { food: Food; weight: number; key: string };
-    onRemove: (key: string) => void;
+    onRemove?: (key: string) => void;
   }) => {
+    const { onRemove } = props;
     return (
       <DishEditorFoodItemContainer>
         <FoodItem
@@ -30,16 +32,18 @@ export const DishEditorFoodItem = observer(
           alignItems="center"
         >
           <Box fontSize="22px">{props.value.weight}</Box>
-          <Box>грамм</Box>
+          <Box>{translate.tryTranslate('грамм')}</Box>
         </Box>
-        <IconButton
-          aria-label="delete"
-          onClick={() => {
-            props.onRemove(props.value.key);
-          }}
-        >
-          <DeleteIcon />
-        </IconButton>
+        {onRemove && (
+          <IconButton
+            aria-label="delete"
+            onClick={() => {
+              onRemove(props.value.key);
+            }}
+          >
+            <DeleteIcon />
+          </IconButton>
+        )}
       </DishEditorFoodItemContainer>
     );
   }

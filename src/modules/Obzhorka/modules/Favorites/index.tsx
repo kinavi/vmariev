@@ -58,7 +58,7 @@ export const Favorites = observer(() => {
       resetDishes();
       foods.onInitial();
     }
-  }, [section, dishes, foods, resetDishes, resetFoods]);
+  }, [section]);
 
   return (
     <FoodsContainer>
@@ -99,12 +99,14 @@ export const Favorites = observer(() => {
             sx={{ marginBottom: '32px' }}
           >
             <ToggleButton
+              disabled={section === SectionType.food}
               value="food"
               aria-label="left aligned"
             >
               {translate.tryTranslate('Продукты')}
             </ToggleButton>
             <ToggleButton
+              disabled={section === SectionType.dish}
               value="dish"
               aria-label="centered"
             >

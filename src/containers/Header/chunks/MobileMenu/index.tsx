@@ -101,12 +101,12 @@ export const MobileMenu = observer(
             </a>
             <a
               onClick={onClose}
-              href="#my-tools"
+              href="#pet-projects"
               className={classNames('mobile-menu__link', {
-                'mobile-menu__link_active': hash === '#my-tools',
+                'mobile-menu__link_active': hash === '#pet-projects',
               })}
             >
-              {translate.tryTranslate('Инструменты')}
+              {translate.tryTranslate('Личные проекты')}
             </a>
           </div>
           <div className="mobile-menu__contacts">

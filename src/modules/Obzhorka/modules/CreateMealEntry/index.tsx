@@ -1,21 +1,13 @@
 import { observer } from 'mobx-react-lite';
-import styled from 'styled-components';
 import { Header } from '../../components/Header';
 import { BodyWrapper, HeaderContentWrapper } from '../../styled';
 import {
-  AccordionDetails,
-  AccordionSummary,
   Autocomplete,
   CircularProgress,
-  FormControl,
   IconButton,
-  InputLabel,
-  MenuItem,
-  Select,
   TextField,
   ToggleButton,
   ToggleButtonGroup,
-  Typography,
 } from '@mui/material';
 import { Icon } from '../../../../ui/components/Icon';
 import { useNavigate } from 'react-router-dom';
@@ -91,40 +83,33 @@ export const CreateMealEntry = observer(() => {
     nav(-1);
   };
 
-  const {
-    isSubmitting,
-    values,
-    setFieldValue,
-    errors,
-    isValid,
-    handleSubmit,
-    dirty,
-  } = useFormik<FoodField>({
-    initialValues: {
-      entryType: EntryType.food,
-      dishId: null,
-      foodId: null,
-      weight: NaN,
-    },
-    onSubmit: async (value) => {
-      const _entryId =
-        value.entryType === EntryType.food ? value.foodId : value.dishId;
-      if (_entryId !== null && value.weight !== null) {
-        await create({
-          entryId: _entryId,
-          weight: value.weight,
-          entryType: value.entryType,
-        });
-        refreshMealEntries();
-        handleClickBack();
-      }
-    },
-    validationSchema: Yup.object().shape({
-      weight: Yup.number().notOneOf([NaN]).required(),
-    }),
-    validateOnChange: true,
-    validateOnMount: true,
-  });
+  const { isSubmitting, values, setFieldValue, isValid, handleSubmit, dirty } =
+    useFormik<FoodField>({
+      initialValues: {
+        entryType: EntryType.food,
+        dishId: null,
+        foodId: null,
+        weight: NaN,
+      },
+      onSubmit: async (value) => {
+        const _entryId =
+          value.entryType === EntryType.food ? value.foodId : value.dishId;
+        if (_entryId !== null && value.weight !== null) {
+          await create({
+            entryId: _entryId,
+            weight: value.weight,
+            entryType: value.entryType,
+          });
+          refreshMealEntries();
+          handleClickBack();
+        }
+      },
+      validationSchema: Yup.object().shape({
+        weight: Yup.number().notOneOf([NaN]).required(),
+      }),
+      validateOnChange: true,
+      validateOnMount: true,
+    });
 
   return (
     <CreateMealEntryContainer
@@ -187,12 +172,14 @@ export const CreateMealEntry = observer(() => {
           <ToggleButton
             value="food"
             aria-label="left aligned"
+            disabled={values.entryType === EntryType.food}
           >
             {translate.tryTranslate('Продукты')}
           </ToggleButton>
           <ToggleButton
             value="dish"
             aria-label="centered"
+            disabled={values.entryType === EntryType.dish}
           >
             {translate.tryTranslate('Блюда')}
           </ToggleButton>
@@ -264,7 +251,7 @@ export const CreateMealEntry = observer(() => {
               setFieldValue('weight', value);
             }
             if (!!value.match(/^\d{1,}[.]?\d{0,2}$/g)) {
-              setFieldValue('weight', value.replace(/\D*/g, ''));
+              setFieldValue('weight', value);
             }
           }}
         />

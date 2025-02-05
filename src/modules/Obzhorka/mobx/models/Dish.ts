@@ -29,14 +29,14 @@ export class Dish {
     }, 0);
   }
 
-  get totalProteinsСalories() {
+  get totalProteinsCalories() {
     return this.foods.reduce((acc, item) => {
       const result = (item.food.proteins * 4 * item.weight) / 100;
       return acc + result;
     }, 0);
   }
 
-  get totalFatsСalories() {
+  get totalFatsCalories() {
     return this.foods.reduce((acc, item) => {
       const result = (item.food.fats * 9 * item.weight) / 100;
       return acc + result;
@@ -50,10 +50,10 @@ export class Dish {
     }, 0);
   }
 
-  get totalСalories() {
+  get totalCalories() {
     return (
-      this.totalProteinsСalories +
-      this.totalFatsСalories +
+      this.totalProteinsCalories +
+      this.totalFatsCalories +
       this.totalCarbohydratesСalories
     );
   }

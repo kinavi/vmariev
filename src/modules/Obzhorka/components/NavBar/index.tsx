@@ -26,6 +26,12 @@ const NavBarContainer = styled.div`
       }
     }
   }
+
+  @media screen and (max-width: 374px) {
+    & svg {
+      width: 100%;
+    }
+  }
 `;
 
 export const NavBar = () => {
@@ -35,7 +41,7 @@ export const NavBar = () => {
       <NavLink
         to={NAVIGATION.main}
         className={classNames('nav-bar__link', {
-          ['nav-bar__link_active']: match,
+          'nav-bar__link_active': match,
         })}
       >
         <Icon
@@ -47,7 +53,7 @@ export const NavBar = () => {
       <NavLink
         to={NAVIGATION.foods}
         className={({ isActive }) =>
-          classNames('nav-bar__link', { ['nav-bar__link_active']: isActive })
+          classNames('nav-bar__link', { 'nav-bar__link_active': isActive })
         }
       >
         <BookmarkIcon sx={{ fontSize: 40, color: '#999999' }} />
@@ -55,7 +61,7 @@ export const NavBar = () => {
       <NavLink
         to={NAVIGATION.profile}
         className={({ isActive }) =>
-          classNames('nav-bar__link', { ['nav-bar__link_active']: isActive })
+          classNames('nav-bar__link', { 'nav-bar__link_active': isActive })
         }
       >
         <PersonIcon sx={{ fontSize: 40, color: '#999999' }} />
@@ -63,7 +69,7 @@ export const NavBar = () => {
       <NavLink
         to={NAVIGATION.faq}
         className={({ isActive }) =>
-          classNames('nav-bar__link', { ['nav-bar__link_active']: isActive })
+          classNames('nav-bar__link', { 'nav-bar__link_active': isActive })
         }
       >
         <QuestionMarkIcon sx={{ fontSize: 40, color: '#999999' }} />

@@ -13,6 +13,15 @@ const MealEntriesListContainer = styled.div`
 
 export const MealEntriesList = observer(() => {
   const { mealEntries } = useObjorkaStore();
+
+  if (!mealEntries.entries.length) {
+    return (
+      <MealEntriesListContainer>
+        {translate.tryTranslate('Записей нет')}
+      </MealEntriesListContainer>
+    );
+  }
+
   return (
     <Field label={translate.tryTranslate('История за день')}>
       <MealEntriesListContainer>

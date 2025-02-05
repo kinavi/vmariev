@@ -8,13 +8,13 @@ export const DishItemBody = observer((props: { value: Dish }) => {
     value: { title, foods },
   } = props;
   const _proteins = foods.reduce((acc, item) => {
-    return acc + item.food.proteins;
+    return acc + (item.food.proteins * item.weight) / 100;
   }, 0);
   const _fats = foods.reduce((acc, item) => {
-    return acc + item.food.fats;
+    return acc + (item.food.fats * item.weight) / 100;
   }, 0);
   const _carbohydrates = foods.reduce((acc, item) => {
-    return acc + item.food.carbohydrates;
+    return acc + (item.food.carbohydrates * item.weight) / 100;
   }, 0);
   return (
     <Box
@@ -35,14 +35,15 @@ export const DishItemBody = observer((props: { value: Dish }) => {
         justifyContent="space-between"
       >
         <div>
-          {translate.tryTranslate('Бел')}. {_proteins}{' '}
+          {translate.tryTranslate('Бел')}. {_proteins.toFixed(2)}{' '}
           {translate.tryTranslate('г')}
         </div>
         <div>
-          {translate.tryTranslate('Жир')}. {_fats} {translate.tryTranslate('г')}
+          {translate.tryTranslate('Жир')}. {_fats.toFixed(2)}{' '}
+          {translate.tryTranslate('г')}
         </div>
         <div>
-          {translate.tryTranslate('Угл')}. {_carbohydrates}{' '}
+          {translate.tryTranslate('Угл')}. {_carbohydrates.toFixed(2)}{' '}
           {translate.tryTranslate('г')}
         </div>
       </Box>

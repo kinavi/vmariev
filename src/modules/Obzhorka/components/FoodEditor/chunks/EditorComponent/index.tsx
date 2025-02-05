@@ -1,8 +1,7 @@
 import { observer } from 'mobx-react-lite';
-import { Food } from '../../../../mobx/models/Food';
 import styled from 'styled-components';
 import { TextField } from '@mui/material';
-import { Form, useFormik } from 'formik';
+import { useFormik } from 'formik';
 import { translate } from '../../../../../../translator';
 import { LoadingButton } from '@mui/lab';
 import * as Yup from 'yup';
@@ -42,9 +41,9 @@ export const EditorComponent = observer(
       });
     const hasChange =
       food?.title !== values.title ||
-      food.proteins != values.proteins ||
-      food.fats != values.fats ||
-      food.carbohydrates != values.carbohydrates;
+      +food.proteins !== +values.proteins ||
+      +food.fats !== +values.fats ||
+      +food.carbohydrates !== +values.carbohydrates;
     return (
       <EditorComponentContainer
         onSubmit={(e) => {
@@ -75,7 +74,7 @@ export const EditorComponent = observer(
             const value = e.target.value;
             setFieldValue('proteins', value);
           }}
-          error={!!values.proteins && !Number(values.proteins)}
+          error={typeof Number(values.proteins) !== 'number'}
         />
         <TextField
           disabled={isSubmitting}
@@ -88,7 +87,7 @@ export const EditorComponent = observer(
             const value = e.target.value;
             setFieldValue('fats', value);
           }}
-          error={!!values.fats && !Number(values.fats)}
+          error={typeof Number(values.fats) !== 'number'}
         />
         <TextField
           disabled={isSubmitting}
@@ -101,7 +100,7 @@ export const EditorComponent = observer(
             const value = e.target.value;
             setFieldValue('carbohydrates', value);
           }}
-          error={!!values.carbohydrates && !Number(values.carbohydrates)}
+          error={typeof Number(values.carbohydrates) !== 'number'}
         />
         <LoadingButton
           loading={isSubmitting}

@@ -19,8 +19,7 @@ export const middleware = (controller: AxiosInstance) => {
       if (error.response && error.response.status) {
         switch (error.response.status) {
           case 401: {
-            token.removeAccessToken();
-            window.location.assign(NAVIGATION.signIn);
+            token.clear();
             break;
           }
           case 440: {
@@ -29,7 +28,6 @@ export const middleware = (controller: AxiosInstance) => {
             const config = error?.config;
             config._retry = true;
             if (!token) {
-              window.location.assign(NAVIGATION.signIn);
               return;
             }
             config.headers.Authorization = `Bearer ${accessToken}`;

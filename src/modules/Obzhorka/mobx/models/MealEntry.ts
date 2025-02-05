@@ -45,17 +45,19 @@ export class MealEntry {
 
   get totalCalories() {
     if (this.entryType === 'dish' && this.dish) {
-      return (this.dish.totalСalories / this.dish.totalWeight) * this.weight;
+      return (this.dish.totalCalories / this.dish.totalWeight) * this.weight;
     }
-    return this.food?.totalCalories || 0;
+    return this.food ? (this.food.totalCalories * this.weight) / 100 : 0;
   }
 
   get totalProteinsСalories() {
     if (this.entryType === 'dish' && this.dish) {
       return (
-        (this.dish.totalProteinsСalories / this.dish.totalWeight) * this.weight
+        (this.dish.totalProteinsCalories / this.dish.totalWeight) * this.weight
       );
     }
-    return this.food?.totalProteinsСalories || 0;
+    return this.food
+      ? (this.food.totalProteinsСalories * this.weight) / 100
+      : 0;
   }
 }

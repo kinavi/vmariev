@@ -82,12 +82,12 @@ export const Header = observer(() => {
             {translate.tryTranslate('Контакты')}
           </a>
           <a
-            href="#my-tools"
+            href="#pet-projects"
             className={classNames('header__link', {
-              header__link_active: hash === '#my-tools',
+              header__link_active: hash === '#pet-projects',
             })}
           >
-            {translate.tryTranslate('Инструменты')}
+            {translate.tryTranslate('Личные проекты')}
           </a>
         </div>
         <DropDown

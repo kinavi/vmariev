@@ -7,7 +7,6 @@ import { BodyWrapper, HeaderContentWrapper } from '../../styled';
 import { translate } from '../../../../translator';
 import { IconButton } from '@mui/material';
 import { Icon } from '../../../../ui/components/Icon';
-import { NAVIGATION } from '../../constants';
 import { DishController } from './mobx/DishController';
 import { DishEditor } from '../../components/DishEditor';
 import { guid } from '../../../../helpers/functions';

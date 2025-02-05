@@ -5,6 +5,7 @@ import { Field } from '../../../Field';
 import { translate } from '../../../../../../translator';
 import { FoodItem } from '../../../../modules/Favorites/chunks/FoodItem';
 import { Box } from '@mui/material';
+import { DishEditorFoodItem } from '../DishEditorFoodItem';
 
 export const DishViewComponent = observer(
   (props: { dish?: DishEditorField }) => {
@@ -18,15 +19,15 @@ export const DishViewComponent = observer(
     }
 
     const _proteins = dish.foods.reduce((acc, item) => {
-      return acc + item.food.proteins;
+      return acc + (item.food.proteins * item.weight) / 100;
     }, 0);
 
     const _fats = dish.foods.reduce((acc, item) => {
-      return acc + item.food.fats;
+      return acc + (item.food.fats * item.weight) / 100;
     }, 0);
 
     const _carbohydrates = dish.foods.reduce((acc, item) => {
-      return acc + item.food.carbohydrates;
+      return acc + (item.food.carbohydrates * item.weight) / 100;
     }, 0);
 
     const _weight = dish.foods.reduce((acc, item) => {
@@ -34,12 +35,11 @@ export const DishViewComponent = observer(
     }, 0);
 
     const totalCal = dish.foods.reduce((acc, item) => {
-      const result =
-        ((item.food.carbohydrates * 4 +
-          item.food.fats * 9 +
-          item.food.proteins * 4) *
-          item.weight) /
-        100;
+      const pfc =
+        item.food.carbohydrates * 4 +
+        item.food.fats * 9 +
+        item.food.proteins * 4;
+      const result = (pfc * item.weight) / 100;
       return acc + result;
     }, 0);
 
@@ -49,18 +49,18 @@ export const DishViewComponent = observer(
         <Field
           label={translate.tryTranslate('Общее количество протеина, грамм')}
         >
-          {_proteins}
+          {_proteins.toFixed(2)}
         </Field>
         <Field label={translate.tryTranslate('Общее количество жиров, грамм')}>
-          {_fats}
+          {_fats.toFixed(2)}
         </Field>
         <Field
           label={translate.tryTranslate('Общее количество углеводов, грамм')}
         >
-          {_carbohydrates}
+          {_carbohydrates.toFixed(2)}
         </Field>
         <Field label={translate.tryTranslate('Общее вес, грамм')}>
-          {_weight}
+          {_weight.toFixed(2)}
         </Field>
         <Field
           label={translate.tryTranslate('Общее количество каллориев, ккал')}
@@ -74,9 +74,8 @@ export const DishViewComponent = observer(
             gap="8px"
           >
             {dish.foods.map((item) => (
-              <FoodItem
-                value={item.food}
-                isReadonly
+              <DishEditorFoodItem
+                value={item}
                 key={item.key}
               />
             ))}

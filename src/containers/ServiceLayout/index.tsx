@@ -11,9 +11,9 @@ export const ServiceLayout = observer(() => {
   const userData = token.userData;
 
   return (
-    <ServiceLayoutContainer id="my-tools">
+    <ServiceLayoutContainer id="pet-projects">
       <div className="service-layout__title">
-        {translate.tryTranslate('Мои инструменты')}
+        {translate.tryTranslate('Личные проекты')}
       </div>
       <div className="service-layout__body">
         <div className="service-layout__right-column">
@@ -26,11 +26,12 @@ export const ServiceLayout = observer(() => {
             )}
           />
           <ServiceCard
-            iconType="coins"
-            title={translate.tryTranslate('Монеты')}
+            iconType="obzhorka"
+            title={translate.tryTranslate('Обжорка')}
             description={translate.tryTranslate(
-              'Инструмент для учета расходов и управления личным капиталом'
+              'Сервис для ведения дневников питания'
             )}
+            url={NAVIGATION.obzhorka}
           />
         </div>
         <div className="service-layout__left-column">

@@ -1,6 +1,5 @@
 import {
   Box,
-  Button,
   Checkbox,
   FormControl,
   FormControlLabel,
@@ -14,7 +13,7 @@ import {
 import { UserProgram } from '../../../../mobx/models/UserProgram';
 import { useFormik } from 'formik';
 import { translate } from '../../../../../../translator';
-import { number, object, string } from 'yup';
+import { number, object } from 'yup';
 import { EditorComponentContainer } from './styled';
 import { GOAL_OPTIONS, PHYSICAL_ACTIVITY, SEX_OPTIONS } from './constants';
 import { LoadingButton } from '@mui/lab';

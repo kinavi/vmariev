@@ -1,6 +1,5 @@
 import { makeAutoObservable, runInAction } from 'mobx';
 import { Status } from '../../../../../mobx/helpers/Status';
-import { Food } from '../../../mobx/models/Food';
 import { apiServise } from '../../../../../api';
 import { Dish } from '../../../mobx/models/Dish';
 

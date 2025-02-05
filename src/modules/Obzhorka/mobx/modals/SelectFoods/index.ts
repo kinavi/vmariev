@@ -1,6 +1,5 @@
 import { makeAutoObservable } from 'mobx';
 import { ModalType } from '../../controllers/ModalController/types';
-import { ReviewPayload } from './types';
 import { Food } from '../../models/Food';
 
 interface SelectFoodValue {

@@ -2,7 +2,7 @@ import { observer } from 'mobx-react-lite';
 import styled from 'styled-components';
 import { Header } from '../../components/Header';
 import { BodyWrapper, HeaderContentWrapper } from '../../styled';
-import { Box, IconButton, Typography } from '@mui/material';
+import { Box, IconButton } from '@mui/material';
 import { Icon } from '../../../../ui/components/Icon';
 import { translate } from '../../../../translator';
 import { useNavigate } from 'react-router-dom';

@@ -19,16 +19,24 @@ export class TokenController {
     this.load();
   }
 
-  save = (authData: AuthType) => {
+  // TODO: boolean = true пока нет чекбокса в форме
+  save = (authData: AuthType, isRememberMe: boolean = true) => {
     this.accessToken = authData.access_token;
     this.refreshToken = authData.refresh_token;
     this.userData = authData.user;
-    sessionStorage.setItem(REFRESH_TOKEN_COOKE_KEY, authData.refresh_token);
+    if (isRememberMe) {
+      localStorage.setItem(REFRESH_TOKEN_COOKE_KEY, authData.refresh_token);
+    } else {
+      sessionStorage.setItem(REFRESH_TOKEN_COOKE_KEY, authData.refresh_token);
+    }
     localStorage.setItem(USER_DATA_KEY, JSON.stringify(authData.user));
   };
 
   load = async () => {
-    const refreshToken = sessionStorage.getItem(REFRESH_TOKEN_COOKE_KEY);
+    let refreshToken = sessionStorage.getItem(REFRESH_TOKEN_COOKE_KEY);
+    if (!refreshToken) {
+      refreshToken = localStorage.getItem(REFRESH_TOKEN_COOKE_KEY);
+    }
     const _user = localStorage.getItem(USER_DATA_KEY);
     if (!refreshToken || !_user) {
       this.clear();
@@ -40,7 +48,11 @@ export class TokenController {
   };
 
   clear = () => {
+    this.accessToken = null;
+    this.refreshToken = null;
+    this.userData = null;
     sessionStorage.removeItem(REFRESH_TOKEN_COOKE_KEY);
+    localStorage.removeItem(REFRESH_TOKEN_COOKE_KEY);
     localStorage.removeItem(USER_DATA_KEY);
   };
 
@@ -50,16 +62,16 @@ export class TokenController {
     if (this.accessToken) {
       return this.accessToken;
     }
-    const refreshToken = this.refreshToken;
 
-    if (!refreshToken || !this.userData?.email) {
+    const refreshToken = this.refreshToken;
+    if (!refreshToken || !this.userData) {
       this.clear();
       return null;
     }
 
     const result = await memFetchRefreshToken(
       refreshToken,
-      this.userData?.email
+      this.userData.email
     );
 
     if (!result) {

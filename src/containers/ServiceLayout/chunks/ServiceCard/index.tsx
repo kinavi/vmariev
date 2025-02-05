@@ -3,10 +3,11 @@ import { Icon } from '../../../../ui/components/Icon';
 import { Link } from 'react-router-dom';
 import { translate } from '../../../../translator';
 import { ServiceCardContainer } from './styled';
+import Logo from '../../../../modules/Obzhorka/assets/logo.png';
 
 export const ServiceCard = observer(
   (props: {
-    iconType: 'coins' | 'time';
+    iconType: 'coins' | 'time' | 'obzhorka';
     title: string;
     description: string;
     url?: string;
@@ -25,13 +26,28 @@ export const ServiceCard = observer(
       return props.title;
     };
 
-    return (
-      <ServiceCardContainer>
+    const renderIcon = () => {
+      if (props.iconType === 'obzhorka') {
+        return (
+          <img
+            style={{ width: '50px' }}
+            src={Logo}
+            alt="obzhorka-logo"
+          />
+        );
+      }
+      return (
         <Icon
           type={props.iconType}
           size="50px"
           color="white"
         />
+      );
+    };
+
+    return (
+      <ServiceCardContainer>
+        {renderIcon()}
         <div className="service-card__title">{renderTitle()}</div>
         <div className="service-card__description">{props.description}</div>
         {!props.url && (

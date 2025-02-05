@@ -28,7 +28,7 @@ export class AuthController {
       this.error = result;
       return false;
     }
-    token.save(result.data);
+    token.save(result.data); 
     return true;
   };
 

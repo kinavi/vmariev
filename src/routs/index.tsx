@@ -33,7 +33,7 @@ export const routers = (store: StoreController) =>
       loader: timeManagerLazyViewAction,
     },
     {
-      path: NAVIGATION.obzhorka,
+      path: NAVIGATION.obzhorka + '/*',
       element: <Obzhorka />,
       // loader: timeManagerLazyViewAction,
     },

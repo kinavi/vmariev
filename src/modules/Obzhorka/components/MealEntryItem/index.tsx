@@ -15,7 +15,9 @@ export const MealEntryItem = observer((props: { value: MealEntry }) => {
           : translate.tryTranslate('Продукт')}
       </div>
       <div className="meal-entry-item__title">{titel}</div>
-      <div>{`${translate.tryTranslate('Каллориев')} ${totalCalories}`}</div>
+      <div>{`${translate.tryTranslate('Каллориев')} ${totalCalories.toFixed(
+        2
+      )}`}</div>
     </MealEntryItemContainer>
   );
 });

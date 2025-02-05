@@ -4,6 +4,6 @@ export const NAVIGATION = {
   signUp: '/signUp',
   time: '/time',
   coins: '/coins',
-  obzhorka: '/obzhorka/*',
+  obzhorka: '/obzhorka',
   olesia: '/olesia/*'
 };

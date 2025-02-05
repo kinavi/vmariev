@@ -7,7 +7,6 @@ import { Icon } from '../../../../ui/components/Icon';
 import { translate } from '../../../../translator';
 import { useNavigate } from 'react-router-dom';
 import { FoodEditor } from '../../components/FoodEditor';
-import { useState } from 'react';
 import { useObjorkaStore } from '../../mobx';
 
 const CreateFoodContainer = styled.div`

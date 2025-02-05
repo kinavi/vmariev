@@ -1,4 +1,4 @@
-import { makeAutoObservable, runInAction } from 'mobx';
+import { makeAutoObservable } from 'mobx';
 import { Status } from '../../../mobx/helpers/Status';
 import { apiServise } from '../../../api';
 import { UserProgram } from './models/UserProgram';

@@ -1,4 +1,4 @@
-import { ActionFunction, redirect, Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import { Welcome } from './modules/Welcome';
 import { createTheme, ThemeProvider } from '@mui/material';
 import { SignIn } from './modules/SignIn';
@@ -6,11 +6,12 @@ import { SignUp } from './modules/SignUp';
 import { Main } from './modules/Main';
 import { token } from '../../api/Token';
 import { GlobalStyle } from './styled';
-import { NAVIGATION } from './constants';
 import { observer } from 'mobx-react-lite';
 import { ObjorkaStateContext } from './mobx';
 import { Store } from './mobx/store';
 import { Modals } from './components/Modals';
+import { useEffect } from 'react';
+import { NAVIGATION } from './constants';
 
 const theme = createTheme({
   palette: {
@@ -30,18 +31,25 @@ const theme = createTheme({
   },
 });
 
-const mainLoader: ActionFunction = () => {
-  console.log('token.userData', token.userData);
-  if (!token.userData) {
-    return redirect(NAVIGATION.welcome);
-  }
-  return null;
-};
+// const mainLoader: ActionFunction = () => {
+//   console.log('token.userData', token.userData);
+//   if (!token.userData) {
+//     return redirect(NAVIGATION.welcome);
+//   }
+//   return null;
+// };
 
 const store = new Store();
 
 export const Obzhorka = observer(() => {
   const currentUser = token.userData;
+  const nav = useNavigate();
+  // console.log('token.userData', token.userData);
+  useEffect(() => {
+    if (!token.userData) {
+      nav(NAVIGATION.signIn);
+    }
+  }, [token.userData]);
 
   return (
     <ObjorkaStateContext.Provider value={store}>
