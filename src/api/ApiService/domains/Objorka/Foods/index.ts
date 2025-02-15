@@ -8,6 +8,7 @@ import {
   GetFood240ResponseType,
   GetSavedFoods200ResponseType,
   GetSavedFoods240ResponseType,
+  GetSavedFoodsQueryType,
   UpdateFood200ResponseType,
   UpdateFood240ResponseType,
   UpdateFoodBodyType,

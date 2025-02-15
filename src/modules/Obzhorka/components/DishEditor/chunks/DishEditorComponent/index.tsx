@@ -16,6 +16,7 @@ const DishEditorComponentContainer = styled.form`
 
 export const DishEditorComponent = observer(
   (props: {
+    mode: 'editor';
     dish?: DishEditorField;
     onEdit: (fields: DishEditorField) => Promise<void>;
   }) => {
@@ -28,7 +29,7 @@ export const DishEditorComponent = observer(
         foods: dish?.foods || [],
       },
       onSubmit: async (values) => {
-        return onEdit(values);
+        return onEdit({ ...values, status: dish?.status || 'ACTIVE' });
       },
       validationSchema: Yup.object().shape({
         title: Yup.string().required(),

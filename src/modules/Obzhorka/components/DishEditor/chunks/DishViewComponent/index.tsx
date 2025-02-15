@@ -4,12 +4,18 @@ import { ViewComponentContainer } from '../../../UserProgramEditor/chunks/ViewCo
 import { Field } from '../../../Field';
 import { translate } from '../../../../../../translator';
 import { FoodItem } from '../../../../modules/Favorites/chunks/FoodItem';
-import { Box } from '@mui/material';
+import { Box, Button } from '@mui/material';
 import { DishEditorFoodItem } from '../DishEditorFoodItem';
+import { useState } from 'react';
 
 export const DishViewComponent = observer(
-  (props: { dish?: DishEditorField }) => {
-    const { dish } = props;
+  (props: {
+    mode: 'view';
+    dish?: DishEditorField;
+    onChangeStatus: (updatedFields: DishEditorField) => Promise<void>;
+  }) => {
+    const { dish, onChangeStatus } = props;
+    const [isSubmitStatus, setIsSubmitStatus] = useState(false);
     if (!dish) {
       return (
         <ViewComponentContainer>
@@ -81,6 +87,25 @@ export const DishViewComponent = observer(
             ))}
           </Box>
         </Field>
+        <Button
+          variant="outlined"
+          color="error"
+          disabled={isSubmitStatus}
+          onClick={() => {
+            const updatedStatus = dish.status === 'ACTIVE' ? 'CLOSE' : 'ACTIVE';
+            setIsSubmitStatus(true);
+            onChangeStatus({
+              ...dish,
+              status: updatedStatus,
+            }).finally(() => {
+              setIsSubmitStatus(false);
+            });
+          }}
+        >
+          {dish.status === 'ACTIVE'
+            ? translate.tryTranslate('Перенести в архив')
+            : translate.tryTranslate('Перенести из архива')}
+        </Button>
       </ViewComponentContainer>
     );
   }

@@ -57,7 +57,10 @@ export const ENDPOINTS = {
     },
     dishes: {
       saved: {
-        get: '/api/glutton/dishes/saved',
+        get: <T>(query: T) =>
+          `/api/glutton/dishes/saved${stringify(query, {
+            addQueryPrefix: true,
+          })}`,
         create: '/api/glutton/dishes/saved',
         getById: (foodId: number) => `/api/glutton/dishes/saved/${foodId}`,
         update: (foodId: number) => `/api/glutton/dishes/saved/${foodId}`,

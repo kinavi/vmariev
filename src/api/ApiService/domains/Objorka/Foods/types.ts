@@ -1,5 +1,7 @@
 import { paths, components } from '../../../../api-types';
 
+export type GetSavedFoodsQueryType =
+  paths['/api/glutton/foods/saved']['get']['parameters']['query'];
 export type GetSavedFoods200ResponseType =
   paths['/api/glutton/foods/saved']['get']['responses']['200']['content']['application/json'];
 export type GetSavedFoods240ResponseType =

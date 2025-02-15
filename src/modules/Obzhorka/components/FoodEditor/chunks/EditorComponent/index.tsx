@@ -15,6 +15,7 @@ const EditorComponentContainer = styled.form`
 
 export const EditorComponent = observer(
   (props: {
+    mode: 'editor';
     food?: FoodEditorField;
     onEdit: (value: FoodEditorField) => Promise<void>;
   }) => {

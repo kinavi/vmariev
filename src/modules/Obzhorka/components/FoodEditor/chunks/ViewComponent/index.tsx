@@ -10,33 +10,37 @@ const ViewComponentContainer = styled.div`
   gap: 32px;
 `;
 
-export const ViewComponent = observer((props: { food?: FoodEditorField }) => {
-  const { food } = props;
-  if (!food) {
+export const ViewComponent = observer(
+  (props: { food?: FoodEditorField; mode: 'view' }) => {
+    const { food } = props;
+    if (!food) {
+      return (
+        <ViewComponentContainer>
+          {translate.tryTranslate('Данных по продукту нет')}
+        </ViewComponentContainer>
+      );
+    }
     return (
       <ViewComponentContainer>
-        {translate.tryTranslate('Данных по продукту нет')}
+        <Field label={translate.tryTranslate('Название')}>{food.title}</Field>
+        <Field
+          label={translate.tryTranslate('Количество протеина на 100г продукта')}
+        >
+          {food.proteins}
+        </Field>
+        <Field
+          label={translate.tryTranslate('Количество жиров на 100г продукта')}
+        >
+          {food.fats}
+        </Field>
+        <Field
+          label={translate.tryTranslate(
+            'Количество углеводов на 100г продукта'
+          )}
+        >
+          {food.carbohydrates}
+        </Field>
       </ViewComponentContainer>
     );
   }
-  return (
-    <ViewComponentContainer>
-      <Field label={translate.tryTranslate('Название')}>{food.title}</Field>
-      <Field
-        label={translate.tryTranslate('Количество протеина на 100г продукта')}
-      >
-        {food.proteins}
-      </Field>
-      <Field
-        label={translate.tryTranslate('Количество жиров на 100г продукта')}
-      >
-        {food.fats}
-      </Field>
-      <Field
-        label={translate.tryTranslate('Количество углеводов на 100г продукта')}
-      >
-        {food.carbohydrates}
-      </Field>
-    </ViewComponentContainer>
-  );
-});
+);

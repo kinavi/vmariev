@@ -19,7 +19,7 @@ export const Dish = observer(() => {
   const params = useParams();
   const foodId = params.foodId;
   const [mode, setMode] = useState<'view' | 'editor'>('view');
-  const { food, status } = dishController;
+  const { dish, status } = dishController;
   const nav = useNavigate();
 
   useEffect(() => {
@@ -69,14 +69,15 @@ export const Dish = observer(() => {
           <DishEditor
             mode={mode}
             dish={
-              food
+              dish
                 ? {
-                    title: food?.title,
-                    foods: food.foods.map((item) => ({
+                    title: dish?.title,
+                    foods: dish.foods.map((item) => ({
                       food: item.food,
                       weight: item.weight,
                       key: guid(),
                     })),
+                    status: dish.status,
                   }
                 : undefined
             }
@@ -87,8 +88,19 @@ export const Dish = observer(() => {
                   foodId: item.food.id,
                   weight: item.weight,
                 })),
+                status: fields?.status,
               });
               setMode('view');
+            }}
+            onChangeStatus={(updatedFields) => {
+              return dishController.updateFood({
+                title: updatedFields.title,
+                foods: updatedFields.foods.map((item) => ({
+                  foodId: item.food.id,
+                  weight: item.weight,
+                })),
+                status: updatedFields.status,
+              });
             }}
           />
         )}

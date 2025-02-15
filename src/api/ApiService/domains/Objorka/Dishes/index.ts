@@ -8,6 +8,7 @@ import {
   GetDish240ResponseType,
   GetSavedDishes200ResponseType,
   GetSavedDishes240ResponseType,
+  GetSavedDishesQueryType,
   UpdateDish200ResponseType,
   UpdateDish240ResponseType,
   UpdateDishBodyType,
@@ -20,11 +21,11 @@ export class Dishes {
     this.controller = controller;
   }
 
-  loadSavedList = async () => {
+  loadSavedList = async (query: GetSavedDishesQueryType) => {
     try {
       const { data } = await this.controller.get<
         GetSavedDishes200ResponseType | GetSavedDishes240ResponseType
-      >(ENDPOINTS.objorka.dishes.saved.get);
+      >(ENDPOINTS.objorka.dishes.saved.get(query));
       if (data.status === 'error') {
         throw new Error(data.message);
       }

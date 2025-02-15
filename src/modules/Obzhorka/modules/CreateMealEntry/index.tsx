@@ -62,7 +62,9 @@ export const CreateMealEntry = observer(() => {
     setOpen(true);
     (async () => {
       setLoading(true);
-      const result = await apiServise.domains.objorka.dishes.loadSavedList();
+      const result = await apiServise.domains.objorka.dishes.loadSavedList({
+        status: 'ACTIVE',
+      });
       const _dishes = result?.map((item) => new Dish(item));
       setLoading(false);
       setOptions([..._dishes]);

@@ -2,13 +2,19 @@ import { observer } from 'mobx-react-lite';
 import styled from 'styled-components';
 import { Header } from '../../components/Header';
 import { BodyWrapper, HeaderContentWrapper } from '../../styled';
-import { IconButton, ToggleButton, ToggleButtonGroup } from '@mui/material';
+import {
+  FormControlLabel,
+  IconButton,
+  Switch,
+  ToggleButton,
+  ToggleButtonGroup,
+} from '@mui/material';
 import { Icon } from '../../../../ui/components/Icon';
 import { translate } from '../../../../translator';
 import { useObjorkaStore } from '../../mobx';
 import { FoodList } from './chunks/FoodList';
 import { NAVIGATION } from '../../constants';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { withFood } from './hocs/withFood';
 import { withLoader } from './hocs/withLoader';
@@ -39,7 +45,11 @@ const ListComponent = withLoader(
 
 export const Favorites = observer(() => {
   const { foods, dishes, resetDishes, resetFoods } = useObjorkaStore();
-  const [section, setSection] = useState<SectionType>(SectionType.food);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [section, setSection] = useState<SectionType>(
+    (searchParams.get('tab') as SectionType) || SectionType.food
+  );
+  const [showOnlyCloseDishies, setShowOnlyCloseDishies] = useState(false);
 
   const handleAlignment = (
     event: React.MouseEvent<HTMLElement>,
@@ -47,18 +57,19 @@ export const Favorites = observer(() => {
   ) => {
     if (newAlignment) {
       setSection(newAlignment);
+      setSearchParams((prev) => ({ ...prev, tab: newAlignment }));
     }
   };
 
   useEffect(() => {
     if (section === 'dish') {
       resetFoods();
-      dishes.onInitial();
+      dishes.onInitial(showOnlyCloseDishies);
     } else {
       resetDishes();
       foods.onInitial();
     }
-  }, [section]);
+  }, [section, showOnlyCloseDishies]);
 
   return (
     <FoodsContainer>
@@ -66,7 +77,7 @@ export const Favorites = observer(() => {
         <HeaderContentWrapper>
           <div
             style={{
-              marginLeft: '34px',
+              marginLeft: '24px',
             }}
             className="foods__title-container"
           >
@@ -113,6 +124,23 @@ export const Favorites = observer(() => {
               {translate.tryTranslate('Блюда')}
             </ToggleButton>
           </ToggleButtonGroup>
+          {section === SectionType.dish && (
+            <FormControlLabel
+              sx={{
+                marginBottom: '10px',
+              }}
+              control={
+                <Switch
+                  checked={showOnlyCloseDishies}
+                  onChange={(event) => {
+                    console.log(event.target.checked);
+                    setShowOnlyCloseDishies(event.target.checked);
+                  }}
+                />
+              }
+              label={translate.tryTranslate('Показать архивные')}
+            />
+          )}
           <ListComponent
             status={section === 'dish' ? dishes.status : foods.status}
             componentType={section}

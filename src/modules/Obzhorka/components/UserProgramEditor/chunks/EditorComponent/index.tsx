@@ -35,6 +35,7 @@ type UserProgramFiledType = {
 
 export const EditorComponent = observer(
   (props: {
+    mode: 'editor';
     program: UserProgram | null;
     onSubmit: (value: UserProgramFiledType) => Promise<void>;
   }) => {

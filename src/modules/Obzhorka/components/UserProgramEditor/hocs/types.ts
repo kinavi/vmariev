@@ -1,11 +1,9 @@
 export type WithToggleModeType = <
-  EditorComponentPropsType,
-  ViewComponentPropsType
+  EditorComponentPropsType extends { mode: 'editor' },
+  ViewComponentPropsType extends { mode: 'view' }
 >(Components: {
   Editor: (props: EditorComponentPropsType) => React.JSX.Element;
   View: (props: ViewComponentPropsType) => React.JSX.Element;
 }) => (
-  props: (EditorComponentPropsType & ViewComponentPropsType) & {
-    mode: 'editor' | 'view';
-  }
+  props: EditorComponentPropsType | ViewComponentPropsType
 ) => React.JSX.Element;

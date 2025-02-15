@@ -6,7 +6,7 @@ import { Dish } from '../../../mobx/models/Dish';
 export class DishController {
   status: Status = new Status();
 
-  food: Dish | null = null;
+  dish: Dish | null = null;
 
   constructor() {
     makeAutoObservable(this);
@@ -21,7 +21,7 @@ export class DishController {
     return loadFoodById(foodId).then((result) => {
       runInAction(() => {
         if (result) {
-          this.food = new Dish(result);
+          this.dish = new Dish(result);
         }
       });
       this.status.updateStatus('ready');
@@ -35,15 +35,16 @@ export class DishController {
       foodId: number;
       weight: number;
     }[];
+    status?: Dish['status']
   }) => {
-    if (!this.food) {
-      return null;
+    if (!this.dish) {
+      return;
     }
     const { update } = apiServise.domains.objorka.dishes;
-    const result = await update(this.food.id, fields);
+    const result = await update(this.dish.id, fields);
     runInAction(() => {
       if (result) {
-        this.food = new Dish(result);
+        this.dish = new Dish(result);
       }
     });
   };

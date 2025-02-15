@@ -1453,7 +1453,9 @@ export interface paths {
         };
         get: {
             parameters: {
-                query?: never;
+                query?: {
+                    status?: "ACTIVE" | "CLOSE";
+                };
                 header?: never;
                 path?: never;
                 cookie?: never;
@@ -1505,6 +1507,8 @@ export interface paths {
                             foodId: number;
                             weight: number;
                         }[];
+                        /** @enum {string} */
+                        status?: "ACTIVE" | "CLOSE";
                     };
                 };
             };
@@ -1608,6 +1612,8 @@ export interface paths {
                             foodId: number;
                             weight: number;
                         }[];
+                        /** @enum {string} */
+                        status?: "ACTIVE" | "CLOSE";
                     };
                 };
             };

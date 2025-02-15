@@ -14,13 +14,15 @@ export class DishesController {
     makeAutoObservable(this);
   }
 
-  onInitial = async () => {
-    if (!this.status.isInitial) {
+  onInitial = async (showCloseDishies: boolean) => {
+    if (this.status.isLoading) {
       return;
     }
     const { loadSavedList } = apiServise.domains.objorka.dishes;
     this.status.updateStatus('loading');
-    const result = await loadSavedList();
+    const result = await loadSavedList({
+      status: showCloseDishies ? 'CLOSE' : 'ACTIVE',
+    });
     runInAction(() => {
       this.list = result.map((item) => new Dish(item));
     });

@@ -10,7 +10,11 @@ import { GOAL_OPTIONS, PHYSICAL_ACTIVITY } from '../EditorComponent/constants';
 import { Field } from '../../../Field';
 
 export const ViewComponent = observer(
-  (props: { program: UserProgram | null; onOpenEditor: () => void }) => {
+  (props: {
+    program: UserProgram | null;
+    onOpenEditor: () => void;
+    mode: 'view';
+  }) => {
     const { program, onOpenEditor } = props;
     if (program === null) {
       return (
